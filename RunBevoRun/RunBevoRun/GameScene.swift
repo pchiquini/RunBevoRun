@@ -9,6 +9,11 @@
 import SpriteKit
 import GameplayKit
 
+struct PhysicsCatagory{
+    static let Platform1 : UInt32 = 0x1 << 2
+    static let Score : UInt32 = 0x1 << 4
+}
+
 class GameScene: SKScene {
     
     //add variable from GameScene
@@ -16,67 +21,133 @@ class GameScene: SKScene {
     var test:SKSpriteNode?
     var ground1:SKSpriteNode?
     var platform1:SKSpriteNode?
+    var background:SKSpriteNode?
     
+    var wallPair = SKNode()
+    let scoreLabel = SKLabelNode()
+    var moveAndRemove = SKAction()
+    var gameStarted = Bool()
+    var death = Bool()
     
-    override func didMove(to view: SKView) {
+
+    
+    func createScene(){
+       // self.physicsWorld.contactDelegate = self
+        
         
         //intiantiate the variables from the GameScence
         aladdin = self.childNode(withName: "aladdin") as? SKSpriteNode
         test = self.childNode(withName: "test") as? SKSpriteNode
         ground1 = self.childNode(withName: "ground1") as? SKSpriteNode
         platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
-    
-    }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        jump()
-    
-    }
-    
-    func jump() {
+        background = self.childNode(withName: "background") as? SKSpriteNode
         
-        aladdin?.texture = SKTexture(imageNamed: "aladdin")
-        aladdin?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 500))
+        for i in 0..<2{
+            let background = SKSpriteNode(imageNamed: "background")
+            background.anchorPoint = CGPoint(x: 0.5, y:0.5)
+            background.position = CGPoint(x: (CGFloat(i) * self.frame.width) , y: 0)
+            background.zPosition = CGFloat(-1)
+            background.name = "background"
+            background.size = self.frame.size
+            //background.size = (self.view?.bounds.size)!
+            self.addChild(background)
+        }
+        
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
-
+    override func didMove(to view: SKView) {
+        createScene()
     }
     
-    func touchUp(atPoint pos : CGPoint) {
+    func createPlatforms(){
+    
+        wallPair = SKNode()
+        wallPair.name = "wallPair"
+        let platform1 = SKSpriteNode(imageNamed: "platform1")
+        
+        platform1.position = CGPoint(x: self.frame.width, y: self.frame.midY + 550)
+        
+        platform1.setScale(0.7)
+        
+        platform1.physicsBody = SKPhysicsBody(rectangleOf: platform1.size)
+        platform1.physicsBody?.categoryBitMask = PhysicsCatagory.Platform1
+        //platform1.physicsBody?.collisionBitMask = PhysicsCatagory.Ghost
+        //platform1.physicsBody?.contactTestBitMask = PhysicsCatagory.Ghost
+        platform1.physicsBody?.isDynamic = false
+        platform1.physicsBody?.affectedByGravity = false
+        
+        platform1.zRotation  = CGFloat(M_PI)
 
+        wallPair.addChild(platform1)
+        wallPair.zPosition = 5
+        
+        var randomPosition = CGFloat.random(min: -250, max: 250)
+        wallPair.position.y = wallPair.position.y + randomPosition
+        //wallPair.addChild(scoreNode)
+        wallPair.run(moveAndRemove)
+        self.addChild(wallPair)
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        if gameStarted == false{
+            gameStarted = true
+            aladdin?.physicsBody?.affectedByGravity = true
+
+            let spawn = SKAction.run({
+                () in
+                self.createPlatforms()
+            })
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        let delay = SKAction.wait(forDuration: 2.0)
+        let SpawnDelay = SKAction.sequence([spawn, delay])
+        let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
+        self.run(spawnDelayForever)
+        
+        
+        let distance = CGFloat(self.frame.width*2)
+        
+        let movePipes = SKAction.moveBy(x: -distance - 200, y: 0, duration: TimeInterval(0.006 * distance))
+        let removePipes = SKAction.removeFromParent() //remove the pipes after they moved off the screen
+        
+        moveAndRemove = SKAction.sequence([movePipes, removePipes])
+        
+        aladdin?.physicsBody?.velocity = CGVector(dx: 0.0 , dy: 0.0)
+        aladdin?.physicsBody?.applyImpulse(CGVector(dx: 0.0 , dy: 10.0), at: (aladdin?.position)!)
+        platform1?.physicsBody?.velocity = CGVector(dx: 10.0, dy: 0.0)
+        
+        }else{
+            if death == true{
+                
+            }else{
+                
+                aladdin?.physicsBody?.velocity = CGVector(dx: 0.0 , dy: 0.0)
+                aladdin?.physicsBody?.applyImpulse(CGVector(dx: 0.0 , dy: 10.0), at: (aladdin?.position)!)
+            }
+        }
     }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
+        
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
         //Apply forces
-        platform1?.physicsBody?.applyForce(CGVector(dx: -30, dy: 0))
-        //platform1?.physicsBody?.velocity
-        
+
         
         //Apply animiations
         
         
+        //background autorotates
+        enumerateChildNodes(withName: "background", using: ({
+            (node, error) in
+            
+            var bg = node as! SKSpriteNode
+            bg.position = CGPoint(x: bg.position.x - 3, y: bg.position.y)
+            //point and float
+            if bg.position.x <= -bg.size.width{
+                bg.position = CGPoint(x: bg.position.x + bg.size.width*2, y: bg.position.y)
+            }
+        }))
     }
 }

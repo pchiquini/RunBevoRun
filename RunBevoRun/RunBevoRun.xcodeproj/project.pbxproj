@@ -17,6 +17,7 @@
 		D28DBA241E721EFC0022F131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA221E721EFC0022F131 /* LaunchScreen.storyboard */; };
 		D28DBA2C1E771B8C0022F131 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA2B1E771B8C0022F131 /* MainMenu.sks */; };
 		D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA2D1E771D910022F131 /* MainMenu.swift */; };
+		D28DBA301E7768C80022F131 /* RandomFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA2F1E7768C80022F131 /* RandomFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D28DBA251E721EFC0022F131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D28DBA2B1E771B8C0022F131 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		D28DBA2D1E771D910022F131 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		D28DBA2F1E7768C80022F131 /* RandomFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		D28DBA121E721EFC0022F131 /* RunBevoRun */ = {
 			isa = PBXGroup;
 			children = (
+				D28DBA2F1E7768C80022F131 /* RandomFunction.swift */,
 				D28DBA131E721EFC0022F131 /* AppDelegate.swift */,
 				D28DBA2D1E771D910022F131 /* MainMenu.swift */,
 				D28DBA2B1E771B8C0022F131 /* MainMenu.sks */,
@@ -157,6 +160,7 @@
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,
 				D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */,
 				D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */,
+				D28DBA301E7768C80022F131 /* RandomFunction.swift in Sources */,
 				D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
