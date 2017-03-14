@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF0CB83D1E7890B5009E3F7F /* Login.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF0CB83C1E7890B5009E3F7F /* Login.sks */; };
+		BF0CB83F1E7891EF009E3F7F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB83E1E7891EF009E3F7F /* Login.swift */; };
+		BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8401E789A79009E3F7F /* LoginViewController.swift */; };
+		BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */; };
 		D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA131E721EFC0022F131 /* AppDelegate.swift */; };
 		D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA151E721EFC0022F131 /* GameScene.sks */; };
 		D28DBA181E721EFC0022F131 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA171E721EFC0022F131 /* Actions.sks */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF0CB83C1E7890B5009E3F7F /* Login.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Login.sks; sourceTree = "<group>"; };
+		BF0CB83E1E7891EF009E3F7F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		BF0CB8401E789A79009E3F7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D28DBA101E721EFC0022F131 /* RunBevoRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunBevoRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28DBA131E721EFC0022F131 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D28DBA151E721EFC0022F131 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 				D28DBA201E721EFC0022F131 /* Assets.xcassets */,
 				D28DBA221E721EFC0022F131 /* LaunchScreen.storyboard */,
 				D28DBA251E721EFC0022F131 /* Info.plist */,
+				BF0CB83C1E7890B5009E3F7F /* Login.sks */,
+				BF0CB83E1E7891EF009E3F7F /* Login.swift */,
+				BF0CB8401E789A79009E3F7F /* LoginViewController.swift */,
+				BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */,
 			);
 			path = RunBevoRun;
 			sourceTree = "<group>";
@@ -147,6 +159,7 @@
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
 				D28DBA241E721EFC0022F131 /* LaunchScreen.storyboard in Resources */,
 				D28DBA181E721EFC0022F131 /* Actions.sks in Resources */,
+				BF0CB83D1E7890B5009E3F7F /* Login.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,9 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */,
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,
 				D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */,
+				BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */,
 				D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */,
+				BF0CB83F1E7891EF009E3F7F /* Login.swift in Sources */,
 				D28DBA301E7768C80022F131 /* RandomFunction.swift in Sources */,
 				D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */,
 			);
@@ -321,6 +337,7 @@
 				D28DBA2A1E721EFC0022F131 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
