@@ -14,7 +14,7 @@ struct PhysicsCatagory{
     static let Score : UInt32 = 0x1 << 4
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //add variable from GameScene
     var aladdin:SKSpriteNode?
@@ -28,12 +28,18 @@ class GameScene: SKScene {
     var moveAndRemove = SKAction()
     var gameStarted = Bool()
     var death = Bool()
+    var item:SKSpriteNode?
     
+    //bitmasks
+    let noCategory:UInt32 = 0
+    let playerCategory:UInt32 = 0b1 << 1
+    let enemyCategory:UInt32 = 0b1 << 2
+    let itemCategory:UInt32 = 0b1 << 3
 
     
     func createScene(){
-       // self.physicsWorld.contactDelegate = self
-        
+        //this is settings for the physics world. It will handle collisions
+        self.physicsWorld.contactDelegate = self
         
         //intiantiate the variables from the GameScence
         aladdin = self.childNode(withName: "aladdin") as? SKSpriteNode
@@ -41,6 +47,7 @@ class GameScene: SKScene {
         ground1 = self.childNode(withName: "ground1") as? SKSpriteNode
         platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
         background = self.childNode(withName: "background") as? SKSpriteNode
+        item = self.childNode(withName: "item") as? SKSpriteNode
         
         for i in 0..<2{
             let background = SKSpriteNode(imageNamed: "background")
@@ -53,6 +60,10 @@ class GameScene: SKScene {
             self.addChild(background)
         }
         
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        <#code#>
     }
     
     override func didMove(to view: SKView) {
@@ -86,8 +97,6 @@ class GameScene: SKScene {
         //wallPair.addChild(scoreNode)
         wallPair.run(moveAndRemove)
         self.addChild(wallPair)
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
