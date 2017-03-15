@@ -1,6 +1,6 @@
 //
 //  GameScene.swift
-//  RunBevoRun
+//  RunplayerRun
 //
 //  Created by Patrizio Chiquini on 3/9/17.
 //  Copyright © 2017 Chiquini. All rights reserved.
@@ -21,8 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var ground2: GroundClass?
     private var ground3: GroundClass?
     
-    /** Bevo Variable **/
-    private var bevo: Player?
+    /** player Variable **/
+    private var player: Player?
 
     /** Main Camera **/
     private var mainCamera: SKCameraNode?
@@ -73,9 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //this is settings for the physics world. It will handle collisions
         self.physicsWorld.contactDelegate = self
         
-        /*** Intianliaze Bevo from the Player class for the GameScence ***/
-        bevo = self.childNode(withName: "bevo") as? Player!
-        bevo?.initPlayer()
+        /*** Intianliaze player from the Player class for the GameScence ***/
+        player = self.childNode(withName: "player") as? Player!
+        player?.initPlayer()
         
         //item = self.childNode(withName: "item") as? SKSpriteNode
         enemy = self.childNode(withName: "test") as? SKSpriteNode
@@ -85,8 +85,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
 //        /***    Collision and Contact Masks   ***/
-//        bevo?.physicsBody?.categoryBitMask = playerCategory  //bevo is in the player Category
-//        bevo?.physicsBody?.contactTestBitMask = enemyCategory | itemCategory //we keep track of contact with others
+//        player?.physicsBody?.categoryBitMask = playerCategory  //player is in the player Category
+//        player?.physicsBody?.contactTestBitMask = enemyCategory | itemCategory //we keep track of contact with others
         
 //        item?.physicsBody?.categoryBitMask = itemCategory
 //        item?.physicsBody?.collisionBitMask = noCategory        //item does not cause any physical collisions with other objects
@@ -103,9 +103,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        let cA:UInt32 = contact.bodyA.categoryBitMask
 //        let cB:UInt32 = contact.bodyB.categoryBitMask
 //        
-//        //checking for the playerCategory (bevo)
+//        //checking for the playerCategory (player)
 //        if cA == playerCategory || cB == playerCategory {
-//            //otherNode represents the non-bevo object
+//            //otherNode represents the non-player object
 //            let otherNode:SKNode = (cA == playerCategory) ? contact.bodyB.node! : contact.bodyA.node!
 //            playerDidCollide(with: otherNode)
 //        }
@@ -137,11 +137,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            
 //            let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
 //            //explosion.position = contact.bodyA.node!.position
-//            explosion.position = (bevo?.position)!
+//            explosion.position = (player?.position)!
 //            
 //            self.addChild(explosion)
 //            other.removeFromParent()
-//            bevo?.removeFromParent()
+//            player?.removeFromParent()
 //        }
         
         
@@ -199,9 +199,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.mainCamera?.position.x += 10
     }
     
-    private func runBevorun(){
-        self.bevo?.position.x += 10
-    }
+    /** Making Bevo Run (option 2) **/
+//    private func runplayerrun(){
+//        self.player?.position.x += 10
+//    }
     
     /** Managing Backgrounds and Grounds **/
     private func manageBGsAndGrounds(){
@@ -216,9 +217,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-       // manageCamera()
-       // manageBGsAndGrounds()
-        runBevorun()
+        manageCamera()
+        manageBGsAndGrounds()
+        player?.move()
+        
+        //runplayerrun()
         
         //Apply forces
 
