@@ -17,6 +17,16 @@ struct PhysicsCatagory{
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    /** Background Variables Used for Infinite Effect **/
+    private var bg1: BackgroundClass?
+    private var bg2: BackgroundClass?
+    private var bg3: BackgroundClass?
+    
+    /** Ground Variables Used for Infinite Effect **/
+    private var ground1: GroundClass?
+    private var ground2: GroundClass?
+    private var ground3: GroundClass?
+    
     private var mainCamera: SKCameraNode?
     
     
@@ -26,9 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemy:SKSpriteNode?
     var item:SKSpriteNode?
 
-    var ground1:SKSpriteNode?
     var platform1:SKSpriteNode?
-    //var background:SKSpriteNode?
     
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
@@ -49,7 +57,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createScene(){
         
+        /**Initializing Camera for the Game**/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
+        
+        /**Creating Infinite Background and Ground**/
+        bg1 = childNode(withName: "background1") as? BackgroundClass!
+        bg2 = childNode(withName: "background2") as? BackgroundClass!
+        bg3 = childNode(withName: "background3") as? BackgroundClass!
+        
+        ground1 = childNode(withName: "ground1") as? GroundClass!
+        ground2 = childNode(withName: "ground2") as? GroundClass!
+        ground3 = childNode(withName: "ground3") as? GroundClass!
         
         //this is settings for the physics world. It will handle collisions
         self.physicsWorld.contactDelegate = self
@@ -59,10 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //item = self.childNode(withName: "item") as? SKSpriteNode
         enemy = self.childNode(withName: "test") as? SKSpriteNode
         
-        ground1 = self.childNode(withName: "ground1") as? SKSpriteNode
         platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
-        //background = self.childNode(withName: "background") as? SKSpriteNode
-        
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         
         
@@ -189,49 +204,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
-        if gameStarted == false{
-            gameStarted = true
-            aladdin?.physicsBody?.affectedByGravity = true
-
-            let spawn = SKAction.run({
-                () in
-                self.createPlatforms()
-            })
-        
-        let delay = SKAction.wait(forDuration: 2.0)
-        let SpawnDelay = SKAction.sequence([spawn, delay])
-        let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
-        self.run(spawnDelayForever)
-        
-        
-        let distance = CGFloat(self.frame.width*2)
-        
-        let movePipes = SKAction.moveBy(x: -distance - 200, y: 0, duration: TimeInterval(0.006 * distance))
-        let removePipes = SKAction.removeFromParent() //remove the pipes after they moved off the screen
-        
-        moveAndRemove = SKAction.sequence([movePipes, removePipes])
-        
-        aladdin?.physicsBody?.velocity = CGVector(dx: 0.0 , dy: 0.0)
-        aladdin?.physicsBody?.applyImpulse(CGVector(dx: 0.0 , dy: 10.0), at: (aladdin?.position)!)
-        platform1?.physicsBody?.velocity = CGVector(dx: 10.0, dy: 0.0)
-        
-        }else{
-            if death == true{
-                
-            }else{
-                aladdin?.physicsBody?.velocity = CGVector(dx: 0.0 , dy: 0.0)
-                aladdin?.physicsBody?.applyImpulse(CGVector(dx: 0.0 , dy: 10.0), at: (aladdin?.position)!)
-            }
-        }
     }
     
     private func manageCamera(){
         self.mainCamera?.position.x += 10;
     }
+    
+    /** Managing Backgrounds and Grounds **/
+    private func manageBGsAndGrounds(){
+        bg1?.moveBG(camera: mainCamera!)
+        bg2?.moveBG(camera: mainCamera!)
+        bg3?.moveBG(camera: mainCamera!)
+        
+        ground1?.moveGrounds(camera: mainCamera!)
+        ground2?.moveGrounds(camera: mainCamera!)
+        ground3?.moveGrounds(camera: mainCamera!)
+    }
         
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         manageCamera()
+        manageBGsAndGrounds()
         
         //Apply forces
 
