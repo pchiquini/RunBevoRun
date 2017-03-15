@@ -25,6 +25,7 @@
 		D28DBA3C1E78E0060022F131 /* BackgroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */; };
 		D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3D1E78E4E60022F131 /* GroundClass.swift */; };
 		D28DBA421E78EB830022F131 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA411E78EB830022F131 /* Player.swift */; };
+		D28DBA4A1E79E81D0022F131 /* ItemClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA491E79E81D0022F131 /* ItemClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundClass.swift; sourceTree = "<group>"; };
 		D28DBA3D1E78E4E60022F131 /* GroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroundClass.swift; sourceTree = "<group>"; };
 		D28DBA411E78EB830022F131 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D28DBA491E79E81D0022F131 /* ItemClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		D28DBA381E78D9B20022F131 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D28DBA481E79E8090022F131 /* Item Classes */,
 				D28DBA401E78EB6D0022F131 /* Player Classes */,
 				D28DBA3F1E78EB600022F131 /* Scene Classes */,
 			);
@@ -157,6 +160,14 @@
 			children = (
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		D28DBA481E79E8090022F131 /* Item Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D28DBA491E79E81D0022F131 /* ItemClass.swift */,
+			);
+			name = "Item Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */,
 				BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */,
 				D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */,
+				D28DBA4A1E79E81D0022F131 /* ItemClass.swift in Sources */,
 				BF0CB83F1E7891EF009E3F7F /* Login.swift in Sources */,
 				D28DBA301E7768C80022F131 /* RandomFunction.swift in Sources */,
 				D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */,

@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var mainCamera: SKCameraNode?
     
     /** Declaring Item from its Class**/
-    //private var itemController = ItemClass()
+    private var itemController = ItemClass()
     
     /***    Variable For GameScene1 ***/
     var enemy:SKSpriteNode?
@@ -79,9 +79,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player?.initPlayer()
         
         /*** Intianliaze the timer used for Spawning Objects on the GameScence ***/
-//        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 3)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 3)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
         
-        enemy = self.childNode(withName: "test") as? SKSpriteNode
+        //enemy = self.childNode(withName: "test") as? SKSpriteNode
         platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         
@@ -177,6 +177,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //        self.player?.position.x += 10
     //    }
     
+    /* Making Bevo Run (option 2) */
+    private func moveScore(){
+        self.scoreLabel?.position.x += 10
+    }
+    
     /** Managing Backgrounds and Grounds **/
     private func manageBGsAndGrounds(){
         bg1?.moveBG(camera: mainCamera!)
@@ -190,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Spawns Items onto the GameScene **/
     func addItems(){
-       // self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
+       self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
     }
     
     func createPlatforms(){
@@ -234,6 +239,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         manageCamera()
         manageBGsAndGrounds()
         player?.move()
+        moveScore()
         
         //runplayerrun()
         
