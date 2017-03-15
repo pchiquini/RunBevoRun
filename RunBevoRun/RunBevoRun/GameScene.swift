@@ -17,6 +17,10 @@ struct PhysicsCatagory{
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    private var mainCamera: SKCameraNode?
+    
+    
+    
     /***    Variable For GameScene1 ***/
     var aladdin:SKSpriteNode?
     var enemy:SKSpriteNode?
@@ -24,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var ground1:SKSpriteNode?
     var platform1:SKSpriteNode?
-    var background:SKSpriteNode?
+    //var background:SKSpriteNode?
     
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
@@ -44,6 +48,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func createScene(){
+        
+        mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
+        
         //this is settings for the physics world. It will handle collisions
         self.physicsWorld.contactDelegate = self
         
@@ -54,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         ground1 = self.childNode(withName: "ground1") as? SKSpriteNode
         platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
-        background = self.childNode(withName: "background") as? SKSpriteNode
+        //background = self.childNode(withName: "background") as? SKSpriteNode
         
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         
@@ -73,17 +80,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        
-        for i in 0..<2{
-            let background = SKSpriteNode(imageNamed: "background")
-            background.anchorPoint = CGPoint(x: 0.5, y:0.5)
-            background.position = CGPoint(x: (CGFloat(i) * self.frame.width) , y: 0)
-            background.zPosition = CGFloat(-2)
-            background.name = "background"
-            background.size = self.frame.size
-            //background.size = (self.view?.bounds.size)!
-            self.addChild(background)
-        }
+        /*** Background Autorotates ***/
+//        for i in 0..<2{
+//            let background = SKSpriteNode(imageNamed: "background")
+//            background.anchorPoint = CGPoint(x: 0.5, y:0.5)
+//            background.position = CGPoint(x: (CGFloat(i) * self.frame.width) , y: 0)
+//            background.zPosition = CGFloat(-2)
+//            background.name = "background"
+//            background.size = self.frame.size
+//            //background.size = (self.view?.bounds.size)!
+//            self.addChild(background)
+//        }
         
     }
     
@@ -137,13 +144,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func didMove(to view: SKView) {
         createScene()
-        
-        run(SKAction.repeatForever(
-            SKAction.sequence([
-                SKAction.run(addItem),
-                SKAction.wait(forDuration: 1.0)
-                ])
-        ))
     }
     
     func addItem() {
@@ -224,9 +224,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    private func manageCamera(){
+        self.mainCamera?.position.x += 10;
+    }
         
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        manageCamera()
         
         //Apply forces
 
@@ -235,15 +240,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /*** Background Autorotates ***/
-        enumerateChildNodes(withName: "background", using: ({
-            (node, error) in
-            
-            var bg = node as! SKSpriteNode
-            bg.position = CGPoint(x: bg.position.x - 3, y: bg.position.y)
-            //point and float
-            if bg.position.x <= -bg.size.width{
-                bg.position = CGPoint(x: bg.position.x + bg.size.width*2, y: bg.position.y)
-            }
-        }))
+//        enumerateChildNodes(withName: "background", using: ({
+//            (node, error) in
+//            
+//            var bg = node as! SKSpriteNode
+//            bg.position = CGPoint(x: bg.position.x - 3, y: bg.position.y)
+//            //point and float
+//            if bg.position.x <= -bg.size.width{
+//                bg.position = CGPoint(x: bg.position.x + bg.size.width*2, y: bg.position.y)
+//            }
+//        }))
     }
 }
