@@ -24,6 +24,7 @@
 		D28DBA321E789AD70022F131 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA311E789AD70022F131 /* Explosion.sks */; };
 		D28DBA3C1E78E0060022F131 /* BackgroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */; };
 		D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3D1E78E4E60022F131 /* GroundClass.swift */; };
+		D28DBA421E78EB830022F131 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA411E78EB830022F131 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D28DBA311E789AD70022F131 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundClass.swift; sourceTree = "<group>"; };
 		D28DBA3D1E78E4E60022F131 /* GroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroundClass.swift; sourceTree = "<group>"; };
+		D28DBA411E78EB830022F131 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		D28DBA121E721EFC0022F131 /* RunBevoRun */ = {
 			isa = PBXGroup;
 			children = (
+				D28DBA431E78EE4B0022F131 /* Player */,
 				D28DBA381E78D9B20022F131 /* Classes */,
 				D28DBA371E78D9800022F131 /* Scenes */,
 				D28DBA2F1E7768C80022F131 /* RandomFunction.swift */,
@@ -110,7 +113,8 @@
 		D28DBA381E78D9B20022F131 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D28DBA191E721EFC0022F131 /* GameScene.swift */,
+				D28DBA401E78EB6D0022F131 /* Player Classes */,
+				D28DBA3F1E78EB600022F131 /* Scene Classes */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -130,6 +134,29 @@
 				D28DBA3D1E78E4E60022F131 /* GroundClass.swift */,
 			);
 			name = "Background & Ground Classes";
+			sourceTree = "<group>";
+		};
+		D28DBA3F1E78EB600022F131 /* Scene Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D28DBA191E721EFC0022F131 /* GameScene.swift */,
+			);
+			name = "Scene Classes";
+			sourceTree = "<group>";
+		};
+		D28DBA401E78EB6D0022F131 /* Player Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D28DBA411E78EB830022F131 /* Player.swift */,
+			);
+			name = "Player Classes";
+			sourceTree = "<group>";
+		};
+		D28DBA431E78EE4B0022F131 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28DBA421E78EB830022F131 /* Player.swift in Sources */,
 				BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */,
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,
 				D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */,

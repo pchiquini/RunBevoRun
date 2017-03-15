@@ -9,11 +9,11 @@
 import SpriteKit
 import GameplayKit
 
-struct PhysicsCatagory{
+//struct PhysicsCatagory{
     //option to add the collisions and bitmask here for cleaner code
-    //instead of: aladdin?.physicsBody?.categoryBitMask = playerCategory
-    //one would do aladdin?.physicsBody?.categoryBitMask = PhysicsCategory.playerCategory
-}
+    //instead of: bevo?.physicsBody?.categoryBitMask = playerCategory
+    //one would do bevo?.physicsBody?.categoryBitMask = PhysicsCategory.playerCategory
+//}
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -27,12 +27,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var ground2: GroundClass?
     private var ground3: GroundClass?
     
+    /** Bevo Variable **/
+    private var bevo: Player?
+
+    
     private var mainCamera: SKCameraNode?
     
     
     
     /***    Variable For GameScene1 ***/
-    var aladdin:SKSpriteNode?
     var enemy:SKSpriteNode?
     var item:SKSpriteNode?
 
@@ -60,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /**Initializing Camera for the Game**/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
-        /**Creating Infinite Background and Ground**/
+        /**Creating Infinite Background and Ground Variables**/
         bg1 = childNode(withName: "background1") as? BackgroundClass!
         bg2 = childNode(withName: "background2") as? BackgroundClass!
         bg3 = childNode(withName: "background3") as? BackgroundClass!
@@ -69,11 +72,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground2 = childNode(withName: "ground2") as? GroundClass!
         ground3 = childNode(withName: "ground3") as? GroundClass!
         
+        /*** Intianliaze Ground ***/
+        ground1?.initGround()
+        ground2?.initGround()
+        ground3?.initGround()
+        
         //this is settings for the physics world. It will handle collisions
         self.physicsWorld.contactDelegate = self
         
-        /***    intiantiate the variables from the GameScence   ***/
-        aladdin = self.childNode(withName: "aladdin") as? SKSpriteNode
+        /*** Intianliaze Bevo from the Player class for the GameScence ***/
+        bevo = self.childNode(withName: "bevo") as? Player!
+        bevo?.initPlayer()
+        
+        
+        
+        
         //item = self.childNode(withName: "item") as? SKSpriteNode
         enemy = self.childNode(withName: "test") as? SKSpriteNode
         
@@ -81,9 +94,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         
         
-        /***    Collision and Contact Masks   ***/
-        aladdin?.physicsBody?.categoryBitMask = playerCategory  //bevo is in the player Category
-        aladdin?.physicsBody?.contactTestBitMask = enemyCategory | itemCategory //we keep track of contact with others
+//        /***    Collision and Contact Masks   ***/
+//        bevo?.physicsBody?.categoryBitMask = playerCategory  //bevo is in the player Category
+//        bevo?.physicsBody?.contactTestBitMask = enemyCategory | itemCategory //we keep track of contact with others
         
         item?.physicsBody?.categoryBitMask = itemCategory
         item?.physicsBody?.collisionBitMask = noCategory        //item does not cause any physical collisions with other objects
@@ -92,20 +105,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy?.physicsBody?.categoryBitMask = enemyCategory
         enemy?.physicsBody?.collisionBitMask = noCategory       //item does not cause any physical collisions with other objects
         enemy?.physicsBody?.contactTestBitMask = playerCategory
-        
-        
-        
-        /*** Background Autorotates ***/
-//        for i in 0..<2{
-//            let background = SKSpriteNode(imageNamed: "background")
-//            background.anchorPoint = CGPoint(x: 0.5, y:0.5)
-//            background.position = CGPoint(x: (CGFloat(i) * self.frame.width) , y: 0)
-//            background.zPosition = CGFloat(-2)
-//            background.name = "background"
-//            background.size = self.frame.size
-//            //background.size = (self.view?.bounds.size)!
-//            self.addChild(background)
-//        }
         
     }
     
@@ -148,11 +147,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
             //explosion.position = contact.bodyA.node!.position
-            explosion.position = (aladdin?.position)!
+            explosion.position = (bevo?.position)!
             
             self.addChild(explosion)
             other.removeFromParent()
-            aladdin?.removeFromParent()
+            bevo?.removeFromParent()
         }
         
         
@@ -223,25 +222,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        manageCamera()
-        manageBGsAndGrounds()
+       // manageCamera()
+       // manageBGsAndGrounds()
         
         //Apply forces
 
         
         //Apply animiations
-        
-        
-        /*** Background Autorotates ***/
-//        enumerateChildNodes(withName: "background", using: ({
-//            (node, error) in
-//            
-//            var bg = node as! SKSpriteNode
-//            bg.position = CGPoint(x: bg.position.x - 3, y: bg.position.y)
-//            //point and float
-//            if bg.position.x <= -bg.size.width{
-//                bg.position = CGPoint(x: bg.position.x + bg.size.width*2, y: bg.position.y)
-//            }
-//        }))
+
     }
 }

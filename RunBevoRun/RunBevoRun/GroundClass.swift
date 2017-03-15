@@ -10,6 +10,13 @@ import SpriteKit
 
 class GroundClass: SKSpriteNode {
     
+    func initGround(){
+        physicsBody = SKPhysicsBody(rectangleOf: self.size)
+        physicsBody?.affectedByGravity = false;
+        physicsBody?.isDynamic = false;
+        physicsBody?.categoryBitMask = ColliderType.GROUND
+    }
+    
     /** Creating the infinity background effect **/
     func moveGrounds(camera: SKCameraNode) {
         //position.x = the view of the scence
