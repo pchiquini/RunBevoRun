@@ -15,23 +15,19 @@ class ItemClass: SKSpriteNode {
     
     var item:SKSpriteNode?
     
-    
-    
     func spawnItems(camera: SKCameraNode) -> SKSpriteNode {
         
         /* Identifying wether the Item is an enemy/item */
         if Int(randomNumber(firstNum: 1, secondNum: 10)) >= 6 {
             item = SKSpriteNode(imageNamed: "item")
-            item?.name = "item"
+            item?.name = "Item"
             item?.size = CGSize(width: 92, height: 46)
-            item?.setValue(10, forKey: "points");
-            item?.set
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)
         }
         else{
             item = SKSpriteNode(imageNamed: "enemy")
-            item?.name = "enemy"
+            item?.name = "Enemy"
             item?.size = CGSize(width: 44, height: 49)
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)

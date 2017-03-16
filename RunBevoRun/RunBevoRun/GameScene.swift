@@ -11,6 +11,12 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    /********************************************************************/
+    /*                                                                  */
+    /*                        GAME VARIABLES                            */
+    /*                                                                  */
+    /********************************************************************/
+    
     /** Background Variables Used for Infinite Effect **/
     private var bg1: BackgroundClass?
     private var bg2: BackgroundClass?
@@ -21,36 +27,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var ground2: GroundClass?
     private var ground3: GroundClass?
     
-    /** player Variable **/
+    /** Player Variable **/
     private var player: Player?
     
     /** Main Camera **/
     private var mainCamera: SKCameraNode?
     
+    /** Scoring **/
+    var scoreLabel: SKLabelNode?
+    var score:Int = 0
+    
     /** Declaring Item from its Class**/
     private var itemController = ItemClass()
     
-    /***    Variable For GameScene1 ***/
-    var enemy:SKSpriteNode?
+    /*** Starting Point ***/
+    override func didMove(to view: SKView) {
+        createScene()
+        
+    }
     
-    var platform1:SKSpriteNode?
-    
-    var wallPair = SKNode()
-    var moveAndRemove = SKAction()
-    var gameStarted = Bool()
-    var death = Bool()
-    
-    var scoreLabel:SKLabelNode?
-    var score:Int = 0
-    
-    /***    Bitmasks  ***/
-    //    let noCategory:UInt32 = 0               //places with no physical colissions to take place
-    //    let platformsCategory:UInt32 = 0b1
-    //    let playerCategory:UInt32 = 0b1 << 1
-    //    let enemyCategory:UInt32 = 0b1 << 2
-    //    let itemCategory:UInt32 = 0b1 << 3
-    //    static let Score : UInt32 = 0x1 << 4
-    
+    /********************************************************************/
+    /*                                                                  */
+    /*                        CREATING THE SCENCE                       */
+    /*                                                                  */
+    /********************************************************************/
     
     func createScene(){
         
@@ -78,13 +78,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = self.childNode(withName: "player") as? Player!
         player?.initPlayer()
         
+        /*** Intianliaze Running Score Label ***/
+        scoreLabel = mainCamera!.childNode(withName: "scoreLabel") as? SKLabelNode!
+        scoreLabel?.text = "0"
+        
         /*** Intianliaze the timer used for Spawning Objects on the GameScence ***/
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 3)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
-        
-        //enemy = self.childNode(withName: "test") as? SKSpriteNode
-        platform1 = self.childNode(withName: "platform1") as? SKSpriteNode
-        scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
-        
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
         
         //        /***    Collision and Contact Masks   ***/
         //        player?.physicsBody?.categoryBitMask = playerCategory  //player is in the player Category
@@ -107,67 +106,60 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    /********************************************************************/
+    /*                                                                  */
+    /*                        MAKING CONTACT                            */
+    /*                                                                  */
+    /********************************************************************/
     
     func didBegin(_ contact: SKPhysicsContact) {
-        //identify which category each object is in
-        let cA:UInt32 = contact.bodyA.categoryBitMask
-        let cB:UInt32 = contact.bodyB.categoryBitMask
         
-        //checking for the playerCategory (player)
-        if cA == ColliderType.PLAYER || cB == ColliderType.PLAYER {
-            //otherNode represents the non-player object
-            let otherNode:SKNode = (cA == ColliderType.PLAYER) ? contact.bodyB.node! : contact.bodyA.node!
-            playerDidCollide(with: otherNode)
+        /** identify which category each object is in **/
+        var firstBody = SKPhysicsBody()
+        var secondBody = SKPhysicsBody()
+        
+        /** checking for the playerCategory (player) **/
+        if contact.bodyA.node?.name == "Player"{
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
         }
         else{
-            //if contact happens between the item and the enemy, remove them both?
-            contact.bodyA.node?.removeFromParent()
-            contact.bodyB.node?.removeFromParent()
-        }
-    }
-    
-    func playerDidCollide(with other:SKNode){
-        
-        /** Handling Multiples Calls to PlayerDid Collide**/
-        if other.parent == nil{
-            return
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
         }
         
-        let otherCategory = other.physicsBody?.categoryBitMask
-        
-        if otherCategory == ColliderType.ITEM {
-            /*** Gathering Points ***/
-            let points:Int = other.userData?.value(forKey: "points") as! Int
-            score += points
-            scoreLabel?.text = "Score: \(score)"
-            
-            other.removeFromParent()
+        /*** Gathers Points ***/
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Item" {
+            score += 1
+            scoreLabel?.text = String(score)
+            secondBody.node?.removeFromParent()
         }
-        else if otherCategory == ColliderType.ENEMY {
-            
+        
+        /*** Subtracts Score & Explodes ***/
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Enemy" {
+           
             let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
             //explosion.position = contact.bodyA.node!.position
             explosion.position = (player?.position)!
-            
             self.addChild(explosion)
-            other.removeFromParent()
-            player?.removeFromParent()
+            
+            score += -1
+            scoreLabel?.text = String(score)
+            secondBody.node?.removeFromParent()
+            firstBody.node?.removeFromParent()
+            
+            /*** Intianliaze the timer used for restaring the GameScence ***/
+            Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
+            
         }
-        
-        
-    }
-    override func didMove(to view: SKView) {
-        createScene()
-        
     }
     
+    /** Handles Bevo Jumping **/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        /** Handles Bevo Jumping **/
         player?.jump()
     }
     
-    
+    /** Handles the camera's position **/
     private func manageCamera(){
         self.mainCamera?.position.x += 10
     }
@@ -176,11 +168,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //    private func runplayerrun(){
     //        self.player?.position.x += 10
     //    }
-    
-    /* Making Bevo Run (option 2) */
-    private func moveScore(){
-        self.scoreLabel?.position.x += 10
-    }
     
     /** Managing Backgrounds and Grounds **/
     private func manageBGsAndGrounds(){
@@ -198,55 +185,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
     }
     
-    func createPlatforms(){
-        //
-        //        wallPair = SKNode()
-        //        wallPair.name = "wallPair"
-        //        let platform1 = SKSpriteNode(imageNamed: "platform1")
-        //
-        //        platform1.position = CGPoint(x: self.frame.width, y: self.frame.midY + 550)
-        //
-        //        platform1.setScale(0.7)
-        //
-        //        platform1.physicsBody = SKPhysicsBody(rectangleOf: platform1.size)
-        //        platform1.physicsBody?.categoryBitMask = platformsCategory
-        //        //platform1.physicsBody?.collisionBitMask = PhysicsCatagory.Ghost
-        //        platform1.physicsBody?.isDynamic = false
-        //        platform1.physicsBody?.affectedByGravity = false
-        //
-        //        platform1.zRotation  = CGFloat(M_PI)
-        //
-        //        wallPair.addChild(platform1)
-        //        wallPair.zPosition = 5
-        //
-        //        var randomPosition = CGFloat.random(min: -250, max: 250)
-        //        wallPair.position.y = wallPair.position.y + randomPosition
-        //        //wallPair.addChild(scoreNode)
-        //        wallPair.run(moveAndRemove)
-        //        self.addChild(wallPair)
+    func moveEnemy(){
+        enumerateChildNodes(withName: "enemy", using:({
+            (node, error) in
+            node.position.x -= 5
+        }))
     }
     
-    //    func createPlatform(){
-    //
-    //        let scene:SKScene = SKScene(fileNamed: "platform1")!
-    //        //let platform1 = scene.childNode(withName: "platform1")
-    //        platform1?.physicsBody?.categoryBitMask = platformsCategory
-    //        platform1?.physicsBody?.contactTestBitMask = playerCategory
-    //    }
+    func restartGame() {
+        if let scene = GameScene(fileNamed: "GameScene"){
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFit
+            // Present the scene
+            view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)))
+        }
+    }
     
+    /** Called before each frame is rendered **/
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+
         manageCamera()
         manageBGsAndGrounds()
         player?.move()
-        moveScore()
-        
-        //runplayerrun()
-        
-        //Apply forces
-        
-        
-        //Apply animiations
+        moveEnemy()
         
     }
 }

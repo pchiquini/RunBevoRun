@@ -25,8 +25,9 @@ class Player: SKSpriteNode {
     /** Initialize Player and its Animation **/
     func initPlayer(){
         
-        //        /* Helps with Collisions */
-        //        name = "Player"
+        /* Helps with Collisions */
+        name = "Player"
+        
         //
         //        /** Initialize Animations by filtering **/
         //        for i in 1...6 {
