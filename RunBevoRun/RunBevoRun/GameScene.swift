@@ -133,6 +133,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*** Gathers Points ***/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Item" {
+            
+            /** Adds Explosion Sound Effect: Texas **/
+            //self.run(SKAction.playSoundFileNamed(" ", waitForCompletion: false))
+            
+            /** Adds Explosion Sound Effect: Fight **/
+            //self.run(SKAction.playSoundFileNamed(" ", waitForCompletion: false))
+            
             score += 1
             scoreLabel?.text = String(score)
             secondBody.node?.removeFromParent()
@@ -141,10 +148,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*** Subtracts Score & Explodes ***/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Enemy" {
            
+            /** Adds Special Effect: Explosion **/
             let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
-            //explosion.position = contact.bodyA.node!.position
             explosion.position = (player?.position)!
             self.addChild(explosion)
+            
+            /** Adds Explosion Sound Effect: Explosion **/
+            self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
             
             score += -1
             scoreLabel?.text = String(score)
