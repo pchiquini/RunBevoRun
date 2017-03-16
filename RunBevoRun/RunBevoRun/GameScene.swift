@@ -37,8 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode?
     var score:Int = 0
     
-    /** Declaring Item from its Class**/
+    /** Declaring Objects from according Class**/
     private var itemController = ItemClass()
+    private var platformController = PlatformClass()
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
@@ -84,6 +85,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*** Intianliaze the timer used for Spawning Objects on the GameScence ***/
         Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
+        
+        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
         
         //        /***    Collision and Contact Masks   ***/
         //        player?.physicsBody?.categoryBitMask = playerCategory  //player is in the player Category
@@ -183,6 +186,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /** Spawns Items onto the GameScene **/
     func addItems(){
        self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
+    }
+    
+    /** Spawns Platforms onto the GameScene **/
+    func addPlatforms(){
+        self.scene?.addChild(platformController.spawnPlatforms(camera: mainCamera!))
     }
     
     func moveEnemy(){

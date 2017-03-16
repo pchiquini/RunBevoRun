@@ -46,6 +46,7 @@ class ItemClass: SKSpriteNode {
         return item!
     }
     
+    /** Generate Random Number for Positioning **/
     func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
