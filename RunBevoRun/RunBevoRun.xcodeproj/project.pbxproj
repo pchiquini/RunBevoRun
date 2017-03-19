@@ -11,6 +11,8 @@
 		BF0CB83F1E7891EF009E3F7F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB83E1E7891EF009E3F7F /* Login.swift */; };
 		BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8401E789A79009E3F7F /* LoginViewController.swift */; };
 		BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */; };
+		BF789FB71E7F332100157751 /* Register.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF789FB61E7F332100157751 /* Register.sks */; };
+		BF789FBB1E7F3F0B00157751 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF789FBA1E7F3F0B00157751 /* Register.swift */; };
 		D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA131E721EFC0022F131 /* AppDelegate.swift */; };
 		D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA151E721EFC0022F131 /* GameScene.sks */; };
 		D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA191E721EFC0022F131 /* GameScene.swift */; };
@@ -35,6 +37,8 @@
 		BF0CB83E1E7891EF009E3F7F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		BF0CB8401E789A79009E3F7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BF789FB61E7F332100157751 /* Register.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Register.sks; sourceTree = "<group>"; };
+		BF789FBA1E7F3F0B00157751 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		D28DBA101E721EFC0022F131 /* RunBevoRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunBevoRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28DBA131E721EFC0022F131 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D28DBA151E721EFC0022F131 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -67,6 +71,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF789FB51E7F319700157751 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */,
+				BF789FB61E7F332100157751 /* Register.sks */,
+				BF789FBA1E7F3F0B00157751 /* Register.swift */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		BFA089081E7B0CBE00ECCF3A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BF0CB83E1E7891EF009E3F7F /* Login.swift */,
+				BF0CB8401E789A79009E3F7F /* LoginViewController.swift */,
+				BF0CB83C1E7890B5009E3F7F /* Login.sks */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		D28DBA071E721EFC0022F131 = {
 			isa = PBXGroup;
 			children = (
@@ -96,10 +120,6 @@
 				D28DBA201E721EFC0022F131 /* Assets.xcassets */,
 				D28DBA221E721EFC0022F131 /* LaunchScreen.storyboard */,
 				D28DBA251E721EFC0022F131 /* Info.plist */,
-				BF0CB83C1E7890B5009E3F7F /* Login.sks */,
-				BF0CB83E1E7891EF009E3F7F /* Login.swift */,
-				BF0CB8401E789A79009E3F7F /* LoginViewController.swift */,
-				BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */,
 			);
 			path = RunBevoRun;
 			sourceTree = "<group>";
@@ -107,6 +127,8 @@
 		D28DBA371E78D9800022F131 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BF789FB51E7F319700157751 /* Register */,
+				BFA089081E7B0CBE00ECCF3A /* Login */,
 				D28DBA511E7A65380022F131 /* MainMenu */,
 				D28DBA391E78DFA20022F131 /* GameScenes */,
 				D28DBA501E7A652D0022F131 /* GameOver */,
@@ -261,6 +283,7 @@
 			files = (
 				D28DBA1F1E721EFC0022F131 /* Main.storyboard in Resources */,
 				D28DBA531E7A69060022F131 /* MagicField.sks in Resources */,
+				BF789FB71E7F332100157751 /* Register.sks in Resources */,
 				D28DBA2C1E771B8C0022F131 /* MainMenu.sks in Resources */,
 				D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */,
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
@@ -282,6 +305,7 @@
 				BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */,
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,
 				D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */,
+				BF789FBB1E7F3F0B00157751 /* Register.swift in Sources */,
 				D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */,
 				BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */,
 				D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */,

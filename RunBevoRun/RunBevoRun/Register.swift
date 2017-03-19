@@ -1,23 +1,24 @@
 //
-//  Login.swift
+//  Register.swift
 //  RunBevoRun
 //
-//  Created by Rachel Andrews on 3/14/17.
+//  Created by Rachel Andrews on 3/19/17.
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
 import Foundation
-import SpriteKit
 import UIKit
+import SpriteKit
 
-class Login: SKScene, UITextFieldDelegate{
+class Register: SKScene, UITextFieldDelegate{
     
     let wrongPwdText = SKLabelNode(fontNamed: "arial")
     var nameText: UITextField!
     var passwordText: UITextField!
-    
-    var login:SKSpriteNode!
+    var rePasswordText: UITextField!
+
     var register:SKSpriteNode!
+    var back:SKSpriteNode!
     
     
     
@@ -35,15 +36,21 @@ class Login: SKScene, UITextFieldDelegate{
         let pwdBoxPosX = pwdBox?.position.x
         let pwdBoxPosY = pwdBox?.position.y
         
-        login = self.childNode(withName: "loginButton") as! SKSpriteNode!
+        let rePwdBox = self.childNode(withName: "rePassword")
+        let rePwdBoxPosX = rePwdBox?.position.x
+        let rePwdBoxPosY = rePwdBox?.position.y
+        
         register = self.childNode(withName: "registerButton") as! SKSpriteNode!
+        back = self.childNode(withName: "backButton") as! SKSpriteNode!
         nameText = UITextField(frame: CGRect(x: nameBoxPosX!, y: nameBoxPosY!, width: 209, height: 40))
         passwordText = UITextField(frame: CGRect(x: pwdBoxPosX!, y: pwdBoxPosY!, width: 209, height: 40))
+        rePasswordText = UITextField(frame: CGRect(x: rePwdBoxPosX!, y: rePwdBoxPosY!, width: 209, height: 40))
         
         
         // add the UITextField to the GameScene's view
         view.addSubview(nameText)
         view.addSubview(passwordText)
+        view.addSubview(rePasswordText)
         
         // add the gamescene as the UITextField delegate.
         // delegate funtion called is textFieldShouldReturn:
@@ -67,11 +74,22 @@ class Login: SKScene, UITextFieldDelegate{
         passwordText.clearButtonMode = UITextFieldViewMode.whileEditing
         self.view!.addSubview(passwordText)
         
+        rePasswordText.delegate = self
         
-        if( nameText.text != passwordText.text){
+        rePasswordText.borderStyle = UITextBorderStyle.roundedRect
+        rePasswordText.textColor = SKColor.black
+        rePasswordText.placeholder = "Password"
+        rePasswordText.backgroundColor = SKColor.white
+        
+        rePasswordText.clearButtonMode = UITextFieldViewMode.whileEditing
+        self.view!.addSubview(rePasswordText)
+        
+        
+        if( passwordText.text != rePasswordText.text){
             wrongPwdText.fontSize = 15
-            wrongPwdText.position = CGPoint(x: nameBoxPosX!, y: nameBoxPosY! - 15)
-            wrongPwdText.text = "Wrong Password"
+            //TODO - fix postio
+            wrongPwdText.position = CGPoint(x: rePwdBoxPosX!, y: rePwdBoxPosY! + 5)
+            wrongPwdText.text = "Passwords don't match"
             addChild(wrongPwdText)
         }
     }
@@ -84,22 +102,26 @@ class Login: SKScene, UITextFieldDelegate{
             
             let node = self.nodes(at: location)
             
-            if node[0].name == "loginButton" {
+            if node[0].name == "registerButton" {
                 let menuScene = MainMenu(size: self.size)
                 nameText.removeFromSuperview()
                 passwordText.removeFromSuperview()
+                rePasswordText.removeFromSuperview()
+                //TODO - may have to pass username here
                 self.view!.presentScene(menuScene)
-            }else if node[0].name == "registerButton" {
-                let registerScene = Register(size:self.size)
+            }else if node[0].name == "backButton" {
+                let loginScene = Login(size:self.size)
                 nameText.removeFromSuperview()
                 passwordText.removeFromSuperview()
-                self.view!.presentScene(registerScene)
+                rePasswordText.removeFromSuperview()
+                self.view!.presentScene(loginScene)
             }
         }
         
     }
     
     // Called by tapping return on the keyboard.
+    // TODO inline?
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Populates the SKLabelNode
         //submitScoreText.text = textField.text
@@ -107,6 +129,6 @@ class Login: SKScene, UITextFieldDelegate{
         // Hides the keyboard
         
         textField.resignFirstResponder()
-        return true  
+        return true
     }
 }
