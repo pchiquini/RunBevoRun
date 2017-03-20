@@ -55,10 +55,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createScene(){
         
-        /**Initializing Camera for the Game**/
+        /** Initializing Camera for the Game **/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
-        /**Creating Infinite Background and Ground Variables**/
+        /** Start/Loop Backgroun Music **/
+        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+        backgroundMusic.autoplayLooped = true
+        self.addChild(backgroundMusic)
+        
+        /** Creating Infinite Background and Ground Variables **/
         bg1 = childNode(withName: "background1") as? BackgroundClass!
         bg2 = childNode(withName: "background2") as? BackgroundClass!
         bg3 = childNode(withName: "background3") as? BackgroundClass!
@@ -87,18 +92,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
         
         Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
-        
-        //        /***    Collision and Contact Masks   ***/
-        //        player?.physicsBody?.categoryBitMask = playerCategory  //player is in the player Category
-        //        player?.physicsBody?.contactTestBitMask = enemyCategory | itemCategory //we keep track of contact with others
-        
-        //        item?.physicsBody?.categoryBitMask = itemCategory
-        //        item?.physicsBody?.collisionBitMask = noCategory        //item does not cause any physical collisions with other objects
-        //        item?.physicsBody?.contactTestBitMask = playerCategory
-        //
-        //        enemy?.physicsBody?.categoryBitMask = enemyCategory
-        //        enemy?.physicsBody?.collisionBitMask = noCategory       //item does not cause any physical collisions with other objects
-        //        enemy?.physicsBody?.contactTestBitMask = playerCategory
         
         ground1?.physicsBody?.categoryBitMask = ColliderType.GROUND //gound bitmask set
         ground1?.physicsBody?.contactTestBitMask = ColliderType.PLAYER
@@ -134,8 +127,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*** Gathers Points ***/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Item" {
             
-            /** Adds Explosion Sound Effect: Texas **/
-            //self.run(SKAction.playSoundFileNamed(" ", waitForCompletion: false))
+            /** Adds Points Sound Effect: Texas **/
+            self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
             /** Adds Explosion Sound Effect: Fight **/
             //self.run(SKAction.playSoundFileNamed(" ", waitForCompletion: false))
@@ -169,6 +162,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Handles Bevo Jumping **/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        /** Adds Points Sound Effect: jumping **/
+        self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
         player?.jump()
     }
     

@@ -18,8 +18,24 @@ class MainMenu: SKScene {
     var changeCharacter:SKSpriteNode!
     var characterLabel:SKLabelNode!
     
+    /*** Starting Point ***/
     override func didMove(to view: SKView) {
+        createScene()
         
+    }
+    
+    /********************************************************************/
+    /*                                                                  */
+    /*                        CREATING THE SCENCE                       */
+    /*                                                                  */
+    /********************************************************************/
+    
+    func createScene() {
+        
+        /** Start/Loop Backgroun Music **/
+        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+        backgroundMusic.autoplayLooped = true
+        self.addChild(backgroundMusic)
         
         starfield = self.childNode(withName: "starfield") as! SKEmitterNode
         starfield.advanceSimulationTime(10)
