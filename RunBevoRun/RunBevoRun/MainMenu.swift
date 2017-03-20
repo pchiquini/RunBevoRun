@@ -33,7 +33,7 @@ class MainMenu: SKScene {
     func createScene() {
         
         /** Start/Loop Backgroun Music **/
-        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
         backgroundMusic.autoplayLooped = true
         self.addChild(backgroundMusic)
         
@@ -60,21 +60,37 @@ class MainMenu: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let touch = touches.first
-    
-        if let location = touch?.location(in: self) {
+        for touch in touches {
+            let location = touch.location(in: self)
             
-            let node = self.nodes(at: location)
-            
-            if node[0].name == "startGameButton" {
-                let transition = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = GameScene(size: self.size)
-                self.view!.presentScene(gameScene, transition: transition)
-            }else if node[0].name == "changeCharacterButton" {
-                changeDifficulty()
+            if atPoint(location).name == "startGameButton" {
+                
+                    if let scene = GameScene(fileNamed: "GameScene") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+                }
+            }
+                    
+            else if atPoint(location).name == "changeCharacterButton" {
+                        
+                if let scene = GameScene(fileNamed: "GameScene") {
+                    scene.scaleMode = .aspectFit
+                            
+                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+                }
+                        
+            else if atPoint(location).name == "question" {
+                        
+                if let scene = GameScene(fileNamed: "GameScene") {
+                    scene.scaleMode = .aspectFit
+                            
+                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+                    
+                    }
+                }
             }
         }
-        
     }
     
     func changeDifficulty(){

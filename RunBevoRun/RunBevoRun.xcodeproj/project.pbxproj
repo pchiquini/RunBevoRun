@@ -206,8 +206,8 @@
 		D28DBA391E78DFA20022F131 /* GameScenes */ = {
 			isa = PBXGroup;
 			children = (
-				D28DBA151E721EFC0022F131 /* GameScene.sks */,
 				D28DBA191E721EFC0022F131 /* GameScene.swift */,
+				D28DBA151E721EFC0022F131 /* GameScene.sks */,
 			);
 			name = GameScenes;
 			sourceTree = "<group>";
