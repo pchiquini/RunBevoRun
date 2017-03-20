@@ -27,6 +27,92 @@
             </objects>
             <point key="canvasLocation" x="-17" y="137"/>
         </scene>
+        <!--Trivia View Controller-->
+        <scene sceneID="NiC-hU-3aP">
+            <objects>
+                <viewController id="rRB-Cd-M4S" customClass="TriviaViewController" customModule="RunBevoRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QZ9-br-VLB"/>
+                        <viewControllerLayoutGuide type="bottom" id="8yF-ZR-rjw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QyP-Fg-ejt">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkT-Jh-hQX">
+                                <rect key="frame" x="20" y="28" width="627" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnH-bz-Qw9">
+                                <rect key="frame" x="120" y="87" width="427" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96885225785340312" green="0.51204514963758563" blue="0.16765519849316171" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button1">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton1:" destination="rRB-Cd-M4S" eventType="touchUpInside" id="15u-7L-L5c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eh9-6M-qfR">
+                                <rect key="frame" x="120" y="141" width="427" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96885225789999996" green="0.51204514960000003" blue="0.16765519849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button2">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton2:" destination="rRB-Cd-M4S" eventType="touchUpInside" id="fyg-lv-LRT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFa-Q0-Wg8">
+                                <rect key="frame" x="120" y="198" width="427" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96885225789999996" green="0.51204514960000003" blue="0.16765519849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button3">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton3:" destination="rRB-Cd-M4S" eventType="touchUpInside" id="CeB-T7-3l4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGy-4W-uFy">
+                                <rect key="frame" x="120" y="253" width="427" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96885225789999996" green="0.51204514960000003" blue="0.16765519849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button4">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapButton4:" destination="rRB-Cd-M4S" eventType="touchUpInside" id="BDT-mM-Qde"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vie-7C-tPU">
+                                <rect key="frame" x="236" y="307" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96885225785340312" green="0.86931203300581772" blue="0.73044440538518174" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="OnH-bz-Qw9" id="h8P-6d-0yN"/>
+                        <outlet property="button2" destination="Eh9-6M-qfR" id="28h-lk-rMw"/>
+                        <outlet property="button3" destination="nFa-Q0-Wg8" id="Pa8-TE-B5g"/>
+                        <outlet property="button4" destination="FGy-4W-uFy" id="HTL-CG-bzl"/>
+                        <outlet property="endLabel" destination="Vie-7C-tPU" id="cM9-i6-Sre"/>
+                        <outlet property="question" destination="xkT-Jh-hQX" id="aze-0x-cT0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Kh-ZW-oX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18.440779610194905" y="940"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="9tP-Qs-9Io">
             <objects>
