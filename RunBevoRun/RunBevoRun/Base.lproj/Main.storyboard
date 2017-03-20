@@ -74,36 +74,43 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-az-7x7">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sA-az-7x7" userLabel="Login">
                                 <rect key="frame" x="195" y="219" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                <state key="normal" title="Enter">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="goToGame" id="K0q-U6-syi"/>
+                                    <action selector="login:" destination="0sP-b9-aIL" eventType="touchUpInside" id="PIR-ax-XYx"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="loginToGame" id="dfl-NS-YIE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGY-nu-ewr">
-                                <rect key="frame" x="195" y="274" width="88" height="30"/>
+                                <rect key="frame" x="195" y="257" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zpd-a8-Pxj" kind="show" id="p3h-6R-1Dn"/>
+                                    <segue destination="zpd-a8-Pxj" kind="show" identifier="loginToRegister" id="0gA-Q5-W4O"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-Df-3fa">
+                                <rect key="frame" x="134" y="193" width="210" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.051290923320000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.63682650860000001" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="enter" destination="5sA-az-7x7" id="7jj-Ra-qvj"/>
                         <outlet property="name" destination="lNf-ya-XMo" id="ASW-re-K2E"/>
                         <outlet property="password" destination="H43-yz-FAE" id="9Ld-NC-oEj"/>
-                        <outlet property="register" destination="uGY-nu-ewr" id="jpw-DM-ToO"/>
+                        <outlet property="warningLbl" destination="NJX-Df-3fa" id="8eI-Ar-iFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5J8-tN-kUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,6 +185,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="register:" destination="zpd-a8-Pxj" eventType="touchUpInside" id="oG1-Pc-heP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yg-Ya-B3p">
                                 <rect key="frame" x="169" y="314" width="116" height="30"/>
@@ -195,7 +205,6 @@
                         <outlet property="name" destination="Wwo-Mf-282" id="Sam-Lc-XFJ"/>
                         <outlet property="password" destination="ChB-GN-PdZ" id="aeX-vs-4uZ"/>
                         <outlet property="rePassword" destination="QRd-vM-eb0" id="kJM-Ot-ZQV"/>
-                        <outlet property="register" destination="P9h-xT-H6B" id="dZP-re-aqu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPk-ih-RAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
