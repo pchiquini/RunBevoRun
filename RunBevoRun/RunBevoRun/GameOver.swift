@@ -53,7 +53,7 @@ class GameOver: SKScene {
             }
             
             else if atPoint(location).name == "mainMenuButton" {
-                
+                                
                 if let scene = MainMenu(fileNamed: "MainMenu") {
                     scene.scaleMode = .aspectFit
                     

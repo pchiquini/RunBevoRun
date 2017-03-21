@@ -30,12 +30,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /** Player Variable **/
     private var player: Player?
     
+    /** Back Wall Variable **/
+    private var backWall: PlatformClass?
+    
     /** Main Camera **/
     private var mainCamera: SKCameraNode?
+    
+    /** Start/Loop Backgroun Music **/
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
     var score:Int = 0
+    var highScoreLabel: SKLabelNode?
     
     /** Declaring Objects from according Class**/
     private var itemController = ItemClass()
@@ -62,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         /** Start/Loop Backgroun Music **/
-        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+        //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
         backgroundMusic.autoplayLooped = true
         self.addChild(backgroundMusic)
         
@@ -84,6 +91,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*** Intianliaze player from the Player class for the GameScence ***/
         player = self.childNode(withName: "player") as? Player!
         player?.initPlayer()
+        
+        /*** Intianliaze the BackWall for the GameScence ***/
+        backWall = self.childNode(withName: "backWall") as? PlatformClass!
+        backWall?.initBackWall()
         
         /*** Intianliaze Running Score Label ***/
         scoreLabel = mainCamera!.childNode(withName: "scoreLabel") as? SKLabelNode!
@@ -142,29 +153,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /*** Subtracts Score & Explodes ***/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Enemy" {
            
-            /** Adds Special Effect: Explosion **/
-            let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
-            explosion.position = (player?.position)!
-            self.addChild(explosion)
-            
-            /** Adds Explosion Sound Effect: Explosion **/
-            self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+//            /** Adds Special Effect: Explosion **/
+//            let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
+//            explosion.position = (player?.position)!
+//            self.addChild(explosion)
+//            
+//            /** Adds Explosion Sound Effect: Explosion **/
+//            self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
             
             score += -1
             scoreLabel?.text = String(score)
             secondBody.node?.removeFromParent()
             firstBody.node?.removeFromParent()
             
+            gameOver()
             /*** Intianliaze the timer used for restaring the GameScence ***/
             //Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
-            if let scene = GameOver(fileNamed: "GameOver") {
-                scene.scaleMode = .aspectFit
-                
-                view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
-            }
             
         }
+        
+        /*** Player Goes Off The Screen ***/
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "BackWall" {
+            gameOver()
+        }
+
     }
+    
+    /********************************************************************/
+    /*                                                                  */
+    /*                        DURING GAMEPLAY                           */
+    /*                                                                  */
+    /********************************************************************/
+    
     
     /** Handles Bevo Jumping **/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -172,6 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Adds Points Sound Effect: jumping **/
         self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
         player?.jump()
+
     }
     
     /** Handles the camera's position **/
@@ -212,14 +233,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }))
     }
     
-    func restartGame() {
-        if let scene = GameScene(fileNamed: "GameScene"){
-            // Set the scale mode to scale to fit the window
+    func checkOnPlayer(){
+        
+    }
+    
+    func gameOver(){
+        
+        /** Adds Special Effect: Explosion **/
+        let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
+        explosion.position = (player?.position)!
+        self.addChild(explosion)
+        
+        /** Adds Explosion Sound Effect: Explosion **/
+        self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+        
+        backgroundMusic.run(SKAction.stop())
+        
+        
+        /*** Intianliaze the timer used for restaring the GameScence ***/
+        if let scene = GameOver(fileNamed: "GameOver") {
             scene.scaleMode = .aspectFit
-            // Present the scene
-            view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)))
+            
+            view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
         }
     }
+    
+//    func restartGame() {
+//        if let scene = GameScene(fileNamed: "GameScene"){
+//            // Set the scale mode to scale to fit the window
+//            scene.scaleMode = .aspectFit
+//            // Present the scene
+//            view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)))
+//        }
+//    }
     
     /** Called before each frame is rendered **/
     override func update(_ currentTime: TimeInterval) {
@@ -227,7 +273,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         manageCamera()
         manageBGsAndGrounds()
         player?.move()
+        backWall?.backWallMove()
         moveEnemy()
+        checkOnPlayer()
+        
         
     }
 }

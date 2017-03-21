@@ -43,6 +43,25 @@ class PlatformClass: SKSpriteNode {
         
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
+    
+    func initBackWall(){
+    
+        name = "BackWall"
+        
+        physicsBody? = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))
+        physicsBody?.affectedByGravity = false
+        physicsBody?.isDynamic = false
+        physicsBody?.allowsRotation = false
+        physicsBody?.categoryBitMask = ColliderType.ITEM
+        physicsBody?.contactTestBitMask = ColliderType.PLAYER
+    
+    }
+    
+    /** Handles BackWall Automatic Movement **/
+    func backWallMove(){
+        self.position.x += 10
+    }
+
 }
 
 
