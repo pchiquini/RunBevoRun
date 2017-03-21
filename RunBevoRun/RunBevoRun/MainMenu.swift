@@ -9,14 +9,20 @@
 import UIKit
 import SpriteKit
 
-
+struct globalVariables{
+    
+}
 class MainMenu: SKScene {
     
     var starfield:SKEmitterNode!
     
+    /*** Buttons On Scene ***/
     var startGame:SKSpriteNode!
     var changeCharacter:SKSpriteNode!
     var characterLabel:SKLabelNode!
+    
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
+    var isMusicPlaying:Bool?
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
@@ -32,21 +38,28 @@ class MainMenu: SKScene {
     
     func createScene() {
         
-        /** Start/Loop Backgroun Music **/
-        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
-        backgroundMusic.autoplayLooped = true
-        self.addChild(backgroundMusic)
         
+        /** Start/Loop Backgroun Music **/
+        if(isMusicPlaying == false )//|| isMusicPlaying == nil)
+        {
+            print("\(isMusicPlaying)")
+            self.run(SKAction.playSoundFileNamed("MainMenu.mp3", waitForCompletion: false))
+            isMusicPlaying = true
+            print("\(isMusicPlaying)")
+        }
+        
+        /** Special Effects: Currently Not Working **/
         starfield = self.childNode(withName: "starfield") as! SKEmitterNode
         starfield.advanceSimulationTime(10)
         
         startGame = self.childNode(withName: "startGameButton") as! SKSpriteNode
         changeCharacter = self.childNode(withName: "changeCharacterButton") as! SKSpriteNode
-        
-        startGame.texture = SKTexture(imageNamed: "startGameButton")
-        changeCharacter.texture = SKTexture(imageNamed: "changeCharacterButton")
-        
         characterLabel = self.childNode(withName: "characterLabel") as! SKLabelNode
+        
+//        startGame.texture = SKTexture(imageNamed: "startGameButton")
+//        changeCharacter.texture = SKTexture(imageNamed: "changeCharacterButton")
+        
+        
         
         let userDefaults = UserDefaults.standard
         
@@ -65,6 +78,9 @@ class MainMenu: SKScene {
             
             if atPoint(location).name == "startGameButton" {
                 
+                    /** Stop Playing MainMenu Music **/
+                    backgroundMusic.run(SKAction.stop())
+                
                     if let scene = GameScene(fileNamed: "GameScene") {
                         scene.scaleMode = .aspectFit
                         
@@ -74,38 +90,22 @@ class MainMenu: SKScene {
                     
             else if atPoint(location).name == "changeCharacterButton" {
                         
-                if let scene = GameScene(fileNamed: "GameScene") {
+                if let scene = ChangeCharacter(fileNamed: "ChangeCharacter") {
                     scene.scaleMode = .aspectFit
                             
                     view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
                 }
+            }
+                
+            else if atPoint(location).name == "howToPlay" {
                         
-            else if atPoint(location).name == "question" {
-                        
-                if let scene = GameScene(fileNamed: "GameScene") {
+                if let scene = GameRules(fileNamed: "GameRules") {
                     scene.scaleMode = .aspectFit
                             
-                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+                    view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(2)))
                     
                     }
-                }
             }
         }
     }
-    
-    func changeDifficulty(){
-        
-        let userDefaults = UserDefaults.standard
-        
-        if characterLabel.text == "Running as Bevo" {
-            characterLabel.text = "Running as Hookem"
-            userDefaults.set(true, forKey: "Running as Hookem")
-        }else{
-            characterLabel.text = "Running as Bevo"
-            userDefaults.set(false, forKey: "Running as Hookem")
-        }
-        
-        userDefaults.synchronize()
-    }
-
 }

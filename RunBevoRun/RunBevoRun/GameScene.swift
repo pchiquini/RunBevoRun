@@ -58,6 +58,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Initializing Camera for the Game **/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
+        /** Settings For Physics World **/
+        self.physicsWorld.contactDelegate = self
+        
         /** Start/Loop Backgroun Music **/
         let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
         backgroundMusic.autoplayLooped = true
@@ -77,9 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground2?.initGround()
         ground3?.initGround()
         
-        //this is settings for the physics world. It will handle collisions
-        self.physicsWorld.contactDelegate = self
-        
+
         /*** Intianliaze player from the Player class for the GameScence ***/
         player = self.childNode(withName: "player") as? Player!
         player?.initPlayer()
@@ -155,7 +156,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody.node?.removeFromParent()
             
             /*** Intianliaze the timer used for restaring the GameScence ***/
-            Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
+            //Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
+            if let scene = GameOver(fileNamed: "GameOver") {
+                scene.scaleMode = .aspectFit
+                
+                view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            }
             
         }
     }
