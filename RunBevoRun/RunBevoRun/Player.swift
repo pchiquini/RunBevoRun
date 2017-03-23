@@ -18,18 +18,18 @@ struct ColliderType {
 
 class Player: SKSpriteNode {
     
-    /** Variables for Bevo Animations **/
+    /* Variables for Bevo Animations */
     private var playerAnimation = [SKTexture]()
     private var animatePlayerAction = SKAction()
     
-    /** Initialize Player and its Animation **/
+    /* Initialize Player and its Animation */
     func initPlayer(){
         
         /* Helps with Collisions */
         name = "Player"
         
         //
-        //        /** Initialize Animations by filtering **/
+        //        /* Initialize Animations by filtering */
         //        for i in 1...6 {
         //            let name = "Player \(i)"
         //            playerAnimation.append(SKTexture(imageNamed: name))
@@ -46,23 +46,22 @@ class Player: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0
         
-        
-        /***    Collision and Contact Masks   ***/
-        physicsBody?.categoryBitMask = ColliderType.PLAYER    //bevo is in the player Category
+        /* Collision and Contact Masks */
+        physicsBody?.categoryBitMask = ColliderType.PLAYER //bevo is in the player Category
         physicsBody?.contactTestBitMask = ColliderType.ENEMY | ColliderType.ITEM  //track of contact with others
         physicsBody?.collisionBitMask = ColliderType.GROUND
     }
     
-    /** Handles Bevo Automatic Movement **/
+    /* Handles Bevo Automatic Movement */
     func move(){
         self.position.x += 10
     }
     
-    /** Handles Bevo Jumping **/
+    /* Handles Bevo Jumping */
     func jump(){
         if self.action(forKey: "jump") == nil { // check that there's no jump action running
-            let jumpUp = SKAction.moveBy(x: 0, y: 250, duration: 0.3)
-            let fallBack = SKAction.moveBy(x: 0, y: -10, duration: 0.3)
+            let jumpUp = SKAction.moveBy(x: 50, y: 250, duration: 0.3)
+            let fallBack = SKAction.moveBy(x: 10, y: -10, duration: 0.3)
             self.run(SKAction.sequence([jumpUp, fallBack]), withKey:"jump")
         }
     }

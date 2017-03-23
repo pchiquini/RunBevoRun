@@ -22,23 +22,24 @@ class PlatformClass: SKSpriteNode {
         platform?.name = "Platform"
         platform?.size = CGSize(width: 120, height: 60)
         platform?.setScale(0.7)
-        
         platform?.physicsBody = SKPhysicsBody(rectangleOf: platform!.size)
         platform!.physicsBody?.affectedByGravity = false
         platform?.physicsBody?.isDynamic = false
-        platform?.physicsBody?.categoryBitMask = ColliderType.GROUND
         platform?.zPosition = 3
         platform?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        /* Collision and Contact Masks */
+        platform?.physicsBody?.categoryBitMask = ColliderType.GROUND
+        platform?.physicsBody?.contactTestBitMask = ColliderType.PLAYER
         
         /* Use Camera's position to Spawn Items */
         platform?.position.x = camera.position.x + 900
         platform?.position.y = randomNumber(firstNum: minY, secondNum: maxY)
         
         return platform!
-    
     }
     
-    /** Generate Random Number for Positioning **/
+    /* Generate Random Number for Positioning */
     func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
@@ -46,18 +47,21 @@ class PlatformClass: SKSpriteNode {
     
     func initBackWall(){
     
+        /* Helps with Collisions */
         name = "BackWall"
         
-        physicsBody? = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))
+        /* Coding/Setting Some Properties of Player */
+        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))
         physicsBody?.affectedByGravity = false
         physicsBody?.isDynamic = false
         physicsBody?.allowsRotation = false
-        physicsBody?.categoryBitMask = ColliderType.ITEM
+        
+        /*   Collision and Contact Masks   */
+        physicsBody?.categoryBitMask = ColliderType.GROUND
         physicsBody?.contactTestBitMask = ColliderType.PLAYER
-    
     }
     
-    /** Handles BackWall Automatic Movement **/
+    /* Handles BackWall Automatic Movement */
     func backWallMove(){
         self.position.x += 10
     }

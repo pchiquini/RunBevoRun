@@ -1,19 +1,16 @@
 //
-//  GameOver.swift
+//  LevelCompleted.swift
 //  RunBevoRun
 //
-//  Created by Chiquini, Patrizio on 3/21/17.
+//  Created by Patrizio Chiquini on 3/22/17.
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
-import UIKit
-import SpriteKit
-
-class GameOver: SKScene {
+class LevelCompleted: SKScene {
     
     /*** Buttons On Scene ***/
     var backButton:SKSpriteNode!
-    var mainMenuButton:SKSpriteNode!
+    var nextButton:SKSpriteNode!
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
@@ -27,14 +24,15 @@ class GameOver: SKScene {
     /********************************************************************/
     
     func createScene() {
-
+        
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
-        mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
+        nextButton = self.childNode(withName: "nextButton") as! SKSpriteNode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
+            
             let location = touch.location(in: self)
             
             if atPoint(location).name == "backButton" {
@@ -42,18 +40,19 @@ class GameOver: SKScene {
                 if let scene = GameScene(fileNamed: "GameScene") {
                     scene.scaleMode = .aspectFit
                     
-                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
             
-            else if atPoint(location).name == "mainMenuButton" {
-                                
-                if let scene = MainMenu(fileNamed: "MainMenu") {
-                    scene.scaleMode = .aspectFit
+            if atPoint(location).name == "nextButton" {
                     
-                    view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))
+                if let scene = Congratulations(fileNamed: "Congratulations") {
+                    scene.scaleMode = .aspectFit
+                        
+                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+                
         }
     }
 }
