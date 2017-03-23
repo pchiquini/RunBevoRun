@@ -6,6 +6,9 @@
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
+import UIKit
+import SpriteKit
+
 class LevelCompleted: SKScene {
     
     /*** Buttons On Scene ***/
@@ -44,6 +47,11 @@ class LevelCompleted: SKScene {
                 }
             }
             
+            ////////HOW TO GO TO THE STORY BOARD////
+            //ANYTHING BETWEEN HERE AND
+            
+            //HELPFUL LINK: MAYBE?
+            //**http://stackoverflow.com/questions/40324149/segue-from-gamescene-to-a-viewcontroller-swift-3 **/
             if atPoint(location).name == "nextButton" {
                     
                 if let scene = Congratulations(fileNamed: "Congratulations") {
@@ -52,6 +60,8 @@ class LevelCompleted: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+            //AND HERE CAN BE EDITED AND/OR REMOVED
+            ////////////////////////////////////////
                 
         }
     }

@@ -60,8 +60,8 @@ class Player: SKSpriteNode {
     /* Handles Bevo Jumping */
     func jump(){
         if self.action(forKey: "jump") == nil { // check that there's no jump action running
-            let jumpUp = SKAction.moveBy(x: 50, y: 250, duration: 0.3)
-            let fallBack = SKAction.moveBy(x: 10, y: -10, duration: 0.3)
+            let jumpUp = SKAction.moveBy(x: 2, y: 250, duration: 0.3)
+            let fallBack = SKAction.moveBy(x: -5, y: -10, duration: 0.3)
             self.run(SKAction.sequence([jumpUp, fallBack]), withKey:"jump")
         }
     }

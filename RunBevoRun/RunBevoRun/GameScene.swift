@@ -153,15 +153,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel!.text = String(score)
             secondBody.node?.removeFromParent()
             
-            ////////HOW TO GO TO THE STORY BOARD
+            /** How To Win The Game: Must Collect 5 Longhorns **/
             if(score >= 5){
-                if let scene = Congratulations(fileNamed: "Congratulations") {
+                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
                 }
-
-                
             }
         }
         
@@ -181,7 +179,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
             firstBody.node?.removeFromParent()
             
-            gameOver()
+            /** Intianliaze the timer used for restaring the GameScence **/
+            if let scene = GameOver(fileNamed: "GameOver") {
+                scene.scaleMode = .aspectFit
+                
+                view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            }
             /*** Intianliaze the timer used for restaring the GameScence ***/
             //Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
             
