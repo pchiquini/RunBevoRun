@@ -22,10 +22,10 @@ class TriviaViewController: UIViewController {
     @IBOutlet weak var endLabel: UILabel!
     
     var correctAnswer:String = ""
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -49,7 +49,7 @@ class TriviaViewController: UIViewController {
             break
             
         case 2:
-            question.text = "What is UT's colors?"
+            question.text = "What are UT's colors?"
             button1.setTitle("Burnt Orange and White", for: UIControlState.normal)
             button2.setTitle("Crimson and Cream", for: UIControlState.normal)
             button3.setTitle("Navy and Yellow", for: UIControlState.normal)
@@ -65,7 +65,7 @@ class TriviaViewController: UIViewController {
             break
             
         case 4:
-            question.text = "What is the likelihood you will come"
+            question.text = "What is the likelihood you will enroll"
             button1.setTitle("100", for: UIControlState.normal)
             button2.setTitle("300", for: UIControlState.normal)
             button3.setTitle("50", for: UIControlState.normal)

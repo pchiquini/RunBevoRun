@@ -154,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
             
             /** How To Win The Game: Must Collect 5 Longhorns **/
-            if(score >= 5){
+            if(score >= 2){
                 if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
                     scene.scaleMode = .aspectFit
                     

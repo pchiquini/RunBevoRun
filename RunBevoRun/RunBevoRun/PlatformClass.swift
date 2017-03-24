@@ -10,7 +10,7 @@ import SpriteKit
 
 class PlatformClass: SKSpriteNode {
     
-    private var minY = CGFloat(-118.0)
+    private var minY = CGFloat(-100.0)
     private var maxY = CGFloat(150.0)
     
     var platform: SKSpriteNode?
