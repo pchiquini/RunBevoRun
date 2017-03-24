@@ -62,6 +62,12 @@ class LevelCompleted: SKScene {
             
             if atPoint(location).name == "nextButton" {
                 
+                if let scene = Trivia(fileNamed: "Trivia") {
+                    scene.scaleMode = .aspectFit
+                    
+                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                }
+                
             }
             //AND HERE CAN BE EDITED AND/OR REMOVED
             ////////////////////////////////////////=======

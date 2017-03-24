@@ -34,15 +34,19 @@ class Trivia: SKScene{
         
         button1 = self.childNode(withName: "button1") as! SKSpriteNode
         button2 = self.childNode(withName: "button2") as! SKSpriteNode
-        nextButton = self.childNode(withName: "next") as! SKSpriteNode
+        nextButton = self.childNode(withName: "nextButton") as! SKSpriteNode
+        //Appears after answer is chosen
         nextButton.isHidden = true
+        
         question = self.childNode(withName: "question") as! SKLabelNode
         result = self.childNode(withName: "result") as! SKLabelNode
+        //Appears after answer is chosen
         result.isHidden = true
         
         
         let button1Label = button1.childNode(withName: "button1Label") as! SKLabelNode
         let button2Label = button2.childNode(withName: "button2Label") as! SKLabelNode
+        
         
         question.text = "UT's campus is greater than 40 acres"
         button1Label.text = "True"
@@ -79,7 +83,7 @@ class Trivia: SKScene{
             
             if atPoint(location).name == "nextButton"{
                 
-                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
+                if let scene = Congratulations(fileNamed: "Congratulations") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
