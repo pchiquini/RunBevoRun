@@ -16,10 +16,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
             
-            //if let scene = SKScene(fileNamed: "GameScene") 
-            //if let scene = GameScene(fileNamed: "GameScene"){
+            // Load the SKScene from 'GameScene.sks'
             if let scene = MainMenu(fileNamed: "MainMenu") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFit
@@ -38,18 +36,6 @@ class GameViewController: UIViewController {
         return true
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-//        if let view = self.view as! SKView? {
-//            
-//            if let scene = SKScene(fileNamed: "GameScene") {
-//                scene.scaleMode = .aspectFit
-//                
-//            view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 1.0))
-//            }
-//        }
-    }
-
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -60,7 +46,6 @@ class GameViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     override var prefersStatusBarHidden: Bool {

@@ -28,17 +28,16 @@ class Player: SKSpriteNode {
         /* Helps with Collisions */
         name = "Player"
         
-        //
-        //        /* Initialize Animations by filtering */
-        //        for i in 1...6 {
-        //            let name = "Player \(i)"
-        //            playerAnimation.append(SKTexture(imageNamed: name))
-        //        }
-        //
-        //        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.08, resize: true, restore: false)
-        //
-        //        /* Run Animation Forever */
-        //        self.run(SKAction.repeatForever(animatePlayerAction))
+        /* Initialize Animations by filtering */
+        for i in 1...6 {
+            let name = "Player \(i)"
+            playerAnimation.append(SKTexture(imageNamed: name))
+        }
+        
+        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.08, resize: true, restore: false)
+        
+        /* Run Animation Forever */
+        self.run(SKAction.repeatForever(animatePlayerAction))
         
         /* Coding/Setting Some Properties of Player */
         physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		607D54101E85B6B2005AA131 /* bevo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540D1E85B6B2005AA131 /* bevo1.png */; };
+		607D54111E85B6B2005AA131 /* bevo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540E1E85B6B2005AA131 /* bevo2.png */; };
+		607D54121E85B6B2005AA131 /* bevo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540F1E85B6B2005AA131 /* bevo3.png */; };
 		60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943961E806CC2005E45DB /* Fight.mp3 */; };
 		60E9439B1E806CC2005E45DB /* Texas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943971E806CC2005E45DB /* Texas.mp3 */; };
 		60E9439C1E806CC2005E45DB /* jumping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943981E806CC2005E45DB /* jumping.mp3 */; };
@@ -49,6 +52,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		607D540D1E85B6B2005AA131 /* bevo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo1.png; path = "../../UI Graphics/Bevo/bevo1.png"; sourceTree = "<group>"; };
+		607D540E1E85B6B2005AA131 /* bevo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo2.png; path = "../../UI Graphics/Bevo/bevo2.png"; sourceTree = "<group>"; };
+		607D540F1E85B6B2005AA131 /* bevo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo3.png; path = "../../UI Graphics/Bevo/bevo3.png"; sourceTree = "<group>"; };
 		60E943961E806CC2005E45DB /* Fight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Fight.mp3; path = ../../Collisions/Fight.mp3; sourceTree = "<group>"; };
 		60E943971E806CC2005E45DB /* Texas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Texas.mp3; path = ../../Collisions/Texas.mp3; sourceTree = "<group>"; };
 		60E943981E806CC2005E45DB /* jumping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jumping.mp3; path = ../../Collisions/jumping.mp3; sourceTree = "<group>"; };
@@ -293,6 +299,9 @@
 		D28DBA431E78EE4B0022F131 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				607D540D1E85B6B2005AA131 /* bevo1.png */,
+				607D540E1E85B6B2005AA131 /* bevo2.png */,
+				607D540F1E85B6B2005AA131 /* bevo3.png */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -396,6 +405,7 @@
 				60E9439C1E806CC2005E45DB /* jumping.mp3 in Resources */,
 				60E943B31E81A9F0005E45DB /* ChangeCharacter.sks in Resources */,
 				60E9439D1E806CC2005E45DB /* points.mp3 in Resources */,
+				607D54121E85B6B2005AA131 /* bevo3.png in Resources */,
 				D28DBA1F1E721EFC0022F131 /* Main.storyboard in Resources */,
 				60E943A71E806DEA005E45DB /* MainMenu.mp3 in Resources */,
 				60E943A31E806D9B005E45DB /* GameScene.mp3 in Resources */,
@@ -406,7 +416,9 @@
 				D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */,
 				60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */,
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
+				607D54101E85B6B2005AA131 /* bevo1.png in Resources */,
 				60E943AC1E81A0F5005E45DB /* GameOver.sks in Resources */,
+				607D54111E85B6B2005AA131 /* bevo2.png in Resources */,
 				D28DBA4E1E7A635B0022F131 /* explosion.mp3 in Resources */,
 				D28DBA241E721EFC0022F131 /* LaunchScreen.storyboard in Resources */,
 				D28DBA321E789AD70022F131 /* Explosion.sks in Resources */,
