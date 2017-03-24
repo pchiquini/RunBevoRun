@@ -29,6 +29,14 @@ class LoginViewController: UIViewController {
             warningLbl.text = "Fill In Username"
             return
         }
+        if (password.text! == ""){
+            warningLbl.text = "Fill In Password"
+            return
+        }
+        if (name.text! != password.text){
+            warningLbl.text = "Password must be same as Username"
+            return
+        }
         loginSuccess = true
 //        let username = name.text!
 //        let pwd = password.text!
@@ -61,6 +69,21 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     
     // MARK: - Navigation
@@ -77,3 +100,4 @@ class LoginViewController: UIViewController {
     }
 
 }
+
