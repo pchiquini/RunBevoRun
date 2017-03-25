@@ -16,11 +16,9 @@ class GameRules: SKScene {
     /*** Buttons On Scene ***/
     var backButton:SKSpriteNode!
 
-    
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
         createScene()
-        
     }
     
     /********************************************************************/
@@ -31,15 +29,7 @@ class GameRules: SKScene {
     
     func createScene() {
         
-        /** Start/Loop Backgroun Music **/
-//        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
-//        backgroundMusic.autoplayLooped = true
-//        self.addChild(backgroundMusic)
-        
-
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
-       //backButton.texture = SKTexture(imageNamed: "startGameButton")
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

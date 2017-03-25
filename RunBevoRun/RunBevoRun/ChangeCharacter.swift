@@ -13,12 +13,12 @@ class ChangeCharacter: SKScene {
     
     var starfield:SKEmitterNode!
     
-    /*** Buttons On Scene ***/
+    /** Buttons On Scene **/
     var backButton:SKSpriteNode!
     var bevoCharacter:SKSpriteNode!
     var hookEmCharacter:SKSpriteNode!
     
-    /*** Starting Point ***/
+    /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
         
@@ -32,14 +32,7 @@ class ChangeCharacter: SKScene {
     
     func createScene() {
         
-        /** Start/Loop Backgroun Music **/
-        //        let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
-        //        backgroundMusic.autoplayLooped = true
-        //        self.addChild(backgroundMusic)
-        
-        
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
-        //backButton.texture = SKTexture(imageNamed: "startGameButton")
         
     }
     

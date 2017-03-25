@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
 
     @IBAction func login(_ sender: Any) {
         if (name.text! == ""){
@@ -38,6 +37,7 @@ class LoginViewController: UIViewController {
             return
         }
         loginSuccess = true
+        
 //        let username = name.text!
 //        let pwd = password.text!
 //        
@@ -64,7 +64,6 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -77,7 +76,6 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    
     /**
      * Called when the user click on the view (outside the UITextField).
      */
@@ -85,9 +83,7 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
 
-    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

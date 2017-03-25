@@ -8,22 +8,25 @@
 
 Patrizio Chiquini: 35%
 * Some of the UI
-* SpriteKit Scene Editor
+* SpriteKit Scenes Editor/Transitions
 * Adding Physics to Bevo
+* Proper Calculation of the Point System
 
 Rachel Andrews:  35%
 * Login Screen
+* Registration Scene
 * Trivia Question Screen
+* Creating Database of questions
 
 Jacqueline Corona: 30%
-* UI Implementation (This includes: Bevo, object, background, scenes)
-* Scoreboard Screen
+* UI Implementation (Include: Bevo, items, obstacles, and background)
+* Keeping Consistency Between Scenes
 
 ## Grading Level: 
 * Same Grade for all members
 
 ## Differences:
-* The only difference include the Scoreboad screen implementation. The reason for this delayed release is the amount of work that it takes to keep up the data per user. In addition, having to learn SpriteKit for this project also delayed our understanding of how we could track a scoring system based on the Sprite Object, Bevo, hitting other objects, like tests, which would affect the final scoreboard.
+* We ran into issues in creating graphics/UI consistency between SpriteSkit Scenes and the StoryBoards. We hope to get some guidance in regards to being able to transition smoothly between them for upcoming releases.
 
 ## Special Instructions:
-* None
+* Game can only be played on landscape mode. 

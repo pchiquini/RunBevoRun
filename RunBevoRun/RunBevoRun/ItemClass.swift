@@ -25,13 +25,13 @@ class ItemClass: SKSpriteNode {
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)
         }
+            
         else{
             item = SKSpriteNode(imageNamed: "enemy")
             item?.name = "Enemy"
             item?.size = CGSize(width: 44, height: 49)
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)
-            
         }
         
         item!.physicsBody?.affectedByGravity = false
@@ -46,7 +46,7 @@ class ItemClass: SKSpriteNode {
         return item!
     }
     
-    /** Generate Random Number for Positioning **/
+    /* Generate Random Number for Positioning */
     func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)

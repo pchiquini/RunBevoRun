@@ -9,9 +9,7 @@
 import UIKit
 import SpriteKit
 
-struct globalVariables{
-    
-}
+struct globalVariables{}
 
 class MainMenu: SKScene {
     
@@ -59,13 +57,13 @@ class MainMenu: SKScene {
         
         if userDefaults.bool(forKey: "Running as Bevo") {
             
-            characterLabel.text = "Running as Bevo"
-        }
-        else{
-            
             characterLabel.text = "Running as HookEm"
         }
-        
+            
+        else{
+            
+            characterLabel.text = "Running as Bevo"
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -103,8 +101,7 @@ class MainMenu: SKScene {
                     scene.scaleMode = .aspectFit
                             
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(2)))
-                    
-                    }
+                }
             }
         }
     }

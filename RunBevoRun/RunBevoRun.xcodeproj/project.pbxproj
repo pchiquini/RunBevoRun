@@ -49,6 +49,7 @@
 		D28DBA4C1E7A5CD60022F131 /* PlatformClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA4B1E7A5CD60022F131 /* PlatformClass.swift */; };
 		D28DBA4E1E7A635B0022F131 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA4D1E7A635B0022F131 /* explosion.mp3 */; };
 		D28DBA531E7A69060022F131 /* MagicField.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA521E7A69060022F131 /* MagicField.sks */; };
+		D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2CA33D31E85EBA900367408 /* boomBoom.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		D28DBA4B1E7A5CD60022F131 /* PlatformClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformClass.swift; sourceTree = "<group>"; };
 		D28DBA4D1E7A635B0022F131 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		D28DBA521E7A69060022F131 /* MagicField.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicField.sks; sourceTree = "<group>"; };
+		D2CA33D31E85EBA900367408 /* boomBoom.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boomBoom.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				D28DBA311E789AD70022F131 /* Explosion.sks */,
 				D28DBA4D1E7A635B0022F131 /* explosion.mp3 */,
 				D28DBA521E7A69060022F131 /* MagicField.sks */,
+				D2CA33D31E85EBA900367408 /* boomBoom.sks */,
 			);
 			name = Collisions;
 			sourceTree = "<group>";
@@ -224,7 +227,6 @@
 				D28DBA131E721EFC0022F131 /* AppDelegate.swift */,
 				D28DBA1B1E721EFC0022F131 /* GameViewController.swift */,
 				D28DBA4F1E7A63690022F131 /* Special Effects */,
-				D28DBA431E78EE4B0022F131 /* Player */,
 				D28DBA381E78D9B20022F131 /* Classes */,
 				D28DBA371E78D9800022F131 /* Scenes */,
 				D28DBA1D1E721EFC0022F131 /* Main.storyboard */,
@@ -291,19 +293,20 @@
 		D28DBA401E78EB6D0022F131 /* Player Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D28DBA431E78EE4B0022F131 /* Player Animations */,
 				D28DBA411E78EB830022F131 /* Player.swift */,
 			);
 			name = "Player Classes";
 			sourceTree = "<group>";
 		};
-		D28DBA431E78EE4B0022F131 /* Player */ = {
+		D28DBA431E78EE4B0022F131 /* Player Animations */ = {
 			isa = PBXGroup;
 			children = (
 				607D540D1E85B6B2005AA131 /* bevo1.png */,
 				607D540E1E85B6B2005AA131 /* bevo2.png */,
 				607D540F1E85B6B2005AA131 /* bevo3.png */,
 			);
-			name = Player;
+			name = "Player Animations";
 			sourceTree = "<group>";
 		};
 		D28DBA481E79E8090022F131 /* Item Classes */ = {
@@ -414,6 +417,7 @@
 				D28DBA2C1E771B8C0022F131 /* MainMenu.sks in Resources */,
 				BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */,
 				D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */,
+				D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */,
 				60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */,
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
 				607D54101E85B6B2005AA131 /* bevo1.png in Resources */,

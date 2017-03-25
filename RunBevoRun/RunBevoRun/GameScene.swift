@@ -9,8 +9,9 @@
 import SpriteKit
 import GameplayKit
 
-struct gameScene{
-    var highScoreLabel: String?
+class GameData {
+    static let sharedInstance = GameData()
+    var finalScore = 0
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -45,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
-    var score:Int = 0
+    static var score:Int = 0
     
     /** Declaring Objects from according Class**/
     private var itemController = ItemClass()
@@ -89,7 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground1?.initGround()
         ground2?.initGround()
         ground3?.initGround()
-        
 
         /** Intianliaze player from the Player class for the GameScence **/
         player = self.childNode(withName: "player") as? Player!
@@ -101,10 +101,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Intianliaze Running Score Label **/
         scoreLabel = mainCamera!.childNode(withName: "scoreLabel") as? SKLabelNode!
+        GameScene.score = 0
         scoreLabel?.text = "0"
         
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
         
         Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
         
@@ -135,6 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
         }
+            
         else{
             firstBody = contact.bodyB
             secondBody = contact.bodyA
@@ -147,14 +149,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
             /** Adds Explosion Sound Effect: Fight **/
-            //self.run(SKAction.playSoundFileNamed(" ", waitForCompletion: false))
+            self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
             
-            score += 1
-            scoreLabel!.text = String(score)
+            /** Updates Score **/
+            GameScene.score += 1
+            scoreLabel!.text = String(GameScene.score)
+            
+            /** Removes Nodes **/
             secondBody.node?.removeFromParent()
             
             /** How To Win The Game: Must Collect 5 Longhorns **/
-            if(score >= 2){
+            if(GameScene.score >= 1){
                 if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
                     scene.scaleMode = .aspectFit
                     
@@ -163,7 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        /*** Subtracts Score & Explodes ***/
+        /** Subtracts Score & Explodes **/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Enemy" {
            
             /** Adds Special Effect: Explosion **/
@@ -174,8 +179,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             /** Adds Explosion Sound Effect: Explosion **/
             //self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
             
-            score += -1
-            scoreLabel?.text = String(score)
+            /** Updates Score **/
+            GameScene.score += -1
+            scoreLabel?.text = String(GameScene.score)
+            
+            /** Removes Nodes **/
             secondBody.node?.removeFromParent()
             firstBody.node?.removeFromParent()
             
@@ -185,6 +193,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
             }
+            
             /*** Intianliaze the timer used for restaring the GameScence ***/
             //Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
             
@@ -210,7 +219,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Adds Points Sound Effect: jumping **/
         //self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
         player?.jump()
-
     }
     
     /** Handles the camera's position **/

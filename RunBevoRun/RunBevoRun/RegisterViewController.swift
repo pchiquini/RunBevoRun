@@ -21,8 +21,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
     }
     
     @IBAction func register(_ sender: Any) {
@@ -35,6 +33,7 @@ class RegisterViewController: UIViewController {
             displayAlert(userMessage: "Username is empty")
             return
         }
+        
         if((pwd?.isEmpty)! || (rePwd?.isEmpty)!){
             displayAlert(userMessage: "Password is empty")
             return
@@ -44,6 +43,7 @@ class RegisterViewController: UIViewController {
             displayAlert(userMessage: "Passwords don't match")
             return
         }
+        
         //Add to data
         let accounts = UserDefaults.standard
         accounts.setValue(username, forKey:"Username")
@@ -61,7 +61,6 @@ class RegisterViewController: UIViewController {
        
     }
     
-    
     func displayAlert(userMessage:String){
         
         self.alertController = UIAlertController(title: "Error", message: userMessage, preferredStyle: UIAlertControllerStyle.alert)
@@ -71,13 +70,10 @@ class RegisterViewController: UIViewController {
         self.alertController!.addAction(okAction)
         
         self.present(self.alertController!, animated: true, completion:nil)
-        
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /**
@@ -87,7 +83,6 @@ class RegisterViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    
     
     /**
      * Called when the user click on the view (outside the UITextField).

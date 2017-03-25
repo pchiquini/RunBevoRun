@@ -17,7 +17,7 @@ class GroundClass: SKSpriteNode {
         physicsBody?.categoryBitMask = ColliderType.GROUND
     }
     
-    /** Creating the infinity background effect **/
+    /* Creating the infinity background effect */
     func moveGrounds(camera: SKCameraNode) {
         //position.x = the view of the scence
         //size.width = the background's width

@@ -25,9 +25,6 @@ class TriviaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,8 +102,7 @@ class TriviaViewController: UIViewController {
             endLabel.text = "Wrong"
         }
     }
-    
- 
+
     /*
     // MARK: - Navigation
 

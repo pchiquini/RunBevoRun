@@ -13,7 +13,7 @@ struct ColliderType {
     static let GROUND:UInt32 = 1    //groundCategory
     static let ENEMY:UInt32 = 2     //enemyCategory
     static let ITEM:UInt32 = 3      //itemCategory
-    static let PLATFORM:UInt = 4   //platform Category
+    static let PLATFORM:UInt = 4    //platform Category
 }
 
 class Player: SKSpriteNode {
@@ -29,8 +29,8 @@ class Player: SKSpriteNode {
         name = "Player"
         
         /* Initialize Animations by filtering */
-        for i in 1...6 {
-            let name = "Player \(i)"
+        for i in 1...3 {
+            let name = "bevo\(i)"
             playerAnimation.append(SKTexture(imageNamed: name))
         }
         
@@ -40,7 +40,7 @@ class Player: SKSpriteNode {
         self.run(SKAction.repeatForever(animatePlayerAction))
         
         /* Coding/Setting Some Properties of Player */
-        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))
+        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 10, height: self.size.height + 20))
         physicsBody?.affectedByGravity = true
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0
@@ -59,7 +59,7 @@ class Player: SKSpriteNode {
     /* Handles Bevo Jumping */
     func jump(){
         if self.action(forKey: "jump") == nil { // check that there's no jump action running
-            let jumpUp = SKAction.moveBy(x: 2, y: 250, duration: 0.3)
+            let jumpUp = SKAction.moveBy(x: 25, y: 250, duration: 0.3)
             let fallBack = SKAction.moveBy(x: -5, y: -10, duration: 0.3)
             self.run(SKAction.sequence([jumpUp, fallBack]), withKey:"jump")
         }

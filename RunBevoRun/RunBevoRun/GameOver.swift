@@ -15,6 +15,9 @@ class GameOver: SKScene {
     var backButton:SKSpriteNode!
     var mainMenuButton:SKSpriteNode!
     
+    /** Scoring **/
+    var scoreLabel: SKLabelNode?
+    
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
         createScene()
@@ -28,6 +31,11 @@ class GameOver: SKScene {
     
     func createScene() {
 
+        /** Displaying Score From GameScene **/
+        scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode?
+        scoreLabel!.text = String(GameScene.score)
+        
+        /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
     }

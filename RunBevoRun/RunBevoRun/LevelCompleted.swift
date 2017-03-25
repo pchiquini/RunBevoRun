@@ -11,17 +11,19 @@ import SpriteKit
 
 class LevelCompleted: SKScene {
     
-    /*** Buttons On Scene ***/
+    /** Buttons On Scene **/
     var backButton:SKSpriteNode!
     var nextButton:SKSpriteNode!
     
+    /** Scoring **/
+    var scoreLabel: SKLabelNode?
     
-    //You need to create a pointer to it manually. This can be done by creating a property for the SKScene: maybe?
+    //You need to create a pointer to it manually. 
+    //This can be done by creating a property for the SKScene: maybe?
     var viewcontroller: UIViewController!
     let newViewController = TriviaViewController()
-
     
-    /*** Starting Point ***/
+    /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
     }
@@ -34,11 +36,14 @@ class LevelCompleted: SKScene {
     
     func createScene() {
         
+        /** Displaying Score From GameScene **/
+        scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode?
+        scoreLabel!.text = String(GameScene.score)
+        
+        /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
         nextButton = self.childNode(withName: "nextButton") as! SKSpriteNode
     }
-    
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -54,12 +59,9 @@ class LevelCompleted: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
-            
 
             ////////HOW TO GO TO THE STORY BOARD////
-            //ANYTHING BETWEEN HERE AND
-            
-            
+            //EDITS NEED TO BE DONE BETWEEN HERE AND
             if atPoint(location).name == "nextButton" {
                 
                 if let scene = Trivia(fileNamed: "Trivia") {
@@ -67,11 +69,9 @@ class LevelCompleted: SKScene {
                     
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
-                
             }
-            //AND HERE CAN BE EDITED AND/OR REMOVED
-            ////////////////////////////////////////=======
-            
+            //AND HERE CAN BE EDITED AND/OR REMOVED////
+            ///////////////////////////////////////
         }
     }
 }
