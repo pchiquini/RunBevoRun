@@ -94,12 +94,15 @@ class Trivia: SKScene{
                     
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
+            }
             
+            if atPoint(location).name == "mainMenu"{
+                if let scene = MainMenu(fileNamed: "MainMenu") {
+                    scene.scaleMode = .aspectFit
+                    
+                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                }
             }
         }
     }
-    
-    
-    
-    
 }
