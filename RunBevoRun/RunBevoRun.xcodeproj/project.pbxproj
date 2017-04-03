@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		607D54101E85B6B2005AA131 /* bevo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540D1E85B6B2005AA131 /* bevo1.png */; };
-		607D54111E85B6B2005AA131 /* bevo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540E1E85B6B2005AA131 /* bevo2.png */; };
-		607D54121E85B6B2005AA131 /* bevo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 607D540F1E85B6B2005AA131 /* bevo3.png */; };
+		601274B01E92D30B0086A0F6 /* longhorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 601274AF1E92D30B0086A0F6 /* longhorn.png */; };
+		601274B61E92E0E10086A0F6 /* bevo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 601274B31E92E0E10086A0F6 /* bevo1.png */; };
+		601274B71E92E0E10086A0F6 /* bevo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 601274B41E92E0E10086A0F6 /* bevo2.png */; };
+		601274B81E92E0E10086A0F6 /* bevo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 601274B51E92E0E10086A0F6 /* bevo3.png */; };
 		60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943961E806CC2005E45DB /* Fight.mp3 */; };
 		60E9439B1E806CC2005E45DB /* Texas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943971E806CC2005E45DB /* Texas.mp3 */; };
 		60E9439C1E806CC2005E45DB /* jumping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60E943981E806CC2005E45DB /* jumping.mp3 */; };
@@ -41,7 +42,7 @@
 		D28DBA241E721EFC0022F131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA221E721EFC0022F131 /* LaunchScreen.storyboard */; };
 		D28DBA2C1E771B8C0022F131 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA2B1E771B8C0022F131 /* MainMenu.sks */; };
 		D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA2D1E771D910022F131 /* MainMenu.swift */; };
-		D28DBA321E789AD70022F131 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA311E789AD70022F131 /* Explosion.sks */; };
+		D28DBA321E789AD70022F131 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA311E789AD70022F131 /* explosion.sks */; };
 		D28DBA3C1E78E0060022F131 /* BackgroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */; };
 		D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA3D1E78E4E60022F131 /* GroundClass.swift */; };
 		D28DBA421E78EB830022F131 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA411E78EB830022F131 /* Player.swift */; };
@@ -53,9 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		607D540D1E85B6B2005AA131 /* bevo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo1.png; path = "../../UI Graphics/Bevo/bevo1.png"; sourceTree = "<group>"; };
-		607D540E1E85B6B2005AA131 /* bevo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo2.png; path = "../../UI Graphics/Bevo/bevo2.png"; sourceTree = "<group>"; };
-		607D540F1E85B6B2005AA131 /* bevo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bevo3.png; path = "../../UI Graphics/Bevo/bevo3.png"; sourceTree = "<group>"; };
+		601274AF1E92D30B0086A0F6 /* longhorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = longhorn.png; path = ../../../longhorn.png; sourceTree = "<group>"; };
+		601274B31E92E0E10086A0F6 /* bevo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo1.png; sourceTree = "<group>"; };
+		601274B41E92E0E10086A0F6 /* bevo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo2.png; sourceTree = "<group>"; };
+		601274B51E92E0E10086A0F6 /* bevo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo3.png; sourceTree = "<group>"; };
 		60E943961E806CC2005E45DB /* Fight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Fight.mp3; path = ../../Collisions/Fight.mp3; sourceTree = "<group>"; };
 		60E943971E806CC2005E45DB /* Texas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Texas.mp3; path = ../../Collisions/Texas.mp3; sourceTree = "<group>"; };
 		60E943981E806CC2005E45DB /* jumping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jumping.mp3; path = ../../Collisions/jumping.mp3; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 		D28DBA251E721EFC0022F131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D28DBA2B1E771B8C0022F131 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		D28DBA2D1E771D910022F131 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
-		D28DBA311E789AD70022F131 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		D28DBA311E789AD70022F131 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		D28DBA3B1E78E0060022F131 /* BackgroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundClass.swift; sourceTree = "<group>"; };
 		D28DBA3D1E78E4E60022F131 /* GroundClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroundClass.swift; sourceTree = "<group>"; };
 		D28DBA411E78EB830022F131 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 				60E943961E806CC2005E45DB /* Fight.mp3 */,
 				60E943971E806CC2005E45DB /* Texas.mp3 */,
 				60E943991E806CC2005E45DB /* points.mp3 */,
-				D28DBA311E789AD70022F131 /* Explosion.sks */,
+				D28DBA311E789AD70022F131 /* explosion.sks */,
 				D28DBA4D1E7A635B0022F131 /* explosion.mp3 */,
 				D28DBA521E7A69060022F131 /* MagicField.sks */,
 				D2CA33D31E85EBA900367408 /* boomBoom.sks */,
@@ -302,9 +304,10 @@
 		D28DBA431E78EE4B0022F131 /* Player Animations */ = {
 			isa = PBXGroup;
 			children = (
-				607D540D1E85B6B2005AA131 /* bevo1.png */,
-				607D540E1E85B6B2005AA131 /* bevo2.png */,
-				607D540F1E85B6B2005AA131 /* bevo3.png */,
+				601274B31E92E0E10086A0F6 /* bevo1.png */,
+				601274B41E92E0E10086A0F6 /* bevo2.png */,
+				601274B51E92E0E10086A0F6 /* bevo3.png */,
+				601274AF1E92D30B0086A0F6 /* longhorn.png */,
 			);
 			name = "Player Animations";
 			sourceTree = "<group>";
@@ -405,27 +408,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601274B01E92D30B0086A0F6 /* longhorn.png in Resources */,
 				60E9439C1E806CC2005E45DB /* jumping.mp3 in Resources */,
 				60E943B31E81A9F0005E45DB /* ChangeCharacter.sks in Resources */,
 				60E9439D1E806CC2005E45DB /* points.mp3 in Resources */,
-				607D54121E85B6B2005AA131 /* bevo3.png in Resources */,
 				D28DBA1F1E721EFC0022F131 /* Main.storyboard in Resources */,
 				60E943A71E806DEA005E45DB /* MainMenu.mp3 in Resources */,
 				60E943A31E806D9B005E45DB /* GameScene.mp3 in Resources */,
 				60E943AA1E81A0D7005E45DB /* GameRules.sks in Resources */,
 				D28DBA531E7A69060022F131 /* MagicField.sks in Resources */,
+				601274B61E92E0E10086A0F6 /* bevo1.png in Resources */,
 				D28DBA2C1E771B8C0022F131 /* MainMenu.sks in Resources */,
 				BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */,
 				D28DBA161E721EFC0022F131 /* GameScene.sks in Resources */,
 				D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */,
+				601274B71E92E0E10086A0F6 /* bevo2.png in Resources */,
 				60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */,
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
-				607D54101E85B6B2005AA131 /* bevo1.png in Resources */,
 				60E943AC1E81A0F5005E45DB /* GameOver.sks in Resources */,
-				607D54111E85B6B2005AA131 /* bevo2.png in Resources */,
 				D28DBA4E1E7A635B0022F131 /* explosion.mp3 in Resources */,
 				D28DBA241E721EFC0022F131 /* LaunchScreen.storyboard in Resources */,
-				D28DBA321E789AD70022F131 /* Explosion.sks in Resources */,
+				D28DBA321E789AD70022F131 /* explosion.sks in Resources */,
+				601274B81E92E0E10086A0F6 /* bevo3.png in Resources */,
 				D2859AFE1E8377CB000F7679 /* Congratulations.sks in Resources */,
 				60E943A51E806D9B005E45DB /* Trivia.mp3 in Resources */,
 				60E9439B1E806CC2005E45DB /* Texas.mp3 in Resources */,
