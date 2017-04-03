@@ -40,6 +40,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /** Player Variable **/
     private var player: Player?
     
+    /** Player Lives **/
+    var livesArray:[SKSpriteNode]!
+    var life1: SKSpriteNode?
+    var life2: SKSpriteNode?
+    var life3: SKSpriteNode?
+    var totalLives:Int = 3
+    
     /** Back Wall Variable **/
     private var backWall: PlatformClass?
     
@@ -94,6 +101,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = self.childNode(withName: "player") as? Player!
         player?.initPlayer()
         
+        /** Creating the Player's lives **/
+        //addLives()
+        life1 = mainCamera!.childNode(withName: "life1") as? SKSpriteNode!
+        life2 = mainCamera!.childNode(withName: "life2") as? SKSpriteNode!
+        life3 = mainCamera!.childNode(withName: "life3") as? SKSpriteNode!
+        
         /** Intianliaze the BackWall for the GameScence **/
         backWall = self.childNode(withName: "backWall") as? PlatformClass!
         backWall?.initBackWall()
@@ -147,9 +160,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             /** Adds Points Sound Effect: Texas **/
             //self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
-            /** Adds Explosion Sound Effect: Fight **/
-            self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
-            
             /** Updates Score **/
             GameScene.score += 1
             scoreLabel!.text = String(GameScene.score)
@@ -170,27 +180,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Subtracts Score & Explodes **/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Enemy" {
            
-            /** Adds Special Effect: Explosion **/
-            let explosion:SKEmitterNode = SKEmitterNode(fileNamed: "Explosion")!
-            explosion.position = (player?.position)!
-            self.addChild(explosion)
+            /** Total Lives Equation **/
+            totalLives += -1
             
-            /** Adds Explosion Sound Effect: Explosion **/
-            //self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
-            
-            /** Updates Score **/
+            /** Updates Score Equation **/
             GameScene.score += -1
             scoreLabel?.text = String(GameScene.score)
             
-            /** Removes Nodes **/
-            secondBody.node?.removeFromParent()
-            firstBody.node?.removeFromParent()
-            
-            /** Intianliaze the timer used for restaring the GameScence **/
-            if let scene = GameOver(fileNamed: "GameOver") {
-                scene.scaleMode = .aspectFit
+            if totalLives == 2{
+                /** Remove Life and Enemy Collison **/
+                life1?.removeFromParent()
+                secondBody.node?.removeFromParent()
+            }
                 
-                view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            else if totalLives == 1{
+                /** Remove Life and Enemy Collison **/
+                life2?.removeFromParent()
+                secondBody.node?.removeFromParent()
+            }
+            
+            else if totalLives == 0 {
+                /** Remove Life **/
+                life3?.removeFromParent()
+                
+                /** Removes Nodes **/
+                secondBody.node?.removeFromParent()
+                firstBody.node?.removeFromParent()
+                
+                /** Adds Special Effect: Explosion **/
+                explosion()
+                
+                /** Intianliaze the timer used for restaring the GameScence **/
+                self.run(SKAction.wait(forDuration: 2)) {
+                    self.gameOver()
+                }
             }
             
             /*** Intianliaze the timer used for restaring the GameScence ***/
@@ -200,6 +223,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Player Goes Off The Screen **/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "BackWall" {
+            /** Adds Special Effect: Explosion **/
+            explosion()
+            
+            /** Intianliaze the timer used for restaring the GameScence **/
             gameOver()
         }
 
@@ -246,6 +273,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scene?.addChild(platformController.spawnPlatforms(camera: mainCamera!))
     }
     
+    /** Handling the Player's Lives **/
+    func addLives(){
+        livesArray = [SKSpriteNode]()
+        
+        for live in 1 ... 3 {
+            let liveNode  = SKSpriteNode(imageNamed: "longhorn")
+            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4-live) * liveNode.size.width, y: self.frame.size.height - 100)
+            self.addChild(liveNode)
+            livesArray.append(liveNode)
+        }
+    }
+    
     /** Moves Enemy on the GameScene **/
     func moveEnemy(){
         enumerateChildNodes(withName: "enemy", using:({
@@ -254,10 +293,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }))
     }
     
-    func gameOver(){
+    func explosion(){
+        /** Adds Special Effect: Explosion **/
+        let explosion = SKEmitterNode(fileNamed: "explosion")!
+        explosion.position = (player?.position)!
+        self.addChild(explosion)
         
         /** Adds Explosion Sound Effect: Explosion **/
-        //self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+        self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+    }
+    
+    func gameOver(){
         
         //backgroundMusic.run(SKAction.stop())
                 
@@ -271,11 +317,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Called before each frame is rendered **/
     override func update(_ currentTime: TimeInterval) {
-
         manageCamera()
         manageBGsAndGrounds()
         player?.move()
         backWall?.backWallMove()
         moveEnemy()
+        //livesMove()
     }
 }
