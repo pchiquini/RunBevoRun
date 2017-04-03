@@ -11,7 +11,6 @@ import GameplayKit
 
 class GameData {
     static let sharedInstance = GameData()
-    var finalScore = 0
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
