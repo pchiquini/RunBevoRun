@@ -158,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Item" {
             
             /** Adds Points Sound Effect: Texas **/
-            //self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
+            self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
             /** Updates Score **/
             GameScene.score += 1
@@ -223,11 +223,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Player Goes Off The Screen **/
         if firstBody.node?.name == "Player" && secondBody.node?.name == "BackWall" {
+            
+            /** Removes Nodes **/
+            secondBody.node?.removeFromParent()
+            firstBody.node?.removeFromParent()
+            
             /** Adds Special Effect: Explosion **/
             explosion()
             
             /** Intianliaze the timer used for restaring the GameScence **/
-            gameOver()
+            self.run(SKAction.wait(forDuration: 2)) {
+                self.gameOver()
+            }
         }
 
     }
