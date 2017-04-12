@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterViewController: UIViewController {
 
@@ -44,15 +45,13 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        //Add to data
-        let accounts = UserDefaults.standard
-        accounts.setValue(username, forKey:"Username")
-        accounts.setValue(pwd, forKey:"Password")
-        accounts.synchronize()
+        //Register user to CoreData
+        saveUser(username: username!, password: pwd!)
+        
         
         //Everything complete
         //TODO have OK button go back to login?
-        self.alertController = UIAlertController(title: "Alert", message: "Successfully Registered", preferredStyle: UIAlertControllerStyle.alert)
+        self.alertController = UIAlertController(title: "Sucess!", message: "Successfully Registered", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil)
         
         self.alertController!.addAction(okAction)
@@ -70,6 +69,32 @@ class RegisterViewController: UIViewController {
         self.alertController!.addAction(okAction)
         
         self.present(self.alertController!, animated: true, completion:nil)
+    }
+    
+    fileprivate func saveUser(username: String, password: String) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create the entity we want to save
+        let entity =  NSEntityDescription.entity(forEntityName: "Registration", in: managedContext)
+        
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        // Set the attribute values
+        user.setValue(username, forKey: "username")
+        user.setValue(password, forKey: "password")
+        
+        // Commit the changes.
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
     }
 
     override func didReceiveMemoryWarning() {

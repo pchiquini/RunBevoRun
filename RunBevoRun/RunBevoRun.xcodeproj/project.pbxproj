@@ -23,6 +23,7 @@
 		60E943B51E81B20A005E45DB /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E943B41E81B20A005E45DB /* GameOver.swift */; };
 		BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8401E789A79009E3F7F /* LoginViewController.swift */; };
 		BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */; };
+		BF33C8B61E9B4AE300547F37 /* RunBevoRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF33C8B41E9B4AE300547F37 /* RunBevoRun.xcdatamodeld */; };
 		BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF7E22FE1E84737F001FA179 /* Trivia.sks */; };
 		BF7E23011E8474E3001FA179 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E23001E8474E3001FA179 /* Trivia.swift */; };
 		BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF845C4C1E80435100FA20DB /* TriviaViewController.swift */; };
@@ -98,6 +99,7 @@
 		60E943B41E81B20A005E45DB /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		BF0CB8401E789A79009E3F7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BF33C8B51E9B4AE300547F37 /* RunBevoRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunBevoRun.xcdatamodel; sourceTree = "<group>"; };
 		BF7E22FE1E84737F001FA179 /* Trivia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trivia.sks; sourceTree = "<group>"; };
 		BF7E23001E8474E3001FA179 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
 		BF845C4C1E80435100FA20DB /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		D28DBA121E721EFC0022F131 /* RunBevoRun */ = {
 			isa = PBXGroup;
 			children = (
+				BF33C8B41E9B4AE300547F37 /* RunBevoRun.xcdatamodeld */,
 				D28DBA131E721EFC0022F131 /* AppDelegate.swift */,
 				D28DBA1B1E721EFC0022F131 /* GameViewController.swift */,
 				D28DBA4F1E7A63690022F131 /* Special Effects */,
@@ -574,6 +577,7 @@
 				D28DBA3C1E78E0060022F131 /* BackgroundClass.swift in Sources */,
 				D28DBA4C1E7A5CD60022F131 /* PlatformClass.swift in Sources */,
 				60E943AE1E81A110005E45DB /* GameRules.swift in Sources */,
+				BF33C8B61E9B4AE300547F37 /* RunBevoRun.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +740,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF33C8B41E9B4AE300547F37 /* RunBevoRun.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF33C8B51E9B4AE300547F37 /* RunBevoRun.xcdatamodel */,
+			);
+			currentVersion = BF33C8B51E9B4AE300547F37 /* RunBevoRun.xcdatamodel */;
+			path = RunBevoRun.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D28DBA081E721EFC0022F131 /* Project object */;
 }
