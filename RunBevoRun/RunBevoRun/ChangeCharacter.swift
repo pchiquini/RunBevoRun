@@ -49,6 +49,17 @@ class ChangeCharacter: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+            
+            if atPoint(location).name == "character1" {
+                
+                
+            }
+            
+            if atPoint(location).name == "character2" {
+                
+                
+            }
+
         }
     }
 }
