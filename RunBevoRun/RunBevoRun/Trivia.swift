@@ -22,6 +22,8 @@ class Trivia: SKScene{
     
     var correctAnswer:Bool = false
     
+    var sceneApperance:Int = 0
+    
     /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
@@ -34,6 +36,8 @@ class Trivia: SKScene{
     /********************************************************************/
     
     func createScene() {
+        
+        sceneApperance += 1
         
         button1 = self.childNode(withName: "button1") as! SKSpriteNode
         button2 = self.childNode(withName: "button2") as! SKSpriteNode
@@ -98,6 +102,8 @@ class Trivia: SKScene{
             //Update scene when right answer is chosen
             if atPoint(location).name == "button1" {
                 if (correctAnswer == true){
+                    //Add points
+                    UserInfo.shared.score += 5
                     button1.color = SKColor.green
                     result.text = "Correct!"
                     result.isHidden = false
@@ -112,13 +118,13 @@ class Trivia: SKScene{
                     mainMenu.isHidden = false
                     button2.isHidden = true
                 }
-                
-                //TODO include adding points here
             }
             
             //Update scene when wrong answer is chosen
             if atPoint(location).name == "button2"{
                 if(correctAnswer == false){
+                    //Add points
+                    UserInfo.shared.score += 5
                     button2.color = SKColor.green
                     result.text = "Correct!"
                     result.isHidden = false
@@ -136,12 +142,15 @@ class Trivia: SKScene{
             }
             
             if atPoint(location).name == "nextButton"{
-                
-                if let scene = Congratulations(fileNamed: "Congratulations") {
-                    scene.scaleMode = .aspectFit
-                    
-                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+               //Change to different game scene
+                if (sceneApperance == 1){
+                    if let scene = GameScene(fileNamed: "GameScene") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                    }
                 }
+                
             }
             
             if atPoint(location).name == "mainMenu"{

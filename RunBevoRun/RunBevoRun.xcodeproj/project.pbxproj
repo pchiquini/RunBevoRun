@@ -27,7 +27,6 @@
 		BF6D30231E9EF0DB00180BC1 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */; };
 		BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF7E22FE1E84737F001FA179 /* Trivia.sks */; };
 		BF7E23011E8474E3001FA179 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E23001E8474E3001FA179 /* Trivia.swift */; };
-		BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF845C4C1E80435100FA20DB /* TriviaViewController.swift */; };
 		D256FE141E9B06B60086D1C1 /* bevo0.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF51E9B06B60086D1C1 /* bevo0.png */; };
 		D256FE151E9B06B60086D1C1 /* bevo1.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF61E9B06B60086D1C1 /* bevo1.png */; };
 		D256FE161E9B06B60086D1C1 /* bevo2.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF71E9B06B60086D1C1 /* bevo2.png */; };
@@ -107,7 +106,6 @@
 		BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF7E22FE1E84737F001FA179 /* Trivia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trivia.sks; sourceTree = "<group>"; };
 		BF7E23001E8474E3001FA179 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
-		BF845C4C1E80435100FA20DB /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		D256FDF51E9B06B60086D1C1 /* bevo0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo0.png; sourceTree = "<group>"; };
 		D256FDF61E9B06B60086D1C1 /* bevo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo1.png; sourceTree = "<group>"; };
 		D256FDF71E9B06B60086D1C1 /* bevo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo2.png; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 		BF845C4B1E80433C00FA20DB /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				BF845C4C1E80435100FA20DB /* TriviaViewController.swift */,
 				BF7E22FE1E84737F001FA179 /* Trivia.sks */,
 				BF7E23001E8474E3001FA179 /* Trivia.swift */,
 			);
@@ -576,7 +573,6 @@
 			files = (
 				D28DBA421E78EB830022F131 /* Player.swift in Sources */,
 				D2859B061E837881000F7679 /* Congratulations.swift in Sources */,
-				BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */,
 				BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */,
 				60E943B11E81A9E6005E45DB /* ChangeCharacter.swift in Sources */,
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,

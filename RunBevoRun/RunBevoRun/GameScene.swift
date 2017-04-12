@@ -52,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
-    static var score:Int = 0
+    //static var score:Int = 0
     
     /** Declaring Objects from according Class**/
     private var itemController = ItemClass()
@@ -115,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Intianliaze Running Score Label **/
         scoreLabel = mainCamera!.childNode(withName: "scoreLabel") as? SKLabelNode!
-        GameScene.score = 0
+        UserInfo.shared.score = 0
         scoreLabel?.text = "0"
         
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
@@ -163,14 +163,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
             /** Updates Score **/
-            GameScene.score += 1
-            scoreLabel!.text = String(GameScene.score)
+            UserInfo.shared.score += 1
+            scoreLabel!.text = String(UserInfo.shared.score)
             
             /** Removes Nodes **/
             secondBody.node?.removeFromParent()
             
             /** How To Win The Game: Must Collect 5 Longhorns **/
-            if(GameScene.score >= 5){
+            if(UserInfo.shared.score >= 5){
                 if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
                     scene.scaleMode = .aspectFit
                     
@@ -186,8 +186,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             totalLives += -1
             
             /** Updates Score Equation **/
-            GameScene.score += -1
-            scoreLabel?.text = String(GameScene.score)
+            UserInfo.shared.score += -1
+            scoreLabel?.text = String(UserInfo.shared.score)
             
             if totalLives == 2{
                 /** Remove Life and Enemy Collison **/
