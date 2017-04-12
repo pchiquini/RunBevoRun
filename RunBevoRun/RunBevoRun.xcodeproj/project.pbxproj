@@ -24,6 +24,7 @@
 		BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8401E789A79009E3F7F /* LoginViewController.swift */; };
 		BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */; };
 		BF33C8B61E9B4AE300547F37 /* RunBevoRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF33C8B41E9B4AE300547F37 /* RunBevoRun.xcdatamodeld */; };
+		BF6D30231E9EF0DB00180BC1 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */; };
 		BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF7E22FE1E84737F001FA179 /* Trivia.sks */; };
 		BF7E23011E8474E3001FA179 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E23001E8474E3001FA179 /* Trivia.swift */; };
 		BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF845C4C1E80435100FA20DB /* TriviaViewController.swift */; };
@@ -103,6 +104,7 @@
 		BF0CB8401E789A79009E3F7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF0CB8421E789ECE009E3F7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BF33C8B51E9B4AE300547F37 /* RunBevoRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunBevoRun.xcdatamodel; sourceTree = "<group>"; };
+		BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF7E22FE1E84737F001FA179 /* Trivia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trivia.sks; sourceTree = "<group>"; };
 		BF7E23001E8474E3001FA179 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
 		BF845C4C1E80435100FA20DB /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				D28DBA201E721EFC0022F131 /* Assets.xcassets */,
 				D28DBA221E721EFC0022F131 /* LaunchScreen.storyboard */,
 				D28DBA251E721EFC0022F131 /* Info.plist */,
+				BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */,
 			);
 			path = RunBevoRun;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				60E943B51E81B20A005E45DB /* GameOver.swift in Sources */,
 				D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */,
 				D28DBA4A1E79E81D0022F131 /* ItemClass.swift in Sources */,
+				BF6D30231E9EF0DB00180BC1 /* UserInfo.swift in Sources */,
 				D28DBA2E1E771D910022F131 /* MainMenu.swift in Sources */,
 				D28DBA3C1E78E0060022F131 /* BackgroundClass.swift in Sources */,
 				D28DBA4C1E7A5CD60022F131 /* PlatformClass.swift in Sources */,
