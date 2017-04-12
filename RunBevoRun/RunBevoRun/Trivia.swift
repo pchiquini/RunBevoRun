@@ -20,6 +20,8 @@ class Trivia: SKScene{
     var question:   SKLabelNode!
     var result:     SKLabelNode!
     
+    var correctAnswer:Bool = false
+    
     /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
@@ -52,9 +54,39 @@ class Trivia: SKScene{
         let button1Label = button1.childNode(withName: "button1Label") as! SKLabelNode
         let button2Label = button2.childNode(withName: "button2Label") as! SKLabelNode
         
-        question.text = "UT's campus is greater than 40 acres"
         button1Label.text = "True"
         button2Label.text = "False"
+        RandomQuestions()
+        
+        
+    }
+    func RandomQuestions(){
+        var RandomNumber = arc4random() % 4
+        RandomNumber += 1
+        
+        switch (RandomNumber){
+        case 1:
+            question.text = "UT has 2 mascots"
+            correctAnswer = true
+            break
+            
+        case 2:
+            question.text = "UT was established in 1925"
+            correctAnswer = false
+            break
+            
+        case 3:
+            question.text = "UT is greater than 40 acres"
+            correctAnswer = true
+            break
+            
+        case 4:
+            question.text = "The Eyes of Texas is the fight song "
+            correctAnswer = false
+            break
+        default:
+            break
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,26 +97,42 @@ class Trivia: SKScene{
             
             //Update scene when right answer is chosen
             if atPoint(location).name == "button1" {
-                
-                button1.color = SKColor.green
-                result.text = "Correct!"
-                result.isHidden = false
-                nextButton.isHidden = false
-                mainMenu.isHidden = true
-                button2.isHidden = true
+                if (correctAnswer == true){
+                    button1.color = SKColor.green
+                    result.text = "Correct!"
+                    result.isHidden = false
+                    nextButton.isHidden = false
+                    mainMenu.isHidden = true
+                    button2.isHidden = true
+                }else{
+                    button1.color = SKColor.red
+                    result.text = "Wrong"
+                    result.isHidden = false
+                    nextButton.isHidden = true
+                    mainMenu.isHidden = false
+                    button2.isHidden = true
+                }
                 
                 //TODO include adding points here
             }
             
             //Update scene when wrong answer is chosen
-            if atPoint(location).name == "button2" {
- 
-                button2.color = SKColor.red
-                result.text = "Wrong"
-                result.isHidden = false
-                nextButton.isHidden = true
-                mainMenu.isHidden = false
-                button1.isHidden = true
+            if atPoint(location).name == "button2"{
+                if(correctAnswer == false){
+                    button2.color = SKColor.green
+                    result.text = "Correct!"
+                    result.isHidden = false
+                    nextButton.isHidden = false
+                    mainMenu.isHidden = true
+                    button1.isHidden = true
+                }else{
+                    button2.color = SKColor.red
+                    result.text = "Wrong"
+                    result.isHidden = false
+                    nextButton.isHidden = true
+                    mainMenu.isHidden = false
+                    button1.isHidden = true
+                }
             }
             
             if atPoint(location).name == "nextButton"{
