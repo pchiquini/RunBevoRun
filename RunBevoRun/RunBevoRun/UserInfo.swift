@@ -8,10 +8,12 @@
 
 import Foundation
 
-class Score{
-    static let shared = Score()
-    var score = 0
+class UserInfo{
+    static let shared = UserInfo()
+    var username:String = ""
+    var score:Int = 0
     
-    //when calling Score.shared.var
+    
+    //when calling UserInfo.shared.username(score)
     //if score is static, can access directly
 }
