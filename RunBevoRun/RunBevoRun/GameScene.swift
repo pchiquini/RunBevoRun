@@ -99,7 +99,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         /** Intianliaze player from the Player class for the GameScence **/
         player = self.childNode(withName: "player") as? Player!
+        //player = SKSpriteNode(imageNamed:"player8") as? Player!
         player?.initPlayer()
+        
         
         /** Creating the Player's lives **/
         //addLives()
