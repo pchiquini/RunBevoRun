@@ -33,7 +33,7 @@ class GameOver: SKScene {
 
         /** Displaying Score From GameScene **/
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode?
-        scoreLabel!.text = String(GameScene.score)
+        scoreLabel!.text = String(UserInfo.shared.score)
         
         /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
