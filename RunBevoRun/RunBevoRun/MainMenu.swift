@@ -77,7 +77,7 @@ class MainMenu: SKScene {
                     /** Stop Playing MainMenu Music **/
                     //backgroundMusic.run(SKAction.stop())
                 
-                    if let scene = GameScene(fileNamed: "GameScene") {
+                    if let scene = GameScene(fileNamed: "GameScene1") {
                         
                         scene.scaleMode = .aspectFit
                         
