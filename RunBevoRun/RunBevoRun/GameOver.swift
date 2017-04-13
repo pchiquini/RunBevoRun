@@ -33,7 +33,7 @@ class GameOver: SKScene {
 
         /** Displaying Score From GameScene **/
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode?
-        scoreLabel!.text = String(GameScene.score)
+        scoreLabel!.text = String(UserInfo.shared.score)
         
         /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
@@ -47,7 +47,7 @@ class GameOver: SKScene {
             
             if atPoint(location).name == "backButton" {
                 
-                if let scene = GameScene(fileNamed: "GameScene") {
+                if let scene = GameScene(fileNamed: "GameScene1") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))

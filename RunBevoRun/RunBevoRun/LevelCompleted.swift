@@ -21,7 +21,7 @@ class LevelCompleted: SKScene {
     //You need to create a pointer to it manually. 
     //This can be done by creating a property for the SKScene: maybe?
     var viewcontroller: UIViewController!
-    let newViewController = TriviaViewController()
+    let newViewController = Trivia()
     
     /** Starting Point **/
     override func didMove(to view: SKView) {
@@ -38,7 +38,7 @@ class LevelCompleted: SKScene {
         
         /** Displaying Score From GameScene **/
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode?
-        scoreLabel!.text = String(GameScene.score)
+        scoreLabel!.text = String(UserInfo.shared.score)
         
         /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
@@ -53,7 +53,7 @@ class LevelCompleted: SKScene {
             
             if atPoint(location).name == "backButton" {
                 
-                if let scene = GameScene(fileNamed: "GameScene") {
+                if let scene = GameScene(fileNamed: "GameScene1") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))

@@ -27,7 +27,6 @@
 		BF6D30231E9EF0DB00180BC1 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */; };
 		BF7E22FF1E84737F001FA179 /* Trivia.sks in Resources */ = {isa = PBXBuildFile; fileRef = BF7E22FE1E84737F001FA179 /* Trivia.sks */; };
 		BF7E23011E8474E3001FA179 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E23001E8474E3001FA179 /* Trivia.swift */; };
-		BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF845C4C1E80435100FA20DB /* TriviaViewController.swift */; };
 		D256FE141E9B06B60086D1C1 /* bevo0.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF51E9B06B60086D1C1 /* bevo0.png */; };
 		D256FE151E9B06B60086D1C1 /* bevo1.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF61E9B06B60086D1C1 /* bevo1.png */; };
 		D256FE161E9B06B60086D1C1 /* bevo2.png in Resources */ = {isa = PBXBuildFile; fileRef = D256FDF71E9B06B60086D1C1 /* bevo2.png */; };
@@ -64,7 +63,7 @@
 		D2859B061E837881000F7679 /* Congratulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2859B051E837881000F7679 /* Congratulations.swift */; };
 		D2859B081E837898000F7679 /* LevelCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2859B071E837898000F7679 /* LevelCompleted.swift */; };
 		D28DBA141E721EFC0022F131 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA131E721EFC0022F131 /* AppDelegate.swift */; };
-		D28DBA161E721EFC0022F131 /* GameSceneTEST.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA151E721EFC0022F131 /* GameSceneTEST.sks */; };
+		D28DBA161E721EFC0022F131 /* GameScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA151E721EFC0022F131 /* GameScene1.sks */; };
 		D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA191E721EFC0022F131 /* GameScene.swift */; };
 		D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA1B1E721EFC0022F131 /* GameViewController.swift */; };
 		D28DBA1F1E721EFC0022F131 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA1D1E721EFC0022F131 /* Main.storyboard */; };
@@ -82,7 +81,7 @@
 		D28DBA531E7A69060022F131 /* MagicField.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA521E7A69060022F131 /* MagicField.sks */; };
 		D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2CA33D31E85EBA900367408 /* boomBoom.sks */; };
 		D2E9C29C1E9EDFBC00BDD5ED /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */; };
-		D2E9C29E1E9EDFCE00BDD5ED /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29D1E9EDFCE00BDD5ED /* GameScene.sks */; };
+		D2E9C29E1E9EDFCE00BDD5ED /* GameScene3.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29D1E9EDFCE00BDD5ED /* GameScene3.sks */; };
 		D2E9C2A01E9EDFE200BDD5ED /* GameScene4.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29F1E9EDFE200BDD5ED /* GameScene4.sks */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +106,6 @@
 		BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF7E22FE1E84737F001FA179 /* Trivia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trivia.sks; sourceTree = "<group>"; };
 		BF7E23001E8474E3001FA179 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
-		BF845C4C1E80435100FA20DB /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		D256FDF51E9B06B60086D1C1 /* bevo0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo0.png; sourceTree = "<group>"; };
 		D256FDF61E9B06B60086D1C1 /* bevo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo1.png; sourceTree = "<group>"; };
 		D256FDF71E9B06B60086D1C1 /* bevo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bevo2.png; sourceTree = "<group>"; };
@@ -145,7 +143,7 @@
 		D2859B071E837898000F7679 /* LevelCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompleted.swift; sourceTree = "<group>"; };
 		D28DBA101E721EFC0022F131 /* RunBevoRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunBevoRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28DBA131E721EFC0022F131 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D28DBA151E721EFC0022F131 /* GameSceneTEST.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameSceneTEST.sks; sourceTree = "<group>"; };
+		D28DBA151E721EFC0022F131 /* GameScene1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene1.sks; sourceTree = "<group>"; };
 		D28DBA191E721EFC0022F131 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D28DBA1B1E721EFC0022F131 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D28DBA1E1E721EFC0022F131 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,7 +162,7 @@
 		D28DBA521E7A69060022F131 /* MagicField.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicField.sks; sourceTree = "<group>"; };
 		D2CA33D31E85EBA900367408 /* boomBoom.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boomBoom.sks; sourceTree = "<group>"; };
 		D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
-		D2E9C29D1E9EDFCE00BDD5ED /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D2E9C29D1E9EDFCE00BDD5ED /* GameScene3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene3.sks; sourceTree = "<group>"; };
 		D2E9C29F1E9EDFE200BDD5ED /* GameScene4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene4.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +238,6 @@
 		BF845C4B1E80433C00FA20DB /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				BF845C4C1E80435100FA20DB /* TriviaViewController.swift */,
 				BF7E22FE1E84737F001FA179 /* Trivia.sks */,
 				BF7E23001E8474E3001FA179 /* Trivia.swift */,
 			);
@@ -339,9 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				D28DBA191E721EFC0022F131 /* GameScene.swift */,
-				D28DBA151E721EFC0022F131 /* GameSceneTEST.sks */,
+				D28DBA151E721EFC0022F131 /* GameScene1.sks */,
 				D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */,
-				D2E9C29D1E9EDFCE00BDD5ED /* GameScene.sks */,
+				D2E9C29D1E9EDFCE00BDD5ED /* GameScene3.sks */,
 				D2E9C29F1E9EDFE200BDD5ED /* GameScene4.sks */,
 			);
 			name = GameScenes;
@@ -539,8 +536,8 @@
 				D256FE251E9B06B60086D1C1 /* bevo17.png in Resources */,
 				D256FE301E9B06B60086D1C1 /* bevo28.png in Resources */,
 				D256FE1B1E9B06B60086D1C1 /* bevo7.png in Resources */,
-				D28DBA161E721EFC0022F131 /* GameSceneTEST.sks in Resources */,
-				D2E9C29E1E9EDFCE00BDD5ED /* GameScene.sks in Resources */,
+				D28DBA161E721EFC0022F131 /* GameScene1.sks in Resources */,
+				D2E9C29E1E9EDFCE00BDD5ED /* GameScene3.sks in Resources */,
 				D256FE2D1E9B06B60086D1C1 /* bevo25.png in Resources */,
 				D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */,
 				D256FE271E9B06B60086D1C1 /* bevo19.png in Resources */,
@@ -576,7 +573,6 @@
 			files = (
 				D28DBA421E78EB830022F131 /* Player.swift in Sources */,
 				D2859B061E837881000F7679 /* Congratulations.swift in Sources */,
-				BF845C4D1E80435100FA20DB /* TriviaViewController.swift in Sources */,
 				BF0CB8411E789A79009E3F7F /* LoginViewController.swift in Sources */,
 				60E943B11E81A9E6005E45DB /* ChangeCharacter.swift in Sources */,
 				D28DBA1A1E721EFC0022F131 /* GameScene.swift in Sources */,
