@@ -23,7 +23,7 @@ class Trivia: SKScene{
     var correctAnswer:Bool = false
     
     //var sceneApperance:Int  -> UserInfo.shared.sceneApperance
-    var sceneApperance = UserInfo.shared.currentScene
+    //var sceneApperance = UserInfo.shared.currentScene
     
     /** Starting Point **/
     override func didMove(to view: SKView) {
@@ -37,8 +37,8 @@ class Trivia: SKScene{
     /********************************************************************/
     
     func createScene() {
-        print(String(UserInfo.shared.currentScene))
-        sceneApperance += 1
+        print("HERE IS THE CURRENT SCENE #: ", String(UserInfo.shared.currentScene))
+        UserInfo.shared.currentScene += 1
         
         button1 = self.childNode(withName: "button1") as! SKSpriteNode
         button2 = self.childNode(withName: "button2") as! SKSpriteNode
@@ -144,7 +144,7 @@ class Trivia: SKScene{
             
             if atPoint(location).name == "nextButton"{
                //Change to different game scene
-                if (sceneApperance == 1){
+                if (UserInfo.shared.currentScene == 1){
                     if let scene = GameScene2(fileNamed: "GameScene2") {
                         scene.scaleMode = .aspectFit
                         
@@ -152,7 +152,7 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (sceneApperance == 2){
+                if (UserInfo.shared.currentScene == 2){
                     if let scene = GameScene3(fileNamed: "GameScene3") {
                         scene.scaleMode = .aspectFit
                         
@@ -160,7 +160,7 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (sceneApperance == 3){
+                if (UserInfo.shared.currentScene == 3){
                     if let scene = GameScene4(fileNamed: "GameScene4") {
                         scene.scaleMode = .aspectFit
                         
@@ -168,14 +168,13 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (sceneApperance == 4){
+                if (UserInfo.shared.currentScene == 4){
                     if let scene = Congratulations(fileNamed: "Congratulations") {
                         scene.scaleMode = .aspectFit
                         
                         view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                     }
                 }
-
                 
             }
             
