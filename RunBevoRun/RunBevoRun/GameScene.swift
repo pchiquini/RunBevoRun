@@ -52,7 +52,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
-    //static var score:Int = 0
     
     /** Declaring Objects from according Class**/
     private var itemController = ItemClass()
@@ -74,6 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Initializing Camera for the Game **/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
+        
+        /** Initializing Timer **/
+        Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: true)
         
         /** Settings For Physics World **/
         self.physicsWorld.contactDelegate = self
@@ -104,7 +106,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /** Creating the Player's lives **/
-        //addLives()
         life1 = mainCamera!.childNode(withName: "life1") as? SKSpriteNode!
         life2 = mainCamera!.childNode(withName: "life2") as? SKSpriteNode!
         life3 = mainCamera!.childNode(withName: "life3") as? SKSpriteNode!
@@ -121,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
         Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
         
-        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
         
         /** Collision and Contact Masks **/
         ground1?.physicsBody?.categoryBitMask = ColliderType.GROUND
@@ -170,13 +171,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
             
             /** How To Win The Game: Must Collect 5 Longhorns **/
-            if(UserInfo.shared.score >= 5){
-                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
-                    scene.scaleMode = .aspectFit
-                    
-                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
-                }
-            }
+//            if(UserInfo.shared.score >= 5){
+//                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
+//                    scene.scaleMode = .aspectFit
+//                    
+//                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+//                }
+//            }
         }
         
         /** Subtracts Score & Explodes **/
@@ -189,13 +190,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             UserInfo.shared.score += -1
             scoreLabel?.text = String(UserInfo.shared.score)
             
-            if totalLives == 2{
+            if totalLives == 2 {
                 /** Remove Life and Enemy Collison **/
                 life1?.removeFromParent()
                 secondBody.node?.removeFromParent()
             }
                 
-            else if totalLives == 1{
+            else if totalLives == 1 {
                 /** Remove Life and Enemy Collison **/
                 life2?.removeFromParent()
                 secondBody.node?.removeFromParent()
@@ -219,7 +220,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             /*** Intianliaze the timer used for restaring the GameScence ***/
-            //Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
+//            Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
             
         }
         
@@ -282,18 +283,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scene?.addChild(platformController.spawnPlatforms(camera: mainCamera!))
     }
     
-    /** Handling the Player's Lives **/
-    func addLives(){
-        livesArray = [SKSpriteNode]()
-        
-        for live in 1 ... 3 {
-            let liveNode  = SKSpriteNode(imageNamed: "longhorn")
-            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4-live) * liveNode.size.width, y: self.frame.size.height - 100)
-            self.addChild(liveNode)
-            livesArray.append(liveNode)
-        }
-    }
-    
     /** Moves Enemy on the GameScene **/
     func moveEnemy(){
         enumerateChildNodes(withName: "enemy", using:({
@@ -310,6 +299,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /** Adds Explosion Sound Effect: Explosion **/
         self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
+    }
+    
+    /** Time Is Out, transition into the Trivia **/
+    func timeIsOut(){
+        if let scene = Trivia(fileNamed: "Trivia") {
+            scene.scaleMode = .aspectFit
+            
+            view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+        }
     }
     
     func gameOver(){
@@ -331,6 +329,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player?.move()
         backWall?.backWallMove()
         moveEnemy()
-        //livesMove()
     }
 }

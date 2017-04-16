@@ -9,6 +9,7 @@
 import Foundation
 
 class UserInfo{
+    
     static let shared = UserInfo()
     var username:String = ""
     var score:Int = 0

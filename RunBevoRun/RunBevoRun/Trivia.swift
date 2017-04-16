@@ -64,6 +64,7 @@ class Trivia: SKScene{
         
         
     }
+    
     func RandomQuestions(){
         var RandomNumber = arc4random() % 4
         RandomNumber += 1
