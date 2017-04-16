@@ -21,7 +21,7 @@ class LevelCompleted: SKScene {
     //You need to create a pointer to it manually. 
     //This can be done by creating a property for the SKScene: maybe?
     var viewcontroller: UIViewController!
-    let newViewController = TriviaViewController()
+    let newViewController = Trivia()
     
     /** Starting Point **/
     override func didMove(to view: SKView) {

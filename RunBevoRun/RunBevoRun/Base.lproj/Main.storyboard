@@ -116,7 +116,7 @@
         <!--Login View Controller-->
         <scene sceneID="9tP-Qs-9Io">
             <objects>
-                <viewController id="0sP-b9-aIL" customClass="LoginViewController" customModule="RunBevoRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="0sP-b9-aIL" customClass="LoginViewController" customModule="RunBevoRun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i75-Fv-1LV"/>
                         <viewControllerLayoutGuide type="bottom" id="ChP-8E-FDg"/>
