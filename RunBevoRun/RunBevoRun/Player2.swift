@@ -1,22 +1,16 @@
 //
-//  Player.swift
+//  Player2.swift
 //  RunBevoRun
 //
-//  Created by Patrizio Chiquini on 3/14/17.
+//  Created by Patrizio Chiquini on 4/15/17.
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
+import Foundation
+
 import SpriteKit
 
-struct ColliderType {
-    static let PLAYER:UInt32 = 0    //playerCategory
-    static let GROUND:UInt32 = 1    //groundCategory
-    static let ENEMY:UInt32 = 2     //enemyCategory
-    static let ITEM:UInt32 = 3      //itemCategory
-    static let PLATFORM:UInt = 4    //platform Category
-}
-
-class Player: SKSpriteNode {
+class Player2: SKSpriteNode {
     
     /* Variables for Bevo Animations */
     private var playerAnimation = [SKTexture]()
@@ -30,11 +24,11 @@ class Player: SKSpriteNode {
         
         /* Initialize Animations by filtering */
         for i in 0...30 {
-            let name = "bevo\(i)"
+            let name = "hookem\(i)"
             playerAnimation.append(SKTexture(imageNamed: name))
         }
         
-        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.03, resize: false, restore: false)
+        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.08, resize: false, restore: false)
         
         /* Run Animation Forever */
         self.run(SKAction.repeatForever(animatePlayerAction))
@@ -65,4 +59,3 @@ class Player: SKSpriteNode {
         }
     }
 }
-

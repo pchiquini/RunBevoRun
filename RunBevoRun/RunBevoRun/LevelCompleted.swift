@@ -53,7 +53,7 @@ class LevelCompleted: SKScene {
             
             if atPoint(location).name == "backButton" {
                 
-                if let scene = GameScene(fileNamed: "GameScene") {
+                if let scene = GameScene(fileNamed: "GameScene1") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))

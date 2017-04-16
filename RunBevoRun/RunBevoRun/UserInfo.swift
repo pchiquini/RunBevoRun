@@ -9,10 +9,11 @@
 import Foundation
 
 class UserInfo{
+    
     static let shared = UserInfo()
     var username:String = ""
     var score:Int = 0
-    
+    var currentScene:Int = 0
     
     //when calling UserInfo.shared.username(score)
     //if score is static, can access directly
