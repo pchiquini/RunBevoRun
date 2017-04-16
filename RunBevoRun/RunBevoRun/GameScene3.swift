@@ -6,4 +6,9 @@
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
+import GameplayKit
+
+class GameScene3: SKScene, SKPhysicsContactDelegate {
+
+}

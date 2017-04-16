@@ -41,7 +41,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player: Player?
     
     /** Player Lives **/
-    var livesArray:[SKSpriteNode]!
     var life1: SKSpriteNode?
     var life2: SKSpriteNode?
     var life3: SKSpriteNode?
@@ -75,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
         /** Initializing Timer **/
-        Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
         
         /** Settings For Physics World **/
         self.physicsWorld.contactDelegate = self
@@ -104,7 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //player = SKSpriteNode(imageNamed:"player8") as? Player!
         player?.initPlayer()
         
-        
         /** Creating the Player's lives **/
         life1 = mainCamera!.childNode(withName: "life1") as? SKSpriteNode!
         life2 = mainCamera!.childNode(withName: "life2") as? SKSpriteNode!
@@ -120,9 +118,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel?.text = "0"
         
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene2.addItems), userInfo: nil, repeats: true)
         
-        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene2.addPlatforms), userInfo: nil, repeats: true)
         
         /** Collision and Contact Masks **/
         ground1?.physicsBody?.categoryBitMask = ColliderType.GROUND
@@ -147,12 +145,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var secondBody = SKPhysicsBody()
         
         /** checking for the playerCategory (player) **/
-        if contact.bodyA.node?.name == "Player"{
+        if contact.bodyA.node?.name == "Player" {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
         }
             
-        else{
+        else {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
