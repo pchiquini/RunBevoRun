@@ -9,6 +9,12 @@
 import SpriteKit
 import GameplayKit
 
+/********************************************************************/
+/*                                                                  */
+/*                        GAME SCENE 1                              */
+/*                                                                  */
+/********************************************************************/
+
 class GameData {
     static let sharedInstance = GameData()
 }
@@ -25,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var mainCamera: SKCameraNode?
     
     /** Start/Loop Backgroun Music **/
-    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "TexasFightSong.mp3")
     
     /** Background Variables Used for Infinite Effect **/
     private var bg1: BackgroundClass?
@@ -47,7 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var totalLives:Int = 3
     
     /** Back Wall Variable **/
-    private var backWall: PlatformClass?
+    private var backWall: BackgroundClass?
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
@@ -70,19 +76,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createScene(){
         
+        /* Reseting the Number of the Scene */
+        UserInfo.shared.currentScene = 1
+        
         /** Initializing Camera for the Game **/
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
         /** Initializing Timer **/
-        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
+        Timer.scheduledTimer(timeInterval: 28.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
         
         /** Settings For Physics World **/
         self.physicsWorld.contactDelegate = self
         
         /** Start/Loop Backgroun Music **/
-        ////let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
         //backgroundMusic.autoplayLooped = true
-        //self.addChild(backgroundMusic)
+        self.addChild(backgroundMusic)
         
         /** Creating Infinite Background and Ground Variables **/
         bg1 = childNode(withName: "background1") as? BackgroundClass!
@@ -109,7 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         life3 = mainCamera!.childNode(withName: "life3") as? SKSpriteNode!
         
         /** Intianliaze the BackWall for the GameScence **/
-        backWall = self.childNode(withName: "backWall") as? PlatformClass!
+        backWall = self.childNode(withName: "backWall") as? BackgroundClass!
         backWall?.initBackWall()
         
         /** Intianliaze Running Score Label **/
@@ -118,9 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel?.text = "0"
         
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene2.addItems), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 3)), target: self, selector: #selector(GameScene2.addItems), userInfo: nil, repeats: true)
         
-        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene2.addPlatforms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene2.addPlatforms), userInfo: nil, repeats: true)
         
         /** Collision and Contact Masks **/
         ground1?.physicsBody?.categoryBitMask = ColliderType.GROUND
@@ -183,6 +191,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
             /** Total Lives Equation **/
             totalLives += -1
+           
+            /** Adds Explosion Sound Effect: Explosion **/
+            self.run(SKAction.playSoundFileNamed("smashing.mp3", waitForCompletion: false))
             
             /** Updates Score Equation **/
             UserInfo.shared.score += -1
@@ -212,14 +223,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 explosion()
                 
                 /** Intianliaze the timer used for restaring the GameScence **/
-                self.run(SKAction.wait(forDuration: 2)) {
+                self.run(SKAction.wait(forDuration: 1)) {
                     self.gameOver()
                 }
             }
-            
-            /*** Intianliaze the timer used for restaring the GameScence ***/
-//            Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
-            
         }
         
         /** Player Goes Off The Screen **/
@@ -301,16 +308,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /** Time Is Out, transition into the Trivia **/
     func timeIsOut(){
+        
+        /** Stop Background Music **/
+        backgroundMusic.run(SKAction.stop())
+        
+        self.run(SKAction.wait(forDuration: 1)) {
+
         if let scene = Trivia(fileNamed: "Trivia") {
             scene.scaleMode = .aspectFit
             
-            view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            self.view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            }
         }
     }
     
     func gameOver(){
         
-        //backgroundMusic.run(SKAction.stop())
+        /**Stop Background Music**/
+        backgroundMusic.run(SKAction.stop())
                 
         /** Intianliaze the timer used for restaring the GameScence **/
         if let scene = GameOver(fileNamed: "GameOver") {

@@ -8,9 +8,15 @@
 
 import SpriteKit
 
+/********************************************************************/
+/*                                                                  */
+/*                        PLATFORMS: SCENE 1                        */
+/*                                                                  */
+/********************************************************************/
+
 class PlatformClass: SKSpriteNode {
     
-    private var minY = CGFloat(-100.0)
+    private var minY = CGFloat(-40.0)
     private var maxY = CGFloat(150.0)
     
     var platform: SKSpriteNode?
@@ -20,7 +26,7 @@ class PlatformClass: SKSpriteNode {
         /* Identifying the qualities of a Platform */
         platform = SKSpriteNode(imageNamed: "platform1")
         platform?.name = "Platform"
-        platform?.size = CGSize(width: 120, height: 60)
+        platform?.size = CGSize(width: 130, height: 60)
         platform?.setScale(0.7)
         platform?.physicsBody = SKPhysicsBody(rectangleOf: platform!.size)
         platform!.physicsBody?.affectedByGravity = false
@@ -44,32 +50,4 @@ class PlatformClass: SKSpriteNode {
         
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
-    
-    func initBackWall(){
-    
-        /* Helps with Collisions */
-        name = "BackWall"
-        
-        /* Coding/Setting Some Properties of Player */
-        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 20, height: self.size.height - 10))
-        physicsBody?.affectedByGravity = false
-        physicsBody?.isDynamic = false
-        physicsBody?.allowsRotation = false
-        
-        /*   Collision and Contact Masks   */
-        physicsBody?.categoryBitMask = ColliderType.GROUND
-        physicsBody?.contactTestBitMask = ColliderType.PLAYER
-    }
-    
-    /* Handles BackWall Automatic Movement */
-    func backWallMove(){
-        self.position.x += 10
-    }
-
 }
-
-
-
-
-
-    

@@ -16,14 +16,15 @@ class Trivia: SKScene{
     var button1:    SKSpriteNode!
     var button2:    SKSpriteNode!
     var nextButton: SKSpriteNode!
+    var backButton: SKSpriteNode!
     var mainMenu:   SKSpriteNode!
     var question:   SKLabelNode!
     var result:     SKLabelNode!
     
     var correctAnswer:Bool = false
     
-    //var sceneApperance:Int  -> UserInfo.shared.sceneApperance
-    //var sceneApperance = UserInfo.shared.currentScene
+    /** Start/Loop Backgroun Music **/
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "Trivia.mp3")
     
     /** Starting Point **/
     override func didMove(to view: SKView) {
@@ -37,16 +38,21 @@ class Trivia: SKScene{
     /********************************************************************/
     
     func createScene() {
-        print("HERE IS THE CURRENT SCENE #: ", String(UserInfo.shared.currentScene))
+
+        /** Start/Loop Backgroun Music **/
+        self.addChild(backgroundMusic)
+        
         UserInfo.shared.currentScene += 1
         
         button1 = self.childNode(withName: "button1") as! SKSpriteNode
         button2 = self.childNode(withName: "button2") as! SKSpriteNode
         nextButton = self.childNode(withName: "nextButton") as! SKSpriteNode
+        backButton = self.childNode(withName: "backButton") as! SKSpriteNode
         mainMenu = self.childNode(withName: "mainMenu") as! SKSpriteNode
         
         //Appears after answer is chosen
         nextButton.isHidden = true
+        backButton.isHidden = true
         mainMenu.isHidden = true
         button1.isHidden = false
         button2.isHidden = false
@@ -106,9 +112,10 @@ class Trivia: SKScene{
                     //Add points
                     UserInfo.shared.score += 5
                     button1.color = SKColor.green
-                    result.text = "Correct! +5 to your score"
+                    result.text = "Correct! +5"
                     result.isHidden = false
                     nextButton.isHidden = false
+                    backButton.isHidden = true
                     mainMenu.isHidden = true
                     button2.isHidden = true
                 }else{
@@ -116,6 +123,7 @@ class Trivia: SKScene{
                     result.text = "Wrong"
                     result.isHidden = false
                     nextButton.isHidden = true
+                    backButton.isHidden = true
                     mainMenu.isHidden = false
                     button2.isHidden = true
                 }
@@ -127,7 +135,7 @@ class Trivia: SKScene{
                     //Add points
                     UserInfo.shared.score += 5
                     button2.color = SKColor.green
-                    result.text = "Correct! +5 to your score"
+                    result.text = "Correct! +5"
                     result.isHidden = false
                     nextButton.isHidden = false
                     mainMenu.isHidden = true
@@ -143,8 +151,12 @@ class Trivia: SKScene{
             }
             
             if atPoint(location).name == "nextButton"{
-               //Change to different game scene
-                if (UserInfo.shared.currentScene == 1){
+               
+                /**Stop Background Music**/
+                backgroundMusic.run(SKAction.stop())
+                
+                //Change to different game scene
+                if (UserInfo.shared.currentScene == 2){
                     if let scene = GameScene2(fileNamed: "GameScene2") {
                         scene.scaleMode = .aspectFit
                         
@@ -152,7 +164,7 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (UserInfo.shared.currentScene == 2){
+                if (UserInfo.shared.currentScene == 3){
                     if let scene = GameScene3(fileNamed: "GameScene3") {
                         scene.scaleMode = .aspectFit
                         
@@ -160,7 +172,7 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (UserInfo.shared.currentScene == 3){
+                if (UserInfo.shared.currentScene == 4){
                     if let scene = GameScene4(fileNamed: "GameScene4") {
                         scene.scaleMode = .aspectFit
                         
@@ -168,14 +180,63 @@ class Trivia: SKScene{
                     }
                 }
                 
-                if (UserInfo.shared.currentScene == 4){
+                if (UserInfo.shared.currentScene == 5){
                     if let scene = Congratulations(fileNamed: "Congratulations") {
                         scene.scaleMode = .aspectFit
                         
                         view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                     }
                 }
+            }
+            
+            if atPoint(location).name == "backButton"{
                 
+                if (UserInfo.shared.currentScene == 5){
+                    if let scene = Congratulations(fileNamed: "Congratulations") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                        }
+                }
+            
+                /** Manage of Current Scene -1**/
+                UserInfo.shared.currentScene = UserInfo.shared.currentScene - 1
+                
+                /**Stop Background Music**/
+                backgroundMusic.run(SKAction.stop())
+                
+                //Change to different game scene
+                if (UserInfo.shared.currentScene == 1){
+                    if let scene = GameScene(fileNamed: "GameScene1") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                    }
+                }
+                
+                if (UserInfo.shared.currentScene == 2){
+                    if let scene = GameScene2(fileNamed: "GameScene2") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                    }
+                }
+                
+                if (UserInfo.shared.currentScene == 3){
+                    if let scene = GameScene3(fileNamed: "GameScene3") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                    }
+                }
+                
+                if (UserInfo.shared.currentScene == 4){
+                    if let scene = GameScene4(fileNamed: "GameScene4") {
+                        scene.scaleMode = .aspectFit
+                        
+                        view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                    }
+                }
             }
             
             if atPoint(location).name == "mainMenu"{

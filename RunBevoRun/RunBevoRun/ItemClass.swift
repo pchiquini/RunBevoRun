@@ -8,9 +8,15 @@
 
 import SpriteKit
 
+/********************************************************************/
+/*                                                                  */
+/*                        ITEMS: SCENE 1                            */
+/*                                                                  */
+/********************************************************************/
+
 class ItemClass: SKSpriteNode {
     
-    private var minY = CGFloat(-118.0)
+    private var minY = CGFloat(-60.0)
     private var maxY = CGFloat(150.0)
     
     var item:SKSpriteNode?
@@ -18,10 +24,10 @@ class ItemClass: SKSpriteNode {
     func spawnItems(camera: SKCameraNode) -> SKSpriteNode {
         
         /* Identifying wether the Item is an enemy/item */
-        if Int(randomNumber(firstNum: 1, secondNum: 10)) >= 6 {
+        if Int(randomNumber(firstNum: 1, secondNum: 10)) >= 4 {
             item = SKSpriteNode(imageNamed: "item")
             item?.name = "Item"
-            item?.size = CGSize(width: 92, height: 46)
+            item?.size = CGSize(width: 98, height: 52)
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)
         }

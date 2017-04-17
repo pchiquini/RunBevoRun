@@ -6,9 +6,14 @@
 //  Copyright © 2017 Chiquini. All rights reserved.
 //
 
-
 import SpriteKit
 import GameplayKit
+
+/********************************************************************/
+/*                                                                  */
+/*                        GAME SCENE 2                              */
+/*                                                                  */
+/********************************************************************/
 
 class GameScene2: SKScene, SKPhysicsContactDelegate {
     
@@ -21,8 +26,11 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     /** Main Camera **/
     private var mainCamera: SKCameraNode?
     
+    /** Labeling Current Scene **/
+    //UserInfo.shared.currentScene = 1
+    
     /** Start/Loop Backgroun Music **/
-    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "TexasFightSong.mp3")
     
     /** Background Variables Used for Infinite Effect **/
     private var bg1: BackgroundClass?
@@ -44,14 +52,14 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     var totalLives:Int = 3
     
     /** Back Wall Variable **/
-    private var backWall: PlatformClass?
+    private var backWall: BackgroundClass?
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
     
     /** Declaring Objects from according Class**/
-    private var itemController = ItemClass()
-    private var platformController = PlatformClass()
+    private var itemController = Item2Class()
+    private var platformController = Platform2Class()
     
     /** Starting Point **/
     override func didMove(to view: SKView) {
@@ -71,15 +79,13 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
         /** Initializing Timer **/
-        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(GameScene2.timeIsOut), userInfo: true, repeats: false)
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
         
         /** Settings For Physics World **/
         self.physicsWorld.contactDelegate = self
         
         /** Start/Loop Backgroun Music **/
-        ////let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
-        //backgroundMusic.autoplayLooped = true
-        //self.addChild(backgroundMusic)
+        self.addChild(backgroundMusic)
         
         /** Creating Infinite Background and Ground Variables **/
         bg1 = childNode(withName: "background1") as? BackgroundClass!
@@ -106,7 +112,7 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         life3 = mainCamera!.childNode(withName: "life3") as? SKSpriteNode!
         
         /** Intianliaze the BackWall for the GameScence **/
-        backWall = self.childNode(withName: "backWall") as? PlatformClass!
+        backWall = self.childNode(withName: "backWall") as? BackgroundClass!
         backWall?.initBackWall()
         
         /** Intianliaze Running Score Label **/
@@ -114,9 +120,9 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         scoreLabel?.text = String(UserInfo.shared.score)
         
         /** Intianliaze the timer used for Spawning Objects on the GameScence **/
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addItems), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomNumber(firstNum: 1, secondNum: 2)), target: self, selector: #selector(GameScene2.addItems), userInfo: nil, repeats: true)
         
-        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 4)), target: self, selector: #selector(GameScene.addPlatforms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: TimeInterval(platformController.randomNumber(firstNum: 1, secondNum: 5)), target: self, selector: #selector(GameScene2.addPlatforms), userInfo: nil, repeats: true)
         
         /** Collision and Contact Masks **/
         ground1?.physicsBody?.categoryBitMask = ColliderType.GROUND
@@ -155,6 +161,9 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Item" {
             
             /** Adds Points Sound Effect: Texas **/
+            self.run(SKAction.playSoundFileNamed("Texas.mp3", waitForCompletion: false))
+            
+                /** Adds Points Sound Effect: Fight **/
             self.run(SKAction.playSoundFileNamed("points.mp3", waitForCompletion: false))
             
             /** Updates Score **/
@@ -163,15 +172,6 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
             
             /** Removes Nodes **/
             secondBody.node?.removeFromParent()
-            
-            /** How To Win The Game: Must Collect 5 Longhorns **/
-            //            if(UserInfo.shared.score >= 5){
-            //                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
-            //                    scene.scaleMode = .aspectFit
-            //
-            //                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
-            //                }
-            //            }
         }
         
         /** Subtracts Score & Explodes **/
@@ -179,6 +179,9 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
             
             /** Total Lives Equation **/
             totalLives += -1
+            
+            /** Adds Explosion Sound Effect: Explosion **/
+            self.run(SKAction.playSoundFileNamed("smashing.mp3", waitForCompletion: false))
             
             /** Updates Score Equation **/
             UserInfo.shared.score += -1
@@ -297,10 +300,17 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     
     /** Time Is Out, transition into the Trivia **/
     func timeIsOut(){
-        if let scene = Trivia(fileNamed: "Trivia") {
-            scene.scaleMode = .aspectFit
+        
+        /** Stop Background Music **/
+        //backgroundMusic.run(SKAction.stop())
+        
+        self.run(SKAction.wait(forDuration: 1)) {
             
-            view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            if let scene = Trivia(fileNamed: "Trivia") {
+                scene.scaleMode = .aspectFit
+                
+                self.view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
+            }
         }
     }
     

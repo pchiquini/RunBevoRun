@@ -51,12 +51,12 @@ class ChangeCharacter: SKScene {
             }
             
             if atPoint(location).name == "character1" {
-                
+                UserInfo.shared.runningAsBevo = true
                 
             }
             
             if atPoint(location).name == "character2" {
-                
+                UserInfo.shared.runningAsBevo = false
                 
             }
 

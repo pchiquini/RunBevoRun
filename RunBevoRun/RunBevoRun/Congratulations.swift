@@ -11,6 +11,9 @@ import SpriteKit
 
 class Congratulations: SKScene {
     
+    /** Start/Loop Backgroun Music **/
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "TheEyesOfTexas.mp3")
+    
     /*** Buttons On Scene ***/
     var mainMenuButton:SKSpriteNode!
     
@@ -28,7 +31,11 @@ class Congratulations: SKScene {
     
     func createScene() {
         
-        mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode        
+        /** Start/Loop Backgroun Music **/
+        self.addChild(backgroundMusic)
+        
+         /** Buttons in Scene  **/
+        mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -37,6 +44,9 @@ class Congratulations: SKScene {
             let location = touch.location(in: self)
             
             if atPoint(location).name == "mainMenuButton" {
+                
+                /** Stop Background Music **/
+                backgroundMusic.run(SKAction.stop())
                 
                 if let scene = MainMenu(fileNamed: "MainMenu") {
                     scene.scaleMode = .aspectFit
