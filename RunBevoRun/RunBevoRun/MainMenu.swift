@@ -18,8 +18,11 @@ class MainMenu: SKScene {
     var changeCharacter:SKSpriteNode!
     var characterLabel:SKLabelNode!
     
-    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
+    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
     //var isMusicPlaying:Bool?
+    
+    let sound:SKAction = SKAction.playSoundFileNamed("MainMenu", waitForCompletion: true)
+   
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
@@ -35,6 +38,15 @@ class MainMenu: SKScene {
     
     func createScene() {
         
+        /* Reseting the Number of the Scene */
+        UserInfo.shared.currentScene = 1
+        
+        if(UserInfo.shared.userOnMainMenu == true){
+            //self.addChild(backgroundMusic)
+            //let loopSound:SKAction = SKAction.repeatForever(sound)
+            //self.run(loopSound)
+        }
+        
         /** Start/Loop Backgroun Music **/
         //        if(isMusicPlaying == false )//|| isMusicPlaying == nil)
         //        {
@@ -43,10 +55,6 @@ class MainMenu: SKScene {
         //            isMusicPlaying = true
         //            print("\(isMusicPlaying)")
         //        }
-        
-        /** Special Effects: Currently Not Working **/
-        //        starfield = self.childNode(withName: "starfield") as! SKEmitterNode
-        //        starfield.advanceSimulationTime(10)
         
         /** Adding the buttons to the Screen **/
         startGame = self.childNode(withName: "startGameButton") as! SKSpriteNode
@@ -75,7 +83,7 @@ class MainMenu: SKScene {
             if atPoint(location).name == "startGameButton" {
                 
                     /** Stop Playing MainMenu Music **/
-                    //backgroundMusic.run(SKAction.stop())
+                    backgroundMusic.run(SKAction.stop())
                 
                     if let scene = GameScene(fileNamed: "GameScene1") {
                         
