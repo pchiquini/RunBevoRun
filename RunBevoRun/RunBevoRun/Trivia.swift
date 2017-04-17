@@ -64,9 +64,13 @@ class Trivia: SKScene{
         RandomQuestions()
         
     }
-    
+    /********************************************************************/
+    /*                                                                  */
+    /*                            QUESTIONS                             */
+    /*                                                                  */
+    /********************************************************************/
     func RandomQuestions(){
-        var RandomNumber = arc4random() % 4
+        var RandomNumber = arc4random() % 5
         RandomNumber += 1
         
         switch (RandomNumber){
@@ -86,9 +90,14 @@ class Trivia: SKScene{
             break
             
         case 4:
-            question.text = "The Eyes of Texas is the fight song "
+            question.text = "The Eyes of Texas is the fight song"
             correctAnswer = false
             break
+        case 5:
+            question.text = "The first mascot was a pig"
+            correctAnswer = true
+            break
+
         default:
             break
         }

@@ -51,9 +51,9 @@ class RegisterViewController: UIViewController {
         
         //Successfully register and go back to login
         self.alertController = UIAlertController(title: "Sucess!", message: "Successfully Registered", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title:"Ok", style: .default) { (action) -> Void in
+        let okAction = UIAlertAction(title:"Ok", style: .default) {(action) -> Void in
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
-            self.present(loginVC!, animated: true, completion: nil) }
+            self.present(loginVC!, animated: true, completion: nil)}
 
         self.alertController!.addAction(okAction)
         

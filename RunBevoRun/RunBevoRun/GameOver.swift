@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import CoreData
 
 class GameOver: SKScene {
     
@@ -38,6 +39,8 @@ class GameOver: SKScene {
         /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
+        
+        //TODO add score to CoreData here?
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
