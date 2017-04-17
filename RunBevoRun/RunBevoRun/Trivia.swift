@@ -17,6 +17,7 @@ class Trivia: SKScene{
     var button2:    SKSpriteNode!
     var nextButton: SKSpriteNode!
     var backButton: SKSpriteNode!
+    //TODO if not being used, remove?
     var mainMenu:   SKSpriteNode!
     var question:   SKLabelNode!
     var result:     SKLabelNode!
@@ -62,11 +63,10 @@ class Trivia: SKScene{
         //Appears after answer is chosen
         result.isHidden = true
         
+        //Used in touchesBegan
         let button1Label = button1.childNode(withName: "button1Label") as! SKLabelNode
         let button2Label = button2.childNode(withName: "button2Label") as! SKLabelNode
         
-        button1Label.text = "True"
-        button2Label.text = "False"
         RandomQuestions()
         
     }
@@ -76,7 +76,7 @@ class Trivia: SKScene{
     /*                                                                  */
     /********************************************************************/
     func RandomQuestions(){
-        var RandomNumber = arc4random() % 5
+        var RandomNumber = arc4random() % 8
         RandomNumber += 1
         
         switch (RandomNumber){
@@ -99,8 +99,24 @@ class Trivia: SKScene{
             question.text = "The Eyes of Texas is the fight song"
             correctAnswer = false
             break
+            
         case 5:
             question.text = "The first mascot was a pig"
+            correctAnswer = true
+            break
+            
+        case 6:
+            question.text = "Orange and white are our colors"
+            correctAnswer = true
+            break
+            
+        case 7:
+            question.text = "UT is in the Big 10"
+            correctAnswer = false
+            break
+            
+        case 8:
+            question.text = "UTCS is Top 10 in the nation"
             correctAnswer = true
             break
 
@@ -116,45 +132,47 @@ class Trivia: SKScene{
             let location = touch.location(in: self)
             
             //Update scene when right answer is chosen
-            if atPoint(location).name == "button1" {
+            if (atPoint(location).name == "button1" || atPoint(location).name == "button1Label"){
                 if (correctAnswer == true){
                     //Add points
                     UserInfo.shared.score += 5
                     button1.color = SKColor.green
-                    result.text = "Correct! +5"
+                    result.text = "Correct! +5 points"
                     result.isHidden = false
                     nextButton.isHidden = false
-                    backButton.isHidden = true
+                    backButton.isHidden = false
                     mainMenu.isHidden = true
                     button2.isHidden = true
                 }else{
                     button1.color = SKColor.red
                     result.text = "Wrong"
                     result.isHidden = false
-                    nextButton.isHidden = true
-                    backButton.isHidden = true
-                    mainMenu.isHidden = false
+                    nextButton.isHidden = false
+                    backButton.isHidden = false
+                    mainMenu.isHidden = true
                     button2.isHidden = true
                 }
             }
             
             //Update scene when wrong answer is chosen
-            if atPoint(location).name == "button2"{
+            if (atPoint(location).name == "button2" || atPoint(location).name == "button2Label"){
                 if(correctAnswer == false){
                     //Add points
                     UserInfo.shared.score += 5
                     button2.color = SKColor.green
-                    result.text = "Correct! +5"
+                    result.text = "Correct! +5 points"
                     result.isHidden = false
                     nextButton.isHidden = false
+                    backButton.isHidden = false
                     mainMenu.isHidden = true
                     button1.isHidden = true
                 }else{
                     button2.color = SKColor.red
                     result.text = "Wrong"
                     result.isHidden = false
-                    nextButton.isHidden = true
-                    mainMenu.isHidden = false
+                    nextButton.isHidden = false
+                    backButton.isHidden = false
+                    mainMenu.isHidden = true
                     button1.isHidden = true
                 }
             }
@@ -197,7 +215,7 @@ class Trivia: SKScene{
                     }
                 }
             }
-            
+            //TODO score needs to be reset if going back?
             if atPoint(location).name == "backButton"{
                 
                 if (UserInfo.shared.currentScene == 5){
