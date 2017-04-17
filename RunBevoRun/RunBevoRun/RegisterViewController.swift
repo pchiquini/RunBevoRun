@@ -49,11 +49,12 @@ class RegisterViewController: UIViewController {
         saveUser(username: username!, password: pwd!)
         
         
-        //Everything complete
-        //TODO have OK button go back to login?
+        //Successfully register and go back to login
         self.alertController = UIAlertController(title: "Sucess!", message: "Successfully Registered", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil)
-        
+        let okAction = UIAlertAction(title:"Ok", style: .default) { (action) -> Void in
+            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(loginVC!, animated: true, completion: nil) }
+
         self.alertController!.addAction(okAction)
         
         self.present(self.alertController!, animated: true, completion:nil)
@@ -90,6 +91,7 @@ class RegisterViewController: UIViewController {
         user.setValue(password, forKey: "password")
         // Set the attribute values for scoreboard
         userScore.setValue(username, forKey: "username")
+        UserInfo.shared.username = username
         
         // Commit the changes.
         do {
