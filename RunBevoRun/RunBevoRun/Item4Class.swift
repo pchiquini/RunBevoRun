@@ -35,9 +35,9 @@ class Item4Class: SKSpriteNode {
         }
             
         else{
-            item = SKSpriteNode(imageNamed: "enemy1")
+            item = SKSpriteNode(imageNamed: "enemy4")
             item?.name = "Enemy"
-            item?.size = CGSize(width: 44, height: 49)
+            item?.size = CGSize(width: 52, height: 52)
             item?.setScale(0.7)
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size)
         }

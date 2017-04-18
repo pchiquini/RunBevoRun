@@ -95,7 +95,8 @@
 		D2C6340E1EA43EAE00E5B71A /* TexasFightSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */; };
 		D2C634121EA44C5500E5B71A /* TheEyesOfTexas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */; };
 		D2C634141EA44CF100E5B71A /* smashing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634131EA44CF100E5B71A /* smashing.mp3 */; };
-		D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2CA33D31E85EBA900367408 /* boomBoom.sks */; };
+		D2C634181EA5771300E5B71A /* TexasFightSong2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */; };
+		D2C6341A1EA5790900E5B71A /* Shots.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634191EA5790900E5B71A /* Shots.mp3 */; };
 		D2E9C29C1E9EDFBC00BDD5ED /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */; };
 		D2E9C29E1E9EDFCE00BDD5ED /* GameScene3.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29D1E9EDFCE00BDD5ED /* GameScene3.sks */; };
 		D2E9C2A01E9EDFE200BDD5ED /* GameScene4.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29F1E9EDFE200BDD5ED /* GameScene4.sks */; };
@@ -192,7 +193,8 @@
 		D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TexasFightSong.mp3; sourceTree = "<group>"; };
 		D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheEyesOfTexas.mp3; sourceTree = "<group>"; };
 		D2C634131EA44CF100E5B71A /* smashing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smashing.mp3; sourceTree = "<group>"; };
-		D2CA33D31E85EBA900367408 /* boomBoom.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = boomBoom.sks; sourceTree = "<group>"; };
+		D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TexasFightSong2.mp3; sourceTree = "<group>"; };
+		D2C634191EA5790900E5B71A /* Shots.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shots.mp3; sourceTree = "<group>"; };
 		D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 		D2E9C29D1E9EDFCE00BDD5ED /* GameScene3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene3.sks; sourceTree = "<group>"; };
 		D2E9C29F1E9EDFE200BDD5ED /* GameScene4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene4.sks; sourceTree = "<group>"; };
@@ -220,7 +222,9 @@
 		60E943941E806477005E45DB /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D2C634191EA5790900E5B71A /* Shots.mp3 */,
 				D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */,
+				D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */,
 				D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */,
 				60E943A61E806DEA005E45DB /* MainMenu.mp3 */,
 				60E943A01E806D9B005E45DB /* GameScene.mp3 */,
@@ -239,7 +243,6 @@
 				D28DBA311E789AD70022F131 /* explosion.sks */,
 				D28DBA4D1E7A635B0022F131 /* explosion.mp3 */,
 				D28DBA521E7A69060022F131 /* MagicField.sks */,
-				D2CA33D31E85EBA900367408 /* boomBoom.sks */,
 			);
 			name = Collisions;
 			sourceTree = "<group>";
@@ -569,12 +572,14 @@
 				D256FE1A1E9B06B60086D1C1 /* bevo6.png in Resources */,
 				D256FE1F1E9B06B60086D1C1 /* bevo11.png in Resources */,
 				D256FE1E1E9B06B60086D1C1 /* bevo10.png in Resources */,
+				D2C634181EA5771300E5B71A /* TexasFightSong2.mp3 in Resources */,
 				D256FE2E1E9B06B60086D1C1 /* bevo26.png in Resources */,
 				D256FE2F1E9B06B60086D1C1 /* bevo27.png in Resources */,
 				D28DBA1F1E721EFC0022F131 /* Main.storyboard in Resources */,
 				D256FE221E9B06B60086D1C1 /* bevo14.png in Resources */,
 				60E943A71E806DEA005E45DB /* MainMenu.mp3 in Resources */,
 				60E943A31E806D9B005E45DB /* GameScene.mp3 in Resources */,
+				D2C6341A1EA5790900E5B71A /* Shots.mp3 in Resources */,
 				D256FE171E9B06B60086D1C1 /* bevo3.png in Resources */,
 				60E943AA1E81A0D7005E45DB /* GameRules.sks in Resources */,
 				D28DBA531E7A69060022F131 /* MagicField.sks in Resources */,
@@ -590,7 +595,6 @@
 				D28DBA161E721EFC0022F131 /* GameScene1.sks in Resources */,
 				D2E9C29E1E9EDFCE00BDD5ED /* GameScene3.sks in Resources */,
 				D256FE2D1E9B06B60086D1C1 /* bevo25.png in Resources */,
-				D2CA33D41E85EBA900367408 /* boomBoom.sks in Resources */,
 				D256FE271E9B06B60086D1C1 /* bevo19.png in Resources */,
 				60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */,
 				D256FE161E9B06B60086D1C1 /* bevo2.png in Resources */,
@@ -775,6 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunBevoRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patriziochiquini.RunBevoRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -787,6 +792,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RunBevoRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patriziochiquini.RunBevoRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";

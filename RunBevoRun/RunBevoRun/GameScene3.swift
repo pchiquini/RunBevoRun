@@ -27,7 +27,7 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
     private var mainCamera: SKCameraNode?
     
     /** Start/Loop Backgroun Music **/
-    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
+    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "Shots.mp3")
     
     /** Background Variables Used for Infinite Effect **/
     private var bg1: BackgroundClass?
@@ -61,7 +61,6 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
     /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
-        
     }
     
     /********************************************************************/
@@ -82,8 +81,6 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         /** Start/Loop Backgroun Music **/
-        ////let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "GameScene.mp3")
-        //backgroundMusic.autoplayLooped = true
         //self.addChild(backgroundMusic)
         
         /** Creating Infinite Background and Ground Variables **/
@@ -211,10 +208,6 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
                     self.gameOver()
                 }
             }
-            
-            /*** Intianliaze the timer used for restaring the GameScence ***/
-            //            Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(GameScene.restartGame), userInfo: nil, repeats: false)
-            
         }
         
         /** Player Goes Off The Screen **/
@@ -312,6 +305,7 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
 
     func gameOver(){
         
+        /** Stop Background Music **/
         //backgroundMusic.run(SKAction.stop())
         
         /** Intianliaze the timer used for restaring the GameScence **/

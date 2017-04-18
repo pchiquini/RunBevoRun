@@ -60,7 +60,7 @@ class Player: SKSpriteNode {
     func jump(){
         if self.action(forKey: "jump") == nil { // check that there's no jump action running
             let jumpUp = SKAction.moveBy(x: 30, y: 250, duration: 0.2)
-            let fallBack = SKAction.moveBy(x: -5, y: -10, duration: 0.3)
+            let fallBack = SKAction.moveBy(x: -10, y: -10, duration: 0.3)
             self.run(SKAction.sequence([jumpUp, fallBack]), withKey:"jump")
         }
     }

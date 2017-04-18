@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var mainCamera: SKCameraNode?
     
     /** Start/Loop Backgroun Music **/
-    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "TexasFightSong.mp3")
+    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "TexasFightSong.mp3")
     
     /** Background Variables Used for Infinite Effect **/
     private var bg1: BackgroundClass?
@@ -65,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /** Starting Point **/
     override func didMove(to view: SKView) {
         createScene()
-        
     }
     
     /********************************************************************/
@@ -89,8 +88,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         /** Start/Loop Backgroun Music **/
-        //backgroundMusic.autoplayLooped = true
-        self.addChild(backgroundMusic)
+        //self.addChild(backgroundMusic)
         
         /** Creating Infinite Background and Ground Variables **/
         bg1 = childNode(withName: "background1") as? BackgroundClass!
@@ -175,15 +173,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             /** Removes Nodes **/
             secondBody.node?.removeFromParent()
-            
-            /** How To Win The Game: Must Collect 5 Longhorns **/
-//            if(UserInfo.shared.score >= 5){
-//                if let scene = LevelCompleted(fileNamed: "LevelCompleted") {
-//                    scene.scaleMode = .aspectFit
-//                    
-//                    view!.presentScene(scene, transition: SKTransition.crossFade(withDuration: TimeInterval(1)))
-//                }
-//            }
         }
         
         /** Subtracts Score & Explodes **/
@@ -260,6 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /** Adds Points Sound Effect: jumping **/
         //self.run(SKAction.playSoundFileNamed("jumping.mp3", waitForCompletion: false))
         player?.jump()
+        
     }
     
     /** Handles the camera's position **/
@@ -310,7 +300,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func timeIsOut(){
         
         /** Stop Background Music **/
-        backgroundMusic.run(SKAction.stop())
+        //backgroundMusic.run(SKAction.stop())
         
         self.run(SKAction.wait(forDuration: 1)) {
 
@@ -325,7 +315,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         
         /**Stop Background Music**/
-        backgroundMusic.run(SKAction.stop())
+        //backgroundMusic.run(SKAction.stop())
                 
         /** Intianliaze the timer used for restaring the GameScence **/
         if let scene = GameOver(fileNamed: "GameOver") {
