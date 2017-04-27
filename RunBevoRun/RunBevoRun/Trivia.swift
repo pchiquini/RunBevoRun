@@ -101,7 +101,7 @@ class Trivia: SKScene{
             break
             
         case 5:
-            question.text = "The first mascot was a pig"
+            question.text = "The first mascot was a dog"
             correctAnswer = true
             break
             
