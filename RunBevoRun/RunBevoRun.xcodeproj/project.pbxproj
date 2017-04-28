@@ -81,6 +81,9 @@
 		D28DBA4C1E7A5CD60022F131 /* PlatformClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28DBA4B1E7A5CD60022F131 /* PlatformClass.swift */; };
 		D28DBA4E1E7A635B0022F131 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA4D1E7A635B0022F131 /* explosion.mp3 */; };
 		D28DBA531E7A69060022F131 /* MagicField.sks in Resources */ = {isa = PBXBuildFile; fileRef = D28DBA521E7A69060022F131 /* MagicField.sks */; };
+		D2979CE11EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CDF1EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 */; };
+		D2979CE21EB10D54007D6FCE /* Downtown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CE01EB10D54007D6FCE /* Downtown.mp3 */; };
+		D2979CE41EB14B52007D6FCE /* smashing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CE31EB14B52007D6FCE /* smashing.mp3 */; };
 		D2C633F31EA2E95200E5B71A /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F21EA2E95200E5B71A /* GameScene2.swift */; };
 		D2C633F51EA2E96300E5B71A /* GameScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F41EA2E96300E5B71A /* GameScene3.swift */; };
 		D2C633F71EA2E96500E5B71A /* GameScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F61EA2E96500E5B71A /* GameScene4.swift */; };
@@ -96,7 +99,6 @@
 		D2C6340C1EA41E6500E5B71A /* bat3.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C634091EA41E6500E5B71A /* bat3.png */; };
 		D2C6340E1EA43EAE00E5B71A /* TexasFightSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */; };
 		D2C634121EA44C5500E5B71A /* TheEyesOfTexas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */; };
-		D2C634141EA44CF100E5B71A /* smashing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634131EA44CF100E5B71A /* smashing.mp3 */; };
 		D2C634181EA5771300E5B71A /* TexasFightSong2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */; };
 		D2C6341A1EA5790900E5B71A /* Shots.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C634191EA5790900E5B71A /* Shots.mp3 */; };
 		D2E9C29C1E9EDFBC00BDD5ED /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */; };
@@ -181,6 +183,9 @@
 		D28DBA4B1E7A5CD60022F131 /* PlatformClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformClass.swift; sourceTree = "<group>"; };
 		D28DBA4D1E7A635B0022F131 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		D28DBA521E7A69060022F131 /* MagicField.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicField.sks; sourceTree = "<group>"; };
+		D2979CDF1EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DeepInTheHeartOfTexas.mp3; sourceTree = "<group>"; };
+		D2979CE01EB10D54007D6FCE /* Downtown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Downtown.mp3; sourceTree = "<group>"; };
+		D2979CE31EB14B52007D6FCE /* smashing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smashing.mp3; sourceTree = "<group>"; };
 		D2C633F21EA2E95200E5B71A /* GameScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
 		D2C633F41EA2E96300E5B71A /* GameScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene3.swift; sourceTree = "<group>"; };
 		D2C633F61EA2E96500E5B71A /* GameScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene4.swift; sourceTree = "<group>"; };
@@ -196,7 +201,6 @@
 		D2C634091EA41E6500E5B71A /* bat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat3.png; sourceTree = "<group>"; };
 		D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TexasFightSong.mp3; sourceTree = "<group>"; };
 		D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheEyesOfTexas.mp3; sourceTree = "<group>"; };
-		D2C634131EA44CF100E5B71A /* smashing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smashing.mp3; sourceTree = "<group>"; };
 		D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TexasFightSong2.mp3; sourceTree = "<group>"; };
 		D2C634191EA5790900E5B71A /* Shots.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Shots.mp3; sourceTree = "<group>"; };
 		D2E9C29B1E9EDFBC00BDD5ED /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 				D2C634111EA44C5500E5B71A /* TheEyesOfTexas.mp3 */,
 				D2C634171EA5771300E5B71A /* TexasFightSong2.mp3 */,
 				D2C6340D1EA43EAE00E5B71A /* TexasFightSong.mp3 */,
+				D2979CDF1EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 */,
+				D2979CE01EB10D54007D6FCE /* Downtown.mp3 */,
 				60E943A61E806DEA005E45DB /* MainMenu.mp3 */,
 				60E943A01E806D9B005E45DB /* GameScene.mp3 */,
 				60E943A21E806D9B005E45DB /* Trivia.mp3 */,
@@ -241,8 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				60E943961E806CC2005E45DB /* Fight.mp3 */,
-				D2C634131EA44CF100E5B71A /* smashing.mp3 */,
 				60E943971E806CC2005E45DB /* Texas.mp3 */,
+				D2979CE31EB14B52007D6FCE /* smashing.mp3 */,
 				60E943991E806CC2005E45DB /* points.mp3 */,
 				D28DBA311E789AD70022F131 /* explosion.sks */,
 				D28DBA4D1E7A635B0022F131 /* explosion.mp3 */,
@@ -596,7 +602,9 @@
 				60E943A31E806D9B005E45DB /* GameScene.mp3 in Resources */,
 				D2C6341A1EA5790900E5B71A /* Shots.mp3 in Resources */,
 				D256FE171E9B06B60086D1C1 /* bevo3.png in Resources */,
+				D2979CE11EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 in Resources */,
 				60E943AA1E81A0D7005E45DB /* GameRules.sks in Resources */,
+				D2979CE21EB10D54007D6FCE /* Downtown.mp3 in Resources */,
 				D28DBA531E7A69060022F131 /* MagicField.sks in Resources */,
 				D256FE321E9B06B60086D1C1 /* bevo30.png in Resources */,
 				D256FE181E9B06B60086D1C1 /* bevo4.png in Resources */,
@@ -610,6 +618,7 @@
 				D28DBA161E721EFC0022F131 /* GameScene1.sks in Resources */,
 				D2E9C29E1E9EDFCE00BDD5ED /* GameScene3.sks in Resources */,
 				D256FE2D1E9B06B60086D1C1 /* bevo25.png in Resources */,
+				D2979CE41EB14B52007D6FCE /* smashing.mp3 in Resources */,
 				D256FE271E9B06B60086D1C1 /* bevo19.png in Resources */,
 				60E9439A1E806CC2005E45DB /* Fight.mp3 in Resources */,
 				D256FE161E9B06B60086D1C1 /* bevo2.png in Resources */,
@@ -628,7 +637,6 @@
 				D2E9C29C1E9EDFBC00BDD5ED /* GameScene2.sks in Resources */,
 				D256FE261E9B06B60086D1C1 /* bevo18.png in Resources */,
 				D28DBA321E789AD70022F131 /* explosion.sks in Resources */,
-				D2C634141EA44CF100E5B71A /* smashing.mp3 in Resources */,
 				D2859AFE1E8377CB000F7679 /* Congratulations.sks in Resources */,
 				60E943A51E806D9B005E45DB /* Trivia.mp3 in Resources */,
 				60E9439B1E806CC2005E45DB /* Texas.mp3 in Resources */,
