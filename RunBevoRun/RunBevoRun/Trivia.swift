@@ -215,7 +215,6 @@ class Trivia: SKScene{
                     }
                 }
             }
-            //TODO score needs to be reset if going back?
             if atPoint(location).name == "backButton"{
                 
                 if (UserInfo.shared.currentScene == 5){

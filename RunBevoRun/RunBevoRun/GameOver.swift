@@ -59,7 +59,7 @@ class GameOver: SKScene {
             
             else if atPoint(location).name == "mainMenuButton" {
                                 
-                if let scene = MainMenu(fileNamed: "MainMenu") {
+                if let scene = Leaderboard(fileNamed: "Leaderboard") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))
