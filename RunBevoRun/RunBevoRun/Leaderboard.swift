@@ -9,7 +9,6 @@
 import UIKit
 import SpriteKit
 import CoreData
-import GameKit
 
 class Leaderboard: SKScene {
     /*** Score Array ***/
@@ -30,13 +29,8 @@ class Leaderboard: SKScene {
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
-        
         loadCoreData()
-        
-        
         createScene()
-        
-        
     }
     
     /********************************************************************/
@@ -50,16 +44,16 @@ class Leaderboard: SKScene {
         /** Adding Buttons to the GameScene **/
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
         
-        player1 = self.childNode(withName: "player1") as? SKLabelNode
-        player2 = self.childNode(withName: "player2") as? SKLabelNode
-        player3 = self.childNode(withName: "player3") as? SKLabelNode
-        player4 = self.childNode(withName: "player4") as? SKLabelNode
-        score1 = self.childNode(withName: "score1") as? SKLabelNode
-        score2 = self.childNode(withName: "score2") as? SKLabelNode
-        score3 = self.childNode(withName: "score3") as? SKLabelNode
-        score4 = self.childNode(withName: "score4") as? SKLabelNode
+        player1 = self.childNode(withName: "player1") as! SKLabelNode
+        player2 = self.childNode(withName: "player2") as! SKLabelNode
+        player3 = self.childNode(withName: "player3") as! SKLabelNode
+        player4 = self.childNode(withName: "player4") as! SKLabelNode
+        score1 = self.childNode(withName: "score1") as! SKLabelNode
+        score2 = self.childNode(withName: "score2") as! SKLabelNode
+        score3 = self.childNode(withName: "score3") as! SKLabelNode
+        score4 = self.childNode(withName: "score4") as! SKLabelNode
         
-        self.run(SKAction.wait(forDuration: 1)){
+        self.run(SKAction.wait(forDuration: 1.75)){
             self.findHighScore()
         }
         
@@ -68,44 +62,34 @@ class Leaderboard: SKScene {
     
     fileprivate func findHighScore(){
         
+        let length: Int = scores.count
+        
         //Now that scores is sorted by score,
         //Get first 4 scores and and change the text
         for index in 0...3{
             
-            let user: String = (scores[index].value(forKey: "username") as? String)!
-            let userScore: Int = (scores[index].value(forKey: "score") as? Int)!
+            if (length < index){
+                break
+            }
+            
+            let user: String = (scores[index].value(forKey: "username") as! String)
+            let userScore: String = String(scores[index].value(forKey: "score") as! Int)
             
             if (index == 0 ){
-                if(user == ""){
-                    player1?.text = "Unknown"
-                }else{
-                    player1?.text = user
-                }
-                score1?.text = String(userScore)
+                player1.text = user
+                score1.text = userScore
             }
-            else if (index == 1 && scores.count > 1){
-                if(user == ""){
-                    player2?.text = "Unknown"
-                }else{
-                    player2?.text = user
-                }
-                score2?.text = String(userScore)
+            else if (index == 1){
+                player2.text = user
+                score2.text = userScore
             }
-            else if (index == 2 && scores.count > 2){
-                if(user == ""){
-                    player3?.text = "Unknown"
-                }else{
-                    player3?.text = user
-                }
-                score3?.text = String(userScore)
+            else if (index == 2){
+                player3.text = user
+                score3.text = userScore
             }
-            else if (index == 3 && scores.count > 3){
-                if(user == ""){
-                    player4?.text = "Unknown"
-                }else{
-                    player4?.text = user
-                }
-                score4?.text = String(userScore)
+            else if (index == 3){
+                player4.text = user
+                score4.text = userScore
             }
         }
     }
@@ -135,6 +119,7 @@ class Leaderboard: SKScene {
         
         if let results = fetchedResults {
             scores = results
+            print(scores)
         } else {
             print("Could not fetch")
         }
