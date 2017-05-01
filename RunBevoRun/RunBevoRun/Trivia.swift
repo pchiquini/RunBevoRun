@@ -17,6 +17,7 @@ class Trivia: SKScene{
     var button2:    SKSpriteNode!
     var nextButton: SKSpriteNode!
     var backButton: SKSpriteNode!
+    
     //TODO if not being used, remove?
     var mainMenu:   SKSpriteNode!
     var question:   SKLabelNode!

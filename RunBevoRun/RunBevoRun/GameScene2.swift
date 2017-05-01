@@ -78,7 +78,7 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode!
         
         /** Initializing Timer **/
-        Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
+        Timer.scheduledTimer(timeInterval: 28.0, target: self, selector: #selector(GameScene.timeIsOut), userInfo: true, repeats: false)
         
         /** Settings For Physics World **/
         self.physicsWorld.contactDelegate = self

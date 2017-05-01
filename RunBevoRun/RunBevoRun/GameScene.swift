@@ -106,7 +106,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         /** Intianliaze player from the Player class for the GameScence **/
         player = self.childNode(withName: "player") as? Player!
-        //player = SKSpriteNode(imageNamed:"player8") as? Player!
         player?.initPlayer()
         
         /** Creating the Player's lives **/
@@ -252,26 +251,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        let touch: AnyObject? = touches.anyObject()
-//        if (touch?.tapCount == 2) {
-//            NSObject.cancelPreviousPerformRequestsWithTarget(self)
-//        }
-//    }
-//    
-//    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-//        let touch: AnyObject? = touches.anyObject()
-//        if (touch?.tapCount == 1) {
-//            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-//            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-//                println("this runs only if single tap")
-//            })
-//        } else if (touch?.tapCount == 2) {
-//            println("double tap touches ended")
-//            
-//        }
-//    }
-    
     /** Handles the camera's position **/
     private func manageCamera(){
         self.mainCamera?.position.x += 10
@@ -307,6 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func explosion(){
+        
         /** Adds Special Effect: Explosion **/
         let explosion = SKEmitterNode(fileNamed: "explosion")!
         explosion.position = (player?.position)!
