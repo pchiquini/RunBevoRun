@@ -21,6 +21,7 @@ class GameOver: SKScene {
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
+        addToCore(username: UserInfo.shared.username, score: UserInfo.shared.score)
         createScene()
     }
     
@@ -40,7 +41,8 @@ class GameOver: SKScene {
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
         
-        //TODO add score to CoreData here?
+        //Add score to CoreData here?
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,6 +67,31 @@ class GameOver: SKScene {
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+        }
+    }
+    
+    fileprivate func addToCore(username: String, score: Int) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create the entity we want to save
+        let entityScore = NSEntityDescription.entity(forEntityName: "Scores", in: managedContext)
+        
+        let userScore = NSManagedObject(entity: entityScore!, insertInto: managedContext)
+        
+        userScore.setValue(username, forKey: "username")
+        userScore.setValue(score, forKey: "score")
+        
+        // Commit the changes.
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
 }

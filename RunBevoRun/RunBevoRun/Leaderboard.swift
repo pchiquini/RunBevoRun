@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import CoreData
+import GameKit
 
 class Leaderboard: SKScene {
     /*** Score Array ***/
@@ -18,18 +19,24 @@ class Leaderboard: SKScene {
     var mainMenuButton:SKSpriteNode!
     
     /** Scoring **/
-    var player1:    SKLabelNode?
-    var player2:    SKLabelNode?
-    var player3:    SKLabelNode?
-    var player4:    SKLabelNode?
-    var score1:     SKLabelNode?
-    var score2:     SKLabelNode?
-    var score3:     SKLabelNode?
-    var score4:     SKLabelNode?
+    var player1:    SKLabelNode!
+    var player2:    SKLabelNode!
+    var player3:    SKLabelNode!
+    var player4:    SKLabelNode!
+    var score1:     SKLabelNode!
+    var score2:     SKLabelNode!
+    var score3:     SKLabelNode!
+    var score4:     SKLabelNode!
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
+        
+        loadCoreData()
+        
+        
         createScene()
+        
+        
     }
     
     /********************************************************************/
@@ -40,44 +47,35 @@ class Leaderboard: SKScene {
     
     func createScene() {
         
-        
-        
-        /** Displaying Score From GameScene **/
-//        score1 = self.childNode(withName: "score1") as! SKLabelNode?
-//        score1!.text = String(UserInfo.shared.score)
-        
         /** Adding Buttons to the GameScene **/
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
         
-        player1 = self.childNode(withName: "player1") as! SKLabelNode
-        player2 = self.childNode(withName: "player2") as! SKLabelNode
-        player3 = self.childNode(withName: "player3") as! SKLabelNode
-        player4 = self.childNode(withName: "player4") as! SKLabelNode
-        score1 = self.childNode(withName: "score1") as! SKLabelNode
-        score2 = self.childNode(withName: "score2") as! SKLabelNode
-        score3 = self.childNode(withName: "score3") as! SKLabelNode
-        score4 = self.childNode(withName: "score4") as! SKLabelNode
+        player1 = self.childNode(withName: "player1") as? SKLabelNode
+        player2 = self.childNode(withName: "player2") as? SKLabelNode
+        player3 = self.childNode(withName: "player3") as? SKLabelNode
+        player4 = self.childNode(withName: "player4") as? SKLabelNode
+        score1 = self.childNode(withName: "score1") as? SKLabelNode
+        score2 = self.childNode(withName: "score2") as? SKLabelNode
+        score3 = self.childNode(withName: "score3") as? SKLabelNode
+        score4 = self.childNode(withName: "score4") as? SKLabelNode
         
-        //TODO add score to CoreData here?
+        self.run(SKAction.wait(forDuration: 1)){
+            self.findHighScore()
+        }
         
-        addToCore(username: UserInfo.shared.username, score: UserInfo.shared.score)
-        loadCoreData()
-        findHighScore()
     }
     
     
     fileprivate func findHighScore(){
         
-        
         //Now that scores is sorted by score,
         //Get first 4 scores and and change the text
-        var counter:Int = 0
-        for score in scores{
+        for index in 0...3{
             
-            let user: String = (score.value(forKey: "username") as? String)!
-            let userScore: Int = (score.value(forKey: "score") as? Int)!
+            let user: String = (scores[index].value(forKey: "username") as? String)!
+            let userScore: Int = (scores[index].value(forKey: "score") as? Int)!
             
-            if (counter == 0 ){
+            if (index == 0 ){
                 if(user == ""){
                     player1?.text = "Unknown"
                 }else{
@@ -85,7 +83,7 @@ class Leaderboard: SKScene {
                 }
                 score1?.text = String(userScore)
             }
-            else if (counter == 1 && scores.count > 1){
+            else if (index == 1 && scores.count > 1){
                 if(user == ""){
                     player2?.text = "Unknown"
                 }else{
@@ -93,7 +91,7 @@ class Leaderboard: SKScene {
                 }
                 score2?.text = String(userScore)
             }
-            else if (counter == 2 && scores.count > 2){
+            else if (index == 2 && scores.count > 2){
                 if(user == ""){
                     player3?.text = "Unknown"
                 }else{
@@ -101,7 +99,7 @@ class Leaderboard: SKScene {
                 }
                 score3?.text = String(userScore)
             }
-            else if (counter == 3 && scores.count > 3){
+            else if (index == 3 && scores.count > 3){
                 if(user == ""){
                     player4?.text = "Unknown"
                 }else{
@@ -109,38 +107,11 @@ class Leaderboard: SKScene {
                 }
                 score4?.text = String(userScore)
             }
-            counter += 1
-            
-            if (counter > 3 || scores.count < counter){
-                break
-            }
         }
     }
     
-    fileprivate func addToCore(username: String, score: Int) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // Create the entity we want to save
-        let entityScore = NSEntityDescription.entity(forEntityName: "Scores", in: managedContext)
-        
-        let userScore = NSManagedObject(entity: entityScore!, insertInto: managedContext)
-        
-        userScore.setValue(username, forKey: "username")
-        userScore.setValue(score, forKey: "score")
-        
-        // Commit the changes.
-        do {
-            try managedContext.save()
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            print("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-    }
+
+    
     
     fileprivate func loadCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

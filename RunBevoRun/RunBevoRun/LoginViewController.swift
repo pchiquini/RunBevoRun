@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var warningLbl: UILabel!
     
-    //Change to global variable
-    public var user: String = ""
     var loginSuccess: Bool = false
     
     var users = [NSManagedObject]()
@@ -42,7 +40,8 @@ class LoginViewController: UIViewController {
         }
         loginSuccess = true
         
-        user = name.text!
+        //Set global username
+        UserInfo.shared.username = name.text!
 
     }
     //Checks for existing user and matching password

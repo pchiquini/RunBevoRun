@@ -64,8 +64,8 @@ class Trivia: SKScene{
         result.isHidden = true
         
         //Used in touchesBegan
-        let button1Label = button1.childNode(withName: "button1Label") as! SKLabelNode
-        let button2Label = button2.childNode(withName: "button2Label") as! SKLabelNode
+        _ = button1.childNode(withName: "button1Label") as! SKLabelNode
+        _ = button2.childNode(withName: "button2Label") as! SKLabelNode
         
         RandomQuestions()
         

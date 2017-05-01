@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import CoreData
 
 class Congratulations: SKScene {
     
@@ -19,6 +20,7 @@ class Congratulations: SKScene {
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
+        addToCore(username: UserInfo.shared.username, score: UserInfo.shared.score)
         createScene()
         
     }
@@ -54,6 +56,30 @@ class Congratulations: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+        }
+    }
+    fileprivate func addToCore(username: String, score: Int) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create the entity we want to save
+        let entityScore = NSEntityDescription.entity(forEntityName: "Scores", in: managedContext)
+        
+        let userScore = NSManagedObject(entity: entityScore!, insertInto: managedContext)
+        
+        userScore.setValue(username, forKey: "username")
+        userScore.setValue(score, forKey: "score")
+        
+        // Commit the changes.
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
 }

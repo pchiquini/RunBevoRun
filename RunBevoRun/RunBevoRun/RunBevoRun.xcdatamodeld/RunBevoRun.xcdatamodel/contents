@@ -9,7 +9,7 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Registration" positionX="-101" positionY="-0" width="110" height="73"/>
+        <element name="Registration" positionX="-101" positionY="-0" width="110" height="75"/>
         <element name="Scores" positionX="106" positionY="-7" width="128" height="75"/>
     </elements>
 </model>
