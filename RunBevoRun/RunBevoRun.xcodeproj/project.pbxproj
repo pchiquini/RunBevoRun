@@ -84,6 +84,9 @@
 		D2979CE11EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CDF1EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 */; };
 		D2979CE21EB10D54007D6FCE /* Downtown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CE01EB10D54007D6FCE /* Downtown.mp3 */; };
 		D2979CE41EB14B52007D6FCE /* smashing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2979CE31EB14B52007D6FCE /* smashing.mp3 */; };
+		D2979CEE1EB6BE6E007D6FCE /* hookem1.png in Resources */ = {isa = PBXBuildFile; fileRef = D2979CEB1EB6BE6E007D6FCE /* hookem1.png */; };
+		D2979CEF1EB6BE6E007D6FCE /* hookem2.png in Resources */ = {isa = PBXBuildFile; fileRef = D2979CEC1EB6BE6E007D6FCE /* hookem2.png */; };
+		D2979CF01EB6BE6E007D6FCE /* hookem3.png in Resources */ = {isa = PBXBuildFile; fileRef = D2979CED1EB6BE6E007D6FCE /* hookem3.png */; };
 		D2C633F31EA2E95200E5B71A /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F21EA2E95200E5B71A /* GameScene2.swift */; };
 		D2C633F51EA2E96300E5B71A /* GameScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F41EA2E96300E5B71A /* GameScene3.swift */; };
 		D2C633F71EA2E96500E5B71A /* GameScene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633F61EA2E96500E5B71A /* GameScene4.swift */; };
@@ -93,7 +96,6 @@
 		D2C633FF1EA2EB7200E5B71A /* Platform2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C633FE1EA2EB7200E5B71A /* Platform2Class.swift */; };
 		D2C634011EA2EB7B00E5B71A /* Platform3Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C634001EA2EB7B00E5B71A /* Platform3Class.swift */; };
 		D2C634031EA2EB8900E5B71A /* Platform4Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C634021EA2EB8900E5B71A /* Platform4Class.swift */; };
-		D2C634051EA2EBB200E5B71A /* Player2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C634041EA2EBB200E5B71A /* Player2.swift */; };
 		D2C6340A1EA41E6500E5B71A /* bat1.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C634071EA41E6500E5B71A /* bat1.png */; };
 		D2C6340B1EA41E6500E5B71A /* bat2.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C634081EA41E6500E5B71A /* bat2.png */; };
 		D2C6340C1EA41E6500E5B71A /* bat3.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C634091EA41E6500E5B71A /* bat3.png */; };
@@ -186,6 +188,9 @@
 		D2979CDF1EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DeepInTheHeartOfTexas.mp3; sourceTree = "<group>"; };
 		D2979CE01EB10D54007D6FCE /* Downtown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Downtown.mp3; sourceTree = "<group>"; };
 		D2979CE31EB14B52007D6FCE /* smashing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smashing.mp3; sourceTree = "<group>"; };
+		D2979CEB1EB6BE6E007D6FCE /* hookem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hookem1.png; sourceTree = "<group>"; };
+		D2979CEC1EB6BE6E007D6FCE /* hookem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hookem2.png; sourceTree = "<group>"; };
+		D2979CED1EB6BE6E007D6FCE /* hookem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hookem3.png; sourceTree = "<group>"; };
 		D2C633F21EA2E95200E5B71A /* GameScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
 		D2C633F41EA2E96300E5B71A /* GameScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene3.swift; sourceTree = "<group>"; };
 		D2C633F61EA2E96500E5B71A /* GameScene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene4.swift; sourceTree = "<group>"; };
@@ -195,7 +200,6 @@
 		D2C633FE1EA2EB7200E5B71A /* Platform2Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform2Class.swift; sourceTree = "<group>"; };
 		D2C634001EA2EB7B00E5B71A /* Platform3Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform3Class.swift; sourceTree = "<group>"; };
 		D2C634021EA2EB8900E5B71A /* Platform4Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform4Class.swift; sourceTree = "<group>"; };
-		D2C634041EA2EBB200E5B71A /* Player2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player2.swift; sourceTree = "<group>"; };
 		D2C634071EA41E6500E5B71A /* bat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat1.png; sourceTree = "<group>"; };
 		D2C634081EA41E6500E5B71A /* bat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat2.png; sourceTree = "<group>"; };
 		D2C634091EA41E6500E5B71A /* bat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bat3.png; sourceTree = "<group>"; };
@@ -286,8 +290,8 @@
 		BF845C4B1E80433C00FA20DB /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				BF7E22FE1E84737F001FA179 /* Trivia.sks */,
 				BF7E23001E8474E3001FA179 /* Trivia.swift */,
+				BF7E22FE1E84737F001FA179 /* Trivia.sks */,
 			);
 			name = Trivia;
 			sourceTree = "<group>";
@@ -418,7 +422,6 @@
 				BF6D30221E9EF0DB00180BC1 /* UserInfo.swift */,
 				D28DBA431E78EE4B0022F131 /* Player Animations */,
 				D28DBA411E78EB830022F131 /* Player.swift */,
-				D2C634041EA2EBB200E5B71A /* Player2.swift */,
 			);
 			name = "Player Classes";
 			sourceTree = "<group>";
@@ -457,6 +460,9 @@
 				D256FE111E9B06B60086D1C1 /* bevo28.png */,
 				D256FE121E9B06B60086D1C1 /* bevo29.png */,
 				D256FE131E9B06B60086D1C1 /* bevo30.png */,
+				D2979CEB1EB6BE6E007D6FCE /* hookem1.png */,
+				D2979CEC1EB6BE6E007D6FCE /* hookem2.png */,
+				D2979CED1EB6BE6E007D6FCE /* hookem3.png */,
 				601274AF1E92D30B0086A0F6 /* Longhorn.png */,
 			);
 			name = "Player Animations";
@@ -585,6 +591,7 @@
 				601274B01E92D30B0086A0F6 /* Longhorn.png in Resources */,
 				60E9439C1E806CC2005E45DB /* jumping.mp3 in Resources */,
 				D2C6340E1EA43EAE00E5B71A /* TexasFightSong.mp3 in Resources */,
+				D2979CEF1EB6BE6E007D6FCE /* hookem2.png in Resources */,
 				60E943B31E81A9F0005E45DB /* ChangeCharacter.sks in Resources */,
 				60E9439D1E806CC2005E45DB /* points.mp3 in Resources */,
 				D2C6340A1EA41E6500E5B71A /* bat1.png in Resources */,
@@ -600,6 +607,7 @@
 				D256FE221E9B06B60086D1C1 /* bevo14.png in Resources */,
 				60E943A71E806DEA005E45DB /* MainMenu.mp3 in Resources */,
 				60E943A31E806D9B005E45DB /* GameScene.mp3 in Resources */,
+				D2979CF01EB6BE6E007D6FCE /* hookem3.png in Resources */,
 				D2C6341A1EA5790900E5B71A /* Shots.mp3 in Resources */,
 				D256FE171E9B06B60086D1C1 /* bevo3.png in Resources */,
 				D2979CE11EB10D54007D6FCE /* DeepInTheHeartOfTexas.mp3 in Resources */,
@@ -625,6 +633,7 @@
 				D256FE231E9B06B60086D1C1 /* bevo15.png in Resources */,
 				D2C6340C1EA41E6500E5B71A /* bat3.png in Resources */,
 				D28DBA211E721EFC0022F131 /* Assets.xcassets in Resources */,
+				D2979CEE1EB6BE6E007D6FCE /* hookem1.png in Resources */,
 				D256FE2B1E9B06B60086D1C1 /* bevo23.png in Resources */,
 				D2C6340B1EA41E6500E5B71A /* bat2.png in Resources */,
 				D256FE191E9B06B60086D1C1 /* bevo5.png in Resources */,
@@ -661,7 +670,6 @@
 				D28DBA1C1E721EFC0022F131 /* GameViewController.swift in Sources */,
 				D2C633F71EA2E96500E5B71A /* GameScene4.swift in Sources */,
 				D28DBA3E1E78E4E60022F131 /* GroundClass.swift in Sources */,
-				D2C634051EA2EBB200E5B71A /* Player2.swift in Sources */,
 				D2859B081E837898000F7679 /* LevelCompleted.swift in Sources */,
 				D2C633FF1EA2EB7200E5B71A /* Platform2Class.swift in Sources */,
 				BF0CB8431E789ECE009E3F7F /* RegisterViewController.swift in Sources */,

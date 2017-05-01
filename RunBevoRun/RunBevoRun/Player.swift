@@ -28,19 +28,37 @@ class Player: SKSpriteNode {
         /* Helps with Collisions */
         name = "Player"
         
-        /* Initialize Animations by filtering */
-        for i in 0...30 {
-            let name = "bevo\(i)"
-            playerAnimation.append(SKTexture(imageNamed: name))
-        }
+        if (UserInfo.shared.character == 1) {
+            
+            /* Initialize Animations by filtering */
+            for i in 0...30 {
+                let name = "bevo\(i)"
+                playerAnimation.append(SKTexture(imageNamed: name))
+            }
         
-        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.03, resize: false, restore: false)
+            animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.03, resize: false, restore: false)
+            
+            /* Coding/Setting Some Properties of Player */
+            physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 10, height: self.size.height - 13))
+        }
+        else if (UserInfo.shared.character == 2) {
+            
+            /* Initialize Animations by filtering */
+            for i in 1...3 {
+                let name = "hookem\(i)"
+                playerAnimation.append(SKTexture(imageNamed: name))
+            }
+            
+            animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.03, resize: false, restore: false)
+            
+            /* Coding/Setting Some Properties of Player */
+            physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 50, height: self.size.height - 13))
+        }
         
         /* Run Animation Forever */
         self.run(SKAction.repeatForever(animatePlayerAction))
         
         /* Coding/Setting Some Properties of Player */
-        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 10, height: self.size.height - 13))
         physicsBody?.affectedByGravity = true
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0

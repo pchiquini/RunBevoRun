@@ -17,17 +17,15 @@ class MainMenu: SKScene {
     var startGame:SKSpriteNode!
     var changeCharacter:SKSpriteNode!
     var characterLabel:SKLabelNode!
+    var backButton:SKSpriteNode!
     
-    let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
-    //var isMusicPlaying:Bool?
-    
-    let sound:SKAction = SKAction.playSoundFileNamed("MainMenu", waitForCompletion: true)
-   
+    /** Start/Loop Backgroun Music **/
+    //let sound:SKAction = SKAction.playSoundFileNamed("MainMenu.mp3", waitForCompletion: false)
+    //let backgroundMusic: SKAudioNode = SKAudioNode(fileNamed: "MainMenu.mp3")
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
         createScene()
-        
     }
     
     /********************************************************************/
@@ -41,49 +39,40 @@ class MainMenu: SKScene {
         /* Reseting the Number of the Scene */
         UserInfo.shared.currentScene = 1
         
-        if(UserInfo.shared.userOnMainMenu == true){
-            //self.addChild(backgroundMusic)
-            //let loopSound:SKAction = SKAction.repeatForever(sound)
-            //self.run(loopSound)
-        }
-        
-        /** Start/Loop Backgroun Music **/
-        //        if(isMusicPlaying == false )//|| isMusicPlaying == nil)
-        //        {
-        //            print("\(isMusicPlaying)")
-        //            self.run(SKAction.playSoundFileNamed("MainMenu.mp3", waitForCompletion: false))
-        //            isMusicPlaying = true
-        //            print("\(isMusicPlaying)")
-        //        }
-        
+        /** Starts Backgroun Music **/
+        //if (UserInfo.shared.onMainMenu == 1) {
+            /** Start/Loop Backgroun Music **/
+            //addChild(backgroundMusic)
+            //UserInfo.shared.onMainMenu = 0
+        //}
+
         /** Adding the buttons to the Screen **/
         startGame = self.childNode(withName: "startGameButton") as! SKSpriteNode
         changeCharacter = self.childNode(withName: "changeCharacterButton") as! SKSpriteNode
         characterLabel = self.childNode(withName: "characterLabel") as! SKLabelNode
+        backButton = self.childNode(withName: "backButton") as! SKSpriteNode
+
         
-        let userDefaults = UserDefaults.standard
-        
-        if userDefaults.bool(forKey: "Running as Bevo") {
-            
-            characterLabel.text = "Running as HookEm"
-        }
-            
-        else{
-            
+        if (UserInfo.shared.character == 1) {
             characterLabel.text = "Running as Bevo"
         }
+        else if (UserInfo.shared.character == 2) {
+            characterLabel.text = "Running as HookEm"
+        }
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-            
+
             let location = touch.location(in: self)
             
             if atPoint(location).name == "startGameButton" {
                 
-                    /** Stop Playing MainMenu Music **/
-                    backgroundMusic.run(SKAction.stop())
+                /** Stop Playing MainMenu Music **/
+                //backgroundMusic.run(SKAction.stop())
+                //UserInfo.shared.onMainMenu = 1
                 
                     if let scene = GameScene(fileNamed: "GameScene1") {
                         
@@ -94,7 +83,7 @@ class MainMenu: SKScene {
             }
                     
             else if atPoint(location).name == "changeCharacterButton" {
-                        
+                
                 if let scene = ChangeCharacter(fileNamed: "ChangeCharacter") {
                     
                     scene.scaleMode = .aspectFit
@@ -103,12 +92,22 @@ class MainMenu: SKScene {
             }
                 
             else if atPoint(location).name == "howToPlay" {
-                        
+                
                 if let scene = GameRules(fileNamed: "GameRules") {
                     
                     scene.scaleMode = .aspectFit
                             
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(2)))
+                }
+            }
+            
+            /** Log Out Button **/
+            else if atPoint(location).name == "backButton" {
+                
+                if let scene = MainMenu(fileNamed: "MainMenu") {
+                    scene.scaleMode = .aspectFit
+                    
+                    view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))
                 }
             }
         }
