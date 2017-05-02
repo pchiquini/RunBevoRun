@@ -53,7 +53,7 @@ class Leaderboard: SKScene {
         score3 = self.childNode(withName: "score3") as! SKLabelNode
         score4 = self.childNode(withName: "score4") as! SKLabelNode
         
-        self.run(SKAction.wait(forDuration: 1.75)){
+        self.run(SKAction.wait(forDuration: 2)){
             self.findHighScore()
         }
         
