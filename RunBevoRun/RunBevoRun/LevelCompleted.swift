@@ -60,8 +60,6 @@ class LevelCompleted: SKScene {
                 }
             }
 
-            ////////HOW TO GO TO THE STORY BOARD////
-            //EDITS NEED TO BE DONE BETWEEN HERE AND
             if atPoint(location).name == "nextButton" {
                 
                 if let scene = Trivia(fileNamed: "Trivia") {
@@ -70,8 +68,6 @@ class LevelCompleted: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
-            //AND HERE CAN BE EDITED AND/OR REMOVED////
-            ///////////////////////////////////////
         }
     }
 }

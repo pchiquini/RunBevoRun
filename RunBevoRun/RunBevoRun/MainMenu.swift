@@ -104,7 +104,7 @@ class MainMenu: SKScene {
             /** Log Out Button **/
             else if atPoint(location).name == "backButton" {
                 
-                if let scene = Leaderboard(fileNamed: "Leaderboard") {
+                if let scene = MainMenu(fileNamed: "MainMenu") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))

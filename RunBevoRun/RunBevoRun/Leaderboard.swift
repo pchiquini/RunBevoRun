@@ -53,24 +53,24 @@ class Leaderboard: SKScene {
         score3 = self.childNode(withName: "score3") as! SKLabelNode
         score4 = self.childNode(withName: "score4") as! SKLabelNode
         
-        self.run(SKAction.wait(forDuration: 2)){
+        self.run(SKAction.wait(forDuration: 1)){
             self.findHighScore()
         }
-        
     }
-    
     
     fileprivate func findHighScore(){
         
         let length: Int = scores.count
         
-        //Now that scores is sorted by score,
-        //Get first 4 scores and and change the text
+        /** Now that scores is sorted by score
+            Get first 4 scores and and change the text **/
         for index in 0...3{
             
             if (length < index){
                 break
             }
+            
+            /*** Update each position on leaderboard ***/
             
             let user: String = (scores[index].value(forKey: "username") as! String)
             let userScore: String = String(scores[index].value(forKey: "score") as! Int)
@@ -94,14 +94,12 @@ class Leaderboard: SKScene {
         }
     }
     
-
-    
-    
     fileprivate func loadCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
+        /*** Sort scores ***/
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Scores")
         let sortDescriptor = NSSortDescriptor(key: "score", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -111,7 +109,6 @@ class Leaderboard: SKScene {
         do {
             try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
         } catch {
-            // what to do if an error occurs?
             let nserror = error as NSError
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()

@@ -35,3 +35,4 @@ Jacqueline Corona: 30%
 ## Special Instructions:
 * Game can only be played on landscape mode. 
 * For the final release, each level will last 25 seconds.
+* For the leaderboard, not all information will appear. The information that will appear comes at random. We believe this is has to do with SpriteKit nodes, considering there has been no found error in the logic of the code.
