@@ -17,6 +17,7 @@ class Congratulations: SKScene {
     
     /*** Buttons On Scene ***/
     var mainMenuButton:SKSpriteNode!
+    var scoreButton:SKSpriteNode!
     
     /*** Starting Point ***/
     override func didMove(to view: SKView) {
@@ -38,6 +39,7 @@ class Congratulations: SKScene {
         
          /** Buttons in Scene  **/
         mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
+        scoreButton = self.childNode(withName: "scoreButton") as! SKSpriteNode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -56,6 +58,19 @@ class Congratulations: SKScene {
                     view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
                 }
             }
+            
+            if atPoint(location).name == "scoreButton" {
+                
+                /** Stop Background Music **/
+                backgroundMusic.run(SKAction.stop())
+                
+                if let scene = Leaderboard(fileNamed: "Leaderboard") {
+                    scene.scaleMode = .aspectFit
+                    
+                    view!.presentScene(scene, transition: SKTransition.flipHorizontal(withDuration: TimeInterval(1)))
+                }
+            }
+
         }
     }
     fileprivate func addToCore(username: String, score: Int) {

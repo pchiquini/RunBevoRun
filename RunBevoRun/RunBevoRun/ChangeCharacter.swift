@@ -74,7 +74,6 @@ class ChangeCharacter: SKScene {
                 highlight1.isHidden = true
 
             }
-
         }
     }
 }

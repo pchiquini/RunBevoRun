@@ -101,7 +101,7 @@ class MainMenu: SKScene {
                 }
             }
             
-            /** Log Out Button **/
+            /** Log Out Button: Not Implemented **/
             else if atPoint(location).name == "backButton" {
                 
                 if let scene = MainMenu(fileNamed: "MainMenu") {

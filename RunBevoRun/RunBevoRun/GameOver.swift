@@ -14,7 +14,7 @@ class GameOver: SKScene {
     
     /*** Buttons On Scene ***/
     var backButton:SKSpriteNode!
-    var mainMenuButton:SKSpriteNode!
+    var scoreButton:SKSpriteNode!
     
     /** Scoring **/
     var scoreLabel: SKLabelNode?
@@ -39,7 +39,7 @@ class GameOver: SKScene {
         
         /** Adding Buttons to the GameScene **/
         backButton = self.childNode(withName: "backButton") as! SKSpriteNode
-        mainMenuButton = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
+        scoreButton = self.childNode(withName: "scoreButton") as! SKSpriteNode
         
         //Add score to CoreData here?
         
@@ -59,9 +59,9 @@ class GameOver: SKScene {
                 }
             }
             
-            else if atPoint(location).name == "mainMenuButton" {
+            else if atPoint(location).name == "scoreButton" {
                                 
-                if let scene = MainMenu(fileNamed: "MainMenu") {
+                if let scene = Leaderboard(fileNamed: "Leaderboard") {
                     scene.scaleMode = .aspectFit
                     
                     view!.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: TimeInterval(1)))
