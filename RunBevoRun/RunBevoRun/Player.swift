@@ -49,10 +49,10 @@ class Player: SKSpriteNode {
                 playerAnimation.append(SKTexture(imageNamed: name))
             }
             
-            animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.03, resize: false, restore: false)
+            animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.05, resize: false, restore: false)
             
             /* Coding/Setting Some Properties of Player */
-            physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 50, height: self.size.height - 13))
+            physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 70, height: self.size.height - 13))
         }
         
         /* Run Animation Forever */
