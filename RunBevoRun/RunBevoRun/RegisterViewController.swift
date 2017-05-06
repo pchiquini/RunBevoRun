@@ -80,17 +80,13 @@ class RegisterViewController: UIViewController {
         
         // Create the entity we want to save
         let entity =  NSEntityDescription.entity(forEntityName: "Registration", in: managedContext)
-        //let entityScore = NSEntityDescription.entity(forEntityName: "Scores", in: managedContext)
         
         let user = NSManagedObject(entity: entity!, insertInto: managedContext)
-        //let userScore = NSManagedObject(entity: entityScore!, insertInto: managedContext)
 
-        
         // Set the attribute values for users
         user.setValue(username, forKey: "username")
         user.setValue(password, forKey: "password")
-        // Set the attribute values for scoreboard
-       // userScore.setValue(username, forKey: "username")
+        
         UserInfo.shared.username = username
         
         // Commit the changes.
